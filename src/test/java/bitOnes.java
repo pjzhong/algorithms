@@ -2,9 +2,9 @@ import org.junit.Test;
 
 /**
  * Created by Administrator on 1/7/2018.
- * 
+ *
  */
-public class Ones {
+public class bitOnes {
 
     @Test
     public void test() {
