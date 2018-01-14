@@ -125,6 +125,7 @@ public class DynamicProgramming {
         return result[workers];
     }
 
+    //递归解法
     private void maxGold(int start, int cost, int golds, List<Item> items) {
         for(int i = start, size = items.size(); i < size; i++) {
             Item item = items.get(i);
