@@ -12,7 +12,6 @@
 *.launch
 .cache*
 
-
 # Eclipse #
 .settings
 .classpath
@@ -30,3 +29,14 @@
 
 # Maven #
 target/
+
+# html #
+*.eot
+*.ttf
+*.woff
+
+# js #
+*.min.js
+
+# css #
+*.min.css
