@@ -52,15 +52,10 @@ public class PartitionEqualSubsetSumTest {
             int[] dp = new int[half + 1];
 
             for(int i : nums) {
-                if(i <= half) {
-                    for(int j = half; j >= i; j--) {
-                        if(dp[j] == 0) {
-                            dp[j] = i;
-                        } else {
-                            dp[j] = (dp[j - i] + i ) <= half ? dp[j - i] + i : dp[j - i];
-                        }
-                    }
-                }
+               if(i > half) {return  false;}
+               for(int j = half; j >= i; j--) {
+                   dp[j] = Math.max(dp[j], dp[j - i] + i);
+               }
             }
 
             return dp[half] == half;
