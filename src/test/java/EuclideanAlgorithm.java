@@ -8,8 +8,8 @@ public class EuclideanAlgorithm {
 
     @Test
     public void getGreatestCommonDivisor() {
-        long a = 12413213210L;
-        long b = 48301231321L;
+        long a = 444444444444444L;
+        long b = 111111111111111L;
         long start = System.nanoTime();
         System.out.println( a > b ? gcdByMod(a, b) : gcdByMod(b, a));
         System.out.println("end:" + (System.nanoTime() - start));
@@ -37,21 +37,21 @@ public class EuclideanAlgorithm {
     }
 
     private long gcd(long a, long b) {
-        if(a < b) {
-            b = a + b;
-            a = b - a;
-            b = b - a;
-        }
 
         if(a == b) {
             return a;
         } else {
+            if(a < b) {
+                b = a ^ b;
+                a = b ^ a;
+                b = b ^ a;
+            }
             boolean aIsEven = (a&1) == 0, bIsEven = (b&1) == 0;
             if(aIsEven && bIsEven) {
                 return gcd(a >> 1, b >> 1) << 1;
-            } else if(aIsEven && !bIsEven) {
+            } else if(aIsEven) {
                 return gcd(a >> 1, b);
-            } else if(!aIsEven && bIsEven) {
+            } else if(bIsEven) {
                 return gcd(a, b >> 1);
             } else {
                 return gcd(b, a  - b);
