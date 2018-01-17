@@ -29,7 +29,7 @@ public class MissingNumbersTest {
             System.out.println(missingNumber(testCase));
         }
     }
-    
+
     public int missingNumberSolvedSumFormula(int[] nums) {
         int result = nums.length * (nums.length + 1) / 2;
         for(int i : nums) { result -= i; }
