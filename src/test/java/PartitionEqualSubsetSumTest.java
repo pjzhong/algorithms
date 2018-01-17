@@ -30,9 +30,11 @@ public class PartitionEqualSubsetSumTest {
     public void test() {
         int[][] testCases = {
                 {1,5,11,5},
+                {1,5,7,5},
                 {1,2,3,5},
                 {1,2,5},
-                {18,40,62,33,83,64,10,92,67,31,42,51,10,97,41,7,82,71,80,81,41,38,88,25,38,89,24,89,90,12,97,21,22,85,11,59,83,6,51,47,32,82,83,100,29,78,36,32,1,31,36,19,35,3,36,21,24,93,42,33,10,26,2,39,36,62,85,24,41,5,66,53,7,1,59,53,40,59,41,95,7,67,20,29,80,59,49,49,51,90,13,52,6,90,5,6,31,81,95,26}
+                {18,40,62,33,83,64,10,92,67,31,42,51,10,97,41,7,82,71,80,81,41,38,88,25,38,89,24,89,90,12,97,21,22,85,11,59,83,6,51,47,32,82,83,100,29,78,36,32,1,31,36,19,35,3,36,21,24,93,42,33,10,26,2,39,36,62,85,24,41,5,66,53,7,1,59,53,40,59,41,95,7,67,20,29,80,59,49,49,51,90,13,52,6,90,5,6,31,81,95,26},
+                {1,18,40,62,33,83,64,10,92,67,31,42,51,10,97,41,7,82,71,80,81,41,38,88,25,38,89,24,89,90,12,97,21,22,85,11,59,83,6,51,47,32,82,83,100,29,78,36,32,1,31,36,19}
         };
 
         for(int[] testCase : testCases) {
@@ -41,6 +43,10 @@ public class PartitionEqualSubsetSumTest {
 
     }
 
+    /**
+     * if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+     * 这句话的意识就是nums的和是一个偶数， 可以平均分成两半否则无解。
+     * */
     public boolean canPartition(int[] nums) {
         int sum = 0;
         for(int i : nums) { sum += i;}
@@ -52,15 +58,10 @@ public class PartitionEqualSubsetSumTest {
             int[] dp = new int[half + 1];
 
             for(int i : nums) {
-                if(i <= half) {
-                    for(int j = half; j >= i; j--) {
-                        if(dp[j] == 0) {
-                            dp[j] = i;
-                        } else {
-                            dp[j] = (dp[j - i] + i ) <= half ? dp[j - i] + i : dp[j - i];
-                        }
-                    }
-                }
+               if(i > half) {return  false;}
+               for(int j = half; j >= i; j--) {
+                   dp[j] = Math.max(dp[j], dp[j - i] + i);
+               }
             }
 
             return dp[half] == half;
