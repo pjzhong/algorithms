@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Random;
+
 /**
  * Created by Administrator on 2018/1/8.
  * 辗转相除法
@@ -8,15 +10,19 @@ public class EuclideanAlgorithm {
 
     @Test
     public void getGreatestCommonDivisor() {
-        long a = 444444444444444L;
-        long b = 111111111111111L;
-        long start = System.nanoTime();
-        System.out.println( a > b ? gcdByMod(a, b) : gcdByMod(b, a));
-        System.out.println("end:" + (System.nanoTime() - start));
+        Random random = new Random();
+        for(int i = 0 ; i< 20;i ++) {
+            long a = Math.abs(random.nextLong());
+            long b = 1L;
+            long start = System.nanoTime();
+            System.out.println(a > b ? gcdByMod(a, b) : gcdByMod(b, a));
+            System.out.println("end:" + (System.nanoTime() - start));
        /* System.out.println( a > b ? gcdBySubtract(a, b) : gcdBySubtract(b, a));*/
-        long start2 = System.nanoTime();
-        System.out.println(gcd(a, b));
-        System.out.println("end:" + (System.nanoTime() - start2));
+            long start2 = System.nanoTime();
+            System.out.println(gcd(a, b));
+            System.out.println("end:" + (System.nanoTime() - start2));
+            System.out.println();
+        }
     }
 
     //两个正整数a和b（a>b），

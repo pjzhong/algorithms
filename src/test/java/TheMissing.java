@@ -35,42 +35,25 @@ public class TheMissing {
 
     @Test
     public void findTheTwoOddsTest() {
-        int result = 0;
-        result ^= 100;
-        result ^= 99;
-
-        System.out.println(result ^ 100);
-        System.out.println(result ^ 99);
-
-
-        int nums[] = new int[94];
-        for(int i = 0, count = 1; i < 90;count++ ) {
-            nums[i++] = count;
-            nums[i++] = count;
+        int[][] testCases = {
+                {1,2,1,3,2,5},
+        };
+        for(int[] testCase  : testCases) {
+            System.out.println(Arrays.toString(findTheTwoOdds(testCase)));
         }
-        Random random = new Random(System.currentTimeMillis());
-
-        for(int i = 90; i < 93; i++) {
-            int index = random.nextInt(nums.length);
-            int temp = nums[index];
-            nums[index] = 100;
-            nums[i] = temp;
-        }
-        nums[93] = 99;
-        findTheTwoOdds(nums);
     }
 
     //一个无序数组里有若干个正整数，范围从1到100，
     // 其中98个整数都出现了偶数次，只有两个整数出现了奇数次（比如1,1,2,2,3,4,5,5），如何找到这个出现奇数次的整数?
     //失败原因，思考时间过长
-    private int findTheTwoOdds(int nums[]) {
+    private int[] findTheTwoOdds(int nums[]) {
         int result = 0;
         for(int i : nums) {
             result ^= i;
         }
 
         int a = result, b = result, bitSeparator = 1;
-        for(;(result & bitSeparator) == 1;) {
+        for(;(result & bitSeparator) == 0;) {
             bitSeparator = 1 << bitSeparator;
         }
 
@@ -82,9 +65,6 @@ public class TheMissing {
             }
         }
 
-        System.out.println(a);
-        System.out.println(b);
-
-        return result;
+        return new int[]{a, b};
     }
 }
