@@ -21,20 +21,57 @@ public class FindDuplicatesTest {
     public void test() {
         int[][] testCases = {
                 {1, 1, 1, 2, 3, 4},
-                {1, 3, 7, 3, 8, 3}
+                {1, 3, 3, 4, 2, 3},
+                {1, 3, 4, 2, 5},
         };
 
         for(int[] testCase : testCases) {
             System.out.println(findDuplicate(testCase));
+            System.out.println(findDuplicateByBinarySearch(testCase));
         }
     }
 
+    /**
+     * official solution
+     * */
     private int findDuplicate(int[] nums) {
-        int result = Integer.MAX_VALUE;
-        for(int i : nums) {
-            result &= i;
+        int slow = nums[0], fast = nums[nums[0]];
+        while(slow != fast) {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
         }
 
-        return result ;
+        fast = 0;
+        while(fast != slow) {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+
+        return fast;
+    }
+
+    /**
+     * At first the search space is numbers between 1 to n.
+     * Each time I select a number mid (which is the one in the middle) and count all the numbers equal to or less than mid.
+     * Then if the count is more than mid, the search space will be [1 mid] otherwise [mid+1 n].
+     * I do this until search space is only one number.
+     * */
+    private int findDuplicateByBinarySearch(int[] nums) {
+        int low = 1, height = nums.length - 1;
+        while(low < height) {
+            int mid = low + (height - low) / 2, count = 0;
+            for(int i : nums) {
+                if(i <= mid) { count++; }
+            }
+
+            if(count <= mid) {
+                low = mid + 1;
+            } else {
+                height = mid;
+            }
+
+        }
+
+        return low;
     }
 }
