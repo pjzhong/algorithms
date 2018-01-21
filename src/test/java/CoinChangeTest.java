@@ -15,6 +15,7 @@ import org.junit.Test;
  * You may assume that you have an infinite number of each kind of coin.
  *
  * COPY FROM LEETCODE
+ * Problems.322
  */
 public class CoinChangeTest {
 
@@ -27,11 +28,16 @@ public class CoinChangeTest {
         };
         int[] amount = {11, 3, 27};
         for(int i = 0; i < amount.length; i++) {
-            System.out.println(coinChange(testCases[i], amount[i]));
+            coinChangeTest(testCases[i], amount[i]);
         }
     }
 
-    public int coinChange(int[] coins, int amount) {
+    private void coinChangeTest(int[] coins, int amount) {
+       System.out.println(coinChangeDp(coins, amount));
+       System.out.println(coinChangeBruteForce(0, coins, amount));
+    }
+
+    private int coinChangeDp(int[] coins, int amount) {
         int[] result = new int[amount + 1];
         int[] sum = new int[amount + 1];
         for(int i = 1; i <= amount;i++) { result[i] = Integer.MAX_VALUE - 1; }// 防止+1越界
@@ -44,6 +50,26 @@ public class CoinChangeTest {
         }
 
         return sum[amount] == amount ? result[amount] : - 1;
+    }
+
+    private int coinChangeBruteForce(int idxCoin, int[] coins, int amount) {
+        if(amount <= 0) {return  0;}
+
+        if(idxCoin < coins.length && amount > 0) {
+            int maxVal = amount / coins[idxCoin];
+            int minCost = Integer.MAX_VALUE;
+            for(int x = 0; x <= maxVal; x++) {
+                int currentCost = x * coins[idxCoin];
+                if(amount >= currentCost) {
+                    int res = coinChangeBruteForce(idxCoin + 1, coins, amount - currentCost);
+                    if(res != -1) {
+                        minCost = Math.min(minCost, res + x);
+                    }
+                }
+            }
+            return (minCost == Integer.MAX_VALUE) ? -1 : minCost;
+        }
+        return -1;
     }
 
 }
