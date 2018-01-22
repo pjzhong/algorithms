@@ -4,7 +4,7 @@ import org.junit.Test;
  * Given an array nums of integers, you can perform operations on the array.
  *
  * In each operation, you pick any nums[i] and delete it to earn nums[i] points.
- * After, you must delete every element equal to nums[i] - 1 or nums[i] + 1.
+ * After, you must delete EVERY element equal to nums[i] - 1 or nums[i] + 1.
  *
  * You start with 0 points. Return the maximum number of points you can earn by applying such operations.
  *
@@ -25,10 +25,11 @@ import org.junit.Test;
  * and 3 again to earn 3 points.9 total points are earned.
  *
  * Note:The length of nums is at most 20000.
- * Each element nums[i] is an integer in the range [1, 10000].Created by Administrator on 2018/1/22.
- *
+ * Each element nums[i] is an integer in the range [1, 10000].
  *
  * Problems.740
+ *
+ * DELAY THIS QUESTION, SOLVE HouseRobber FIRST
  */
 public class deleteAndEarnTest {
 

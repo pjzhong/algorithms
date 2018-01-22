@@ -40,7 +40,7 @@ public class CoinChangeTest {
     private int coinChangeDp(int[] coins, int amount) {
         int[] result = new int[amount + 1];
         int[] sum = new int[amount + 1];
-        for(int i = 1; i <= amount;i++) { result[i] = Integer.MAX_VALUE - 1; }// 防止+1越界
+        for(int i = 1, MAX = 1 << 30; i <= amount;i++) { result[i] = MAX; }// 防止+1越界
 
         for(int coin : coins) {
             for(int i = coin; i <= amount; i++) {
