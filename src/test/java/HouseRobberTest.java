@@ -18,14 +18,15 @@ public class HouseRobberTest {
     @Test
     public void test() {
         int[][] testCases = {
+                {10,9,4,5, 6, 1, 3, 2},
                 {1,2,5},
                 {1,3,1},
                 {1,3,1,3,1},
                 {1,1,1},
                 {1,1,1,1},
-                {2}
-             /*   {2,5,10,1},
-                {2,1,1,2},
+                {2},
+                {2,5,10,1},
+                /*{2,1,1,2},
                 {1000,1,1,10},
                 {2,1,1,2,1000,1,1,100},
                 {2,1,1,2,1000,1,1,100,10000, 1, 1, 100},
@@ -40,7 +41,8 @@ public class HouseRobberTest {
     }
 
     private void hourRobber(int[] nums) {
-     /*   System.out.println(hourRobberDp(nums));*/
+        System.out.println(hourRobberDp(nums));
+        System.out.println(hourRobberOfficalDp(nums));
         int result = Math.max(
                 hourRobberRecursive(0, 0, nums),
                 hourRobberRecursive(1, 0, nums)
@@ -48,18 +50,37 @@ public class HouseRobberTest {
         System.out.println(result);
     }
 
-    private int hourRobberDp(int[] nums) {
-        if(nums == null || nums.length <= 0)  { return 0;}
-        if(nums.length <= 2) { return nums.length == 2 ? Math.max(nums[0], nums[1]) : nums[0]; }
-
-        int[] dp = new int[nums.length + 1];
-        dp[1] = nums[0];
-
-        for(int i = 3; i <= nums.length; i++) {
-            dp[i] = Math.max(dp[i - 2] + nums[i - 1], dp[i - 3] + nums[i - 1]);
+    private int hourRobberOfficalDp(int[] nums) {
+        int rob = 0, not_rob = 0;
+        for(int i : nums) {
+            int temp = rob;
+            rob = not_rob + i;
+            not_rob = Math.max(temp, not_rob);
         }
 
-        return dp[nums.length];
+        return Math.max(rob, not_rob);
+    }
+
+    /**
+     * 边界值：F[0] = nums[0], F[1] = Math.MAX(nums[0], num[1])
+     *
+     * 状态转移公式：F[i] = Math.MAX(F[i - 2] + nums[i], F[i - 1])
+     *
+     * 本来中午的时候就快抽象成功了，在最后的时候遇到苦难你的思路就全部乱了
+     * 反思一下，为什么会这样？
+     * */
+    private int hourRobberDp(int[] nums) {
+        int even = 0, odd = 0;
+
+       for(int i = 0, size = nums.length; i < size; i++) {
+           if((i & 1) == 0) {
+               even = Math.max(nums[i] + even, odd);
+           } else {
+               odd = Math.max(nums[i] + odd, even);
+           }
+       }
+
+        return Math.max(even, odd);
     }
 
     /**
