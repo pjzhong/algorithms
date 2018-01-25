@@ -17,11 +17,11 @@ public class HouseRobberTestII {
     @Test
     public void test() {
         int[][] testCases = {
-                {1,2,5},
+         /*       {1,2,5},
                 {1,3,1},
                 {1,3,1,3,1},
                 {1,1,1},
-                {1,1,1,1},
+                {1,1,1,1},*/
                 {2},
                 {2,5,10,1},
                 {2,1,1,2},
@@ -34,17 +34,19 @@ public class HouseRobberTestII {
                         82,35,120,180,249,106,37,169,225,54,103,55,166,124}
         };
         for(int[] testCase : testCases) {
-            System.out.println(houseRobber(testCase));
+            houseRobber(testCase);
         }
     }
     
-    /*
-    * 与houseRobber的屋子是直线排列，所以会有非常明确的边界值。但现在是以圆圈排列，边界值消失了
-    * */
-    private int houseRobber(int[] nums) {
-        int even = 0, odd = 0;
+    private void houseRobber(int[] nums) {
+        if(nums.length == 1) { System.out.println(nums[0]); return; }
+        System.out.println(houseRobberTwoPass(nums));
+        System.out.println(Math.max(houseRobber(nums, 0, nums.length - 1), houseRobber(nums, 1, nums.length)));
+    }
 
-        for(int i = 0, size = nums.length; i < size; i++) {
+    private int houseRobber(int[] nums, int start, int end) {
+        int even = 0, odd = 0;
+        for(int i = start, size = end; i < size; i++) {
             if((i & 1) == 0) {
                 even = Math.max(nums[i] + even, odd);
             } else {
@@ -53,5 +55,30 @@ public class HouseRobberTestII {
         }
 
         return Math.max(even, odd);
+    }
+
+    /*
+    * houseRobber的屋子是直线排列，所以会有非常明确的边界值。但现在是以圆圈排列，边界值消失了
+    * */
+    private int houseRobberTwoPass(int[] nums) {
+        int even = 0, odd = 0;
+        for(int i = 0, size = nums.length -1; i < size; i++) {
+            if((i & 1) == 0) {
+                even = Math.max(nums[i] + even, odd);
+            } else {
+                odd = Math.max(nums[i] + odd, even);
+            }
+        }
+
+        int reverseEven = 0, reverseOdd = 0;
+        for(int i = nums.length - 1; i > 0; i--) {
+            if((i & 1) == 0) {
+                reverseEven = Math.max(nums[i] + reverseEven, reverseOdd);
+            } else {
+                reverseOdd = Math.max(nums[i] + reverseOdd, reverseEven);
+            }
+        }
+
+        return Math.max(Math.max(reverseEven, reverseOdd), Math.max(even, odd));
     }
 }
