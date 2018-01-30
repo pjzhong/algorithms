@@ -1,7 +1,9 @@
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The thief has found himself a new place for his thievery again. There is only one entrance to this area,
@@ -39,14 +41,43 @@ public class HouseRobberTestIII {
         }
     }
 
-    private int rob(TreeNode root) {
-        return robDFS(0, 0, 0 ,root);
+
+    /**
+     * 这个大问题可以拆分成多个子问题，因为每一条二叉路径就是一个RobberHouse问题 - wrong
+     * 思考方向又错了............虽然脑海里面有图像，但就是不能现实化
+     * shame on you, you can't even write a bruteForce solution
+     * */
+    private Map<TreeNode, Integer> memorize = new HashMap<TreeNode, Integer>();
+    private int rob(TreeNode node) {
+        if(node == null) {
+            return 0;
+        } else {
+            if(memorize.get(node) != null) {
+                return memorize.get(node);
+            }
+
+            int val = 0;
+
+            //1.rob the node and the grandChilds of node
+            //2.ignore this node ,go ahead to  rob the two childs of this node
+            if(node.left != null) {
+                val += rob(node.left.left) + rob(node.left.right);
+            }
+
+            if(node.right != null) {
+                val += rob(node.right.left) + rob(node.right.right);
+            }
+
+            int result =  Math.max(val + node.val, rob(node.left) + rob(node.right));
+            memorize.put(node, result);
+            return result;
+        }
     }
 
     /**
      * 这个大问题可以拆分成多个子问题，因为每一条二叉路径就是一个RobberHouse问题
      * */
-    private int robDFS(int odd, int even, int start, TreeNode node) {
+    private int ZjpRobDFS(int odd, int even, int start, TreeNode node) {
         if(node == null) {
             return 0;
         } else {
@@ -55,8 +86,6 @@ public class HouseRobberTestIII {
             } else {
                 odd = Math.max(node.val + odd, even);
             }
-
-
 
             return Math.max(even, odd);
         }
