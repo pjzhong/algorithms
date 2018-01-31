@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * QUESTION COPY FROM LEETCODE
  *
@@ -30,22 +32,47 @@ public class TargetSumTest {
 
     @Test
     public void test() {
-        int[] targetCaseOne ={1,1,1,1,1};
-        int targetOne = 3;
+        int[][] testCases ={
+                {1,1,1,1,1},
+                {1,1,2,1,1},
+                {1,1,2,1,1,2},
+        };
+        int[] targets = {3, 4, 2};
 
-        System.out.println(targetSumRecursive(targetCaseOne, targetOne));
+        for(int i = 0; i < testCases.length; i++) {
+            targetSum(testCases[i], targets[i]);
+        }
+
     }
 
-    private int targetSumRecursive(int[] integers, int target) {
-        return doTargetSumRecursive(target, 0, integers);
+    private void targetSum(int[] nums, int S) {
+        System.out.println(targetSumRecursive(S, 0, nums));
+        /************************************************/
+        int[][] memorize = new int[nums.length][2001];
+        for(int[] i : memorize) { Arrays.fill(i, Integer.MIN_VALUE);}
+        System.out.println(targetSumRecursiveMemorize(S, 0, nums, memorize));
+        /************************************************/
     }
 
-    private int doTargetSumRecursive(int target, int start,  int [] integer) {
+    private int targetSumRecursive(int target, int start, int [] integer) {
         if(start >= integer.length) {return target == 0 ? 1 : 0;}
 
         int count = 0;
-        count += doTargetSumRecursive(target + integer[start], start + 1, integer);
-        count += doTargetSumRecursive(target - integer[start], start + 1, integer);
+        count += targetSumRecursive(target + integer[start], start + 1, integer);
+        count += targetSumRecursive(target - integer[start], start + 1, integer);
+        return count;
+    }
+
+    private int targetSumRecursiveMemorize(int target, int start, int [] integer, int[][] memorize) {
+        if(start >= integer.length) {return target == 0 ? 1 : 0;}
+
+        if(memorize[start][target + 1000] != Integer.MIN_VALUE) {//plus 1000 to make sure the target is positive
+            return memorize[start][target + 1000];
+        }
+        int count = 0;
+        count += targetSumRecursiveMemorize(target + integer[start], start + 1, integer, memorize);
+        count += targetSumRecursiveMemorize(target - integer[start], start + 1, integer, memorize);
+        memorize[start][target + 1000] = count;
         return count;
     }
 
@@ -63,13 +90,7 @@ public class TargetSumTest {
      *
      * */
     private int targetSumDp(int[] integers, int target) {
-        int[] negativeIntegers = new int[integers.length];
-        for(int i = 0, size = integers.length; i < size; i++) {
-            negativeIntegers[i] = integers[i] * -1;
-        }
-
-        int a = target, b = target;
-        for(int i = 0, size = integers.length; i < size;i ++) {}
+        int added = 0, notAdded = 0;
         return -1;
     }
 
