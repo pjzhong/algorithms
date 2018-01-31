@@ -37,7 +37,7 @@ public class HouseRobberTestIII {
         TreeNode[] testCase = createTestCases();
 
         for(TreeNode root : testCase) {
-            System.out.println(rob(root));
+            rob(root);
         }
     }
 
@@ -47,29 +47,56 @@ public class HouseRobberTestIII {
      * 思考方向又错了............虽然脑海里面有图像，但就是不能现实化
      * shame on you, you can't even write a bruteForce solution
      * */
-    private Map<TreeNode, Integer> memorize = new HashMap<TreeNode, Integer>();
-    private int rob(TreeNode node) {
+
+    private void rob(TreeNode root) {
+        System.out.println(robDFS(root, new HashMap<TreeNode, Integer>()));
+        int[] result = robDp(root);
+        System.out.println(Math.max(result[0], result[1]));
+    }
+
+    private int robDFS(TreeNode node, Map<TreeNode, Integer> memorize) {
         if(node == null) {
             return 0;
         } else {
-            if(memorize.get(node) != null) {
+            if(memorize.containsKey(node)) {
                 return memorize.get(node);
             }
 
             int val = 0;
 
-            //1.rob the node and the grandChilds of node
-            //2.ignore this node ,go ahead to  rob the two childs of this node
+
             if(node.left != null) {
-                val += rob(node.left.left) + rob(node.left.right);
+                val += robDFS(node.left.left, memorize) + robDFS(node.left.right, memorize);
             }
 
             if(node.right != null) {
-                val += rob(node.right.left) + rob(node.right.right);
+                val += robDFS(node.right.left, memorize) + robDFS(node.right.right, memorize);
             }
 
-            int result =  Math.max(val + node.val, rob(node.left) + rob(node.right));
+            //1.rob the node and the grandChilds of node
+            //2.ignore this node ,go ahead to  rob the two childs of this node
+            int result =  Math.max(val + node.val, robDFS(node.left, memorize) + robDFS(node.right, memorize));
             memorize.put(node, result);
+            return result;
+        }
+    }
+
+    /**
+     * extremely beautiful solution
+     * */
+    private int[] robDp(TreeNode node) {
+        int[] result = {0,0};
+        if(node == null) {
+            return result;
+        } else {
+            int[] left = robDp(node.left);
+            int[] right = robDp(node.right);
+
+            int notRob = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+            int robbed = node.val + left[0] + right[0];
+
+            result[0] = notRob;
+            result[1] = robbed;
             return result;
         }
     }
@@ -99,7 +126,7 @@ public class HouseRobberTestIII {
         testCaseOne.left.right = new TreeNode(3);
         testCaseOne.right.right = new TreeNode(1);
         treeNodeList.add(testCaseOne);
-/*
+
         TreeNode testCaseTwo = new TreeNode(3);
         testCaseTwo.left = new TreeNode(4);
         testCaseTwo.right = new TreeNode(5);
@@ -120,7 +147,7 @@ public class HouseRobberTestIII {
         testCaseFour.right = new TreeNode(45);
         testCaseFour.left.right = new TreeNode(1000);
         testCaseFour.right.right = new TreeNode(1000);
-        treeNodeList.add(testCaseFour);*/
+        treeNodeList.add(testCaseFour);
         return treeNodeList.toArray(new TreeNode[treeNodeList.size()]);
     }
 }
