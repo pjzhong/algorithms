@@ -11,22 +11,20 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T> {
     }
 
     public int search(T value, int lo, int hi) {
-        return fibonacciSearch(value, lo, hi);
+        return binarySearch(value, lo, hi);
     }
 
     private int binarySearch(T value, int lo, int hi) {
         while (lo < hi) {
             int mid = (lo + hi) >>> 1, compareResult = value.compareTo(elementIndex(mid));
-            if(compareResult < 0) {
+            if(compareResult < 0 ) {
                 hi = mid;
-            } else if(0 < compareResult) {
+            } else {
                 lo = mid + 1;
-            }  else {
-                return mid;
-            }
-        }
+            }//[lo, mi)或(mi, hi)
+        }//出口时 A[lo = hi] 为大于e的最小元素
 
-        return -1;
+        return --lo;//lo - 1既不大于value的元素的最大index
     }
 
     private int fibonacciSearch(T value, int lo, int hi) {
