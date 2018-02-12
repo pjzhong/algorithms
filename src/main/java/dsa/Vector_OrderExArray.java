@@ -1,6 +1,6 @@
 package dsa;
 
-
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, Iterable<T> {
@@ -60,6 +60,7 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, 
     }
 
     public void sort() {
+        //Arrays.sort(elements, 0, size);
         mergeSort(0, size);
     }
 
@@ -93,18 +94,15 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, 
         Object leftElements[] = new Object[mid - lo];
         for(int i = lo; i < mid; i++) { leftElements[i - lo] = elementIndex(i); }
 
-        int leftBoundary = mid - lo, rightBoundary = (hi - mid);
-        for(int left = 0, right = mid, index = lo; (left < leftBoundary) || (right < rightBoundary);) {
-            if(left < leftBoundary) {
-                if( (rightBoundary <= right) || ((T)leftElements[left]).compareTo(elementIndex(right)) <= 0) {
-                    elements[index++] = leftElements[left++];
+        for(int left = 0, right = mid, index = lo; (left + lo) < mid ;) {
+            if(right < hi) {
+                if(elementIndex(right).compareTo((T)leftElements[left]) < 0) {
+                    this.elements[index++] = elementIndex(right++);
                 }
             }
 
-            if(right < rightBoundary) {
-                if(leftBoundary <= left || elementIndex(right).compareTo((T)leftElements[left]) < 0) {
-                    elements[index++] = elementIndex(right++);
-                }
+            if( (hi <= right) || ((T)leftElements[left]).compareTo(elementIndex(right)) <= 0) {
+                this.elements[index++] = leftElements[left++];
             }
         }
     }
@@ -236,7 +234,7 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, 
 
 
     private T elementIndex(int index) {
-        if(0 > index || index > size) {
+        if(index < 0 || size < index) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
         return (T) elements[index];

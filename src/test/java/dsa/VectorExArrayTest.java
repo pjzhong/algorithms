@@ -21,19 +21,14 @@ public class VectorExArrayTest {
     public void test () {
         Vector_OrderExArray<Integer> integers = new Vector_OrderExArray<>();
         Random random = new Random(System.currentTimeMillis());
-        for(int i = 20; i >= 1; i--) {
+        for(int i = 1000000; i >= 1; i--) {
             integers.insert(i);
         }
-        integers.insert(3);
 
-      /*  integers.uniquify();*/
         integers.sort();
         for(Integer i : integers) {
             System.out.println(i);
         }
-      /*  int index = integers.search(3);
-        Assert.assertNotEquals("Not found", -1, index);
-        Assert.assertEquals(3, integers.get(index).intValue());*/
     }
 
     private int removeRange(int lo, int hi) {
