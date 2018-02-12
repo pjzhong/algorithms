@@ -1,9 +1,9 @@
 package dsa;
 
-/**
- * Created by Administrator on 2/7/2018.
- */
-public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T> {
+
+import java.util.Iterator;
+
+public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, Iterable<T> {
     /*** ordered vector */
 
     public int search(T value) {
@@ -60,15 +60,50 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T> {
     }
 
     public void sort() {
+        mergeSort(0, size);
+    }
+
+    private void bubbleSort(int lo, int hi) {
         boolean sorted = false;
-        for(int i = 0; i < size && !sorted; i++) {
-            sorted = true;
-            for(int n = 1; n < size - i; n++) {
+        for(int i = 0, size = hi - lo; i < size && (sorted = !sorted); i++) {
+            for(int n = (lo + 1), length = hi - i; n < length; n++) {
                 if(elementIndex(n - 1).compareTo(elementIndex(n)) > 0) {
                     Object temp = elements[n];
                     elements[n] = elements[n - 1];
                     elements[n - 1] = temp;
                     sorted = false;
+                }
+            }
+        }
+    }
+
+    private void mergeSort(int lo, int hi) {
+        if(hi - lo < 2) {
+            return;
+        }
+
+        int mid = (lo + hi) >> 1;
+        mergeSort(lo, mid);
+        mergeSort(mid, hi);
+        merge(lo, mid, hi);
+    }
+
+    //C++移植版
+    private void merge(int lo, int mid, int hi) {
+        Object leftElements[] = new Object[mid - lo];
+        for(int i = lo; i < mid; i++) { leftElements[i - lo] = elementIndex(i); }
+
+        int leftBoundary = mid - lo, rightBoundary = (hi - mid);
+        for(int left = 0, right = mid, index = lo; (left < leftBoundary) || (right < rightBoundary);) {
+            if(left < leftBoundary) {
+                if( (rightBoundary <= right) || ((T)leftElements[left]).compareTo(elementIndex(right)) <= 0) {
+                    elements[index++] = leftElements[left++];
+                }
+            }
+
+            if(right < rightBoundary) {
+                if(leftBoundary <= left || elementIndex(right).compareTo((T)leftElements[left]) < 0) {
+                    elements[index++] = elementIndex(right++);
                 }
             }
         }
@@ -191,6 +226,14 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T> {
         return elementIndex(index);
     }
 
+    private static <T extends Comparable<T>> boolean less(T one, T two) {
+        return compareResult(one, two) < 0;
+    }
+
+    private static <T extends Comparable<T>> int compareResult(T one, T two ) {
+        return one.compareTo(two);
+    }
+
 
     private T elementIndex(int index) {
         if(0 > index || index > size) {
@@ -204,4 +247,22 @@ public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T> {
     private int capacity = 0;
 
     private static final int DEFAULT_CAPACITY = 16;
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < size;
+            }
+
+            @Override
+            public T next() {
+                return elementIndex(index++);
+            }
+        };
+    }
+
 }

@@ -1,13 +1,13 @@
 package dsa;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
-/**
- * Created by Administrator on 2/4/2018.
- */
+
 public class VectorExArrayTest {
 
     int[] nums = new int[100];
@@ -20,12 +20,20 @@ public class VectorExArrayTest {
     @Test
     public void test () {
         Vector_OrderExArray<Integer> integers = new Vector_OrderExArray<>();
-        for(int i = 1; i <= 7; i++) {
-            integers.insert(i % 50);
+        Random random = new Random(System.currentTimeMillis());
+        for(int i = 20; i >= 1; i--) {
+            integers.insert(i);
         }
+        integers.insert(3);
 
-        integers.uniquify();
-        System.out.println(integers.search(1));
+      /*  integers.uniquify();*/
+        integers.sort();
+        for(Integer i : integers) {
+            System.out.println(i);
+        }
+      /*  int index = integers.search(3);
+        Assert.assertNotEquals("Not found", -1, index);
+        Assert.assertEquals(3, integers.get(index).intValue());*/
     }
 
     private int removeRange(int lo, int hi) {
