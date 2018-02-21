@@ -1,9 +1,13 @@
 package dsa;
 
+import java.util.ListIterator;
+
 /**
  * Created by PJ_Z on 2/15/2018.
  */
-public interface List<T> {
+public interface List<E> extends Iterable<E> {
+
+    void add(E value);
 
     int size();
 
@@ -13,13 +17,19 @@ public interface List<T> {
 
     int lastIndexOf(Object o);
 
-    T get(int index);
+    E get(int index);
 
-    T remove(int index);
+    E remove(int index);
 
-    boolean remove(T value);
+    boolean remove(E value);
 
-    T set(int index, T value);
+    E set(int index, E value);
 
     void clear();
+
+    Object[] toArray();
+
+    E[] toArray(E[] a);
+
+    ListIterator<E> listIterator();
 }
