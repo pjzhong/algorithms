@@ -133,11 +133,11 @@ public class LinkedList<E> implements List<E> {
     }
 
     public E removeFirst() {
-       return unlinkFirst(header);
+       return header == null ? null : unlinkFirst(header);
     }
 
     public E removeLast() {
-       return unlinkLast(trailer);
+        return  trailer == null ? null :unlinkLast(trailer);
     }
 
     public E getFirst() {
@@ -353,6 +353,19 @@ public class LinkedList<E> implements List<E> {
             }
             nextIndex++;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("{");
+        for(Node<E> x = trailer; x != null; x = x.prev) {
+            builder.append(x.item);
+            if(x.prev != null) {
+                builder.append(',');
+            }
+        }
+        builder.append('}');
+        return builder.toString();
     }
 
     public static class Node<T> {

@@ -10,14 +10,24 @@ import java.util.NoSuchElementException;
 public class Evaluater {
     private static final int N_OPTR = 9;
     private int currentIndex = 0;
+    private String rpn = "";
 
-    private LinkedList<Double> readNumber(LinkedList<Double> opnds, String S) {
+    private void reset() {
+        currentIndex = 0;
+        rpn = "";
+    }
+
+    private double readNumber(String S) {
         double newOpnd = 0;
         for(;Character.isDigit(S.charAt(currentIndex));currentIndex++) {
             newOpnd = 10.0 * newOpnd + (S.charAt(currentIndex) - '0');
         }
-        opnds.addFirst(newOpnd);
-        return opnds;
+        if('.' != S.charAt(currentIndex)) { return newOpnd;}
+        double fraction = 1;
+        while(Character.isDigit(S.charAt(++currentIndex))) {
+            newOpnd =  newOpnd + (S.charAt(currentIndex) - '0') * (fraction /= 10);
+        }
+        return newOpnd;
     }
 
     //todo implement it
@@ -60,14 +70,18 @@ public class Evaluater {
     }
 
     public double evaluate(String S) {
+        reset();
         LinkedList<Double> opnd = new LinkedList<>();
         LinkedList<Character> optr = new LinkedList<>();
 
         optr.addFirst('$');
+        StringBuilder rpnBuilder = new StringBuilder();
         while(!optr.isEmpty()) {
             char c = S.charAt(currentIndex);
             if(Character.isDigit(c)) {
-                readNumber(opnd, S);
+                double newOpnd = readNumber(S);
+                opnd.addFirst(newOpnd);
+                rpnBuilder.append(newOpnd);
             } else {
                 switch (orderBetween(optr.getFirst(), c)) {
                     case '<': {
@@ -79,6 +93,7 @@ public class Evaluater {
                     } break;
                     case '>':{
                         char op = optr.removeFirst();
+                        rpnBuilder.append(op);
                         if('!' == op) {
                             Double popOpnd = opnd.removeFirst();
                             opnd.addFirst(calculate(op, popOpnd));
@@ -92,7 +107,12 @@ public class Evaluater {
             }
         }
 
+        rpn = rpnBuilder.toString();
         return opnd.removeFirst();
+    }
+
+    public String getRpn() {
+        return rpn;
     }
 }
 
