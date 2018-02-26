@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList<E> implements List<E>, Queue<E> {
+public class LinkedList<E> implements List<E>, Queue<E>, Stack<E> {
 
     private int size = 0;
     private Node<E> header = null, trailer = null;
@@ -157,6 +157,21 @@ public class LinkedList<E> implements List<E>, Queue<E> {
 
     @Override
     public E front() {
+        return getFirst();
+    }
+
+    @Override
+    public void push(E value) {
+        addFirst(value);
+    }
+
+    @Override
+    public E pop() {
+        return removeFirst();
+    }
+
+    @Override
+    public E top() {
         return getFirst();
     }
 
