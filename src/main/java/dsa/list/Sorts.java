@@ -1,4 +1,4 @@
-package dsa;
+package dsa.list;
 
 
 import java.lang.reflect.Array;

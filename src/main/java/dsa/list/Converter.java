@@ -1,6 +1,4 @@
-package dsa;
-
-import dsa.LinkedList;
+package dsa.list;
 
 /**
  * Created by PJ_Z on 2/19/2018.

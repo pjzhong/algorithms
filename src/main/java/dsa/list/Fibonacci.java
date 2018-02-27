@@ -1,4 +1,4 @@
-package dsa;
+package dsa.list;
 
 /**
  * Created by Administrator on 2/9/2018.

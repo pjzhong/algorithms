@@ -1,6 +1,5 @@
-package dsa;
+package dsa.list;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class Vector_OrderExArray<T extends Comparable<T>> implements Vector<T>, Iterable<T> {
