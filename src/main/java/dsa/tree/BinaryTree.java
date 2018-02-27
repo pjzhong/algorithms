@@ -4,6 +4,8 @@ package dsa.tree;
 import dsa.list.LinkedList;
 import dsa.list.Stack;
 
+import java.util.function.Consumer;
+
 public class BinaryTree<E> {
 
     private Node<E> root;
@@ -27,25 +29,22 @@ public class BinaryTree<E> {
         }
     }
 
-    private void PreOrderTraverseRecursive(Node<E> node) {
-        if(node == null) { return; }
-        System.out.println(node.data);
-        PreOrderTraverseRecursive(node.left);
-        PreOrderTraverseRecursive(node.right);
+    private void visitAlongLeftBranch(Node<E> x, Consumer<E> consumer, Stack<Node<E>> S) {
+        while(x != null) {
+            consumer.accept(x.data);
+            S.push(x.right);
+            x = x.left;
+        }
     }
 
-    private void PreOrderTraverseIterative(Node<E> node) {
-        LinkedList<Node<E>> nodes = new LinkedList<>();
-        if(node != null) {
-            nodes.push(node);
-        }
+    private void PreOrderTraversal(Consumer<E> consumer) {
+        Stack<Node<E>> nodes = new LinkedList<>();
 
-        Node<E> x = null;
-        while(!nodes.isEmpty()) {
-            x = nodes.pop();
-            System.out.println(x.data);
-            if(node.right != null) { nodes.push(node.right); }//First in Last out
-            if(node.left != null) { nodes.push(node.left); }// Last in First Out
+        Node<E> e = root;
+        while(true) {
+            visitAlongLeftBranch(e, consumer, nodes);
+            if(nodes.isEmpty()) { break; }
+            e = nodes.pop();
         }
     }
 
