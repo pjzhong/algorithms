@@ -8,7 +8,6 @@ import java.util.NoSuchElementException;
  * Created by PJ_Z on 2/20/2018.
  */
 public class Evaluater {
-    private static final int N_OPTR = 9;
     private int currentIndex = 0;
     private String rpn = "";
 
