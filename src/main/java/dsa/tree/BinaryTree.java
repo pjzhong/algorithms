@@ -1,5 +1,11 @@
 package dsa.tree;
 
+
+import dsa.list.LinkedList;
+import dsa.list.Stack;
+
+import java.util.function.Consumer;
+
 public class BinaryTree<E> {
 
     private Node<E> root;
@@ -16,10 +22,29 @@ public class BinaryTree<E> {
         return node.height = 1 + Math.max(height(node.left), height(node.right));
     }
 
-    private void updateHeightAbove(Node<E> node) {
+    private void heightUp(Node<E> node) {
         while(node != null) {
             updateHeight(node);
             node = node.parent;
+        }
+    }
+
+    private void visitAlongLeftBranch(Node<E> x, Consumer<E> consumer, Stack<Node<E>> S) {
+        while(x != null) {
+            consumer.accept(x.data);
+            S.push(x.right);
+            x = x.left;
+        }
+    }
+
+    private void PreOrderTraversal(Consumer<E> consumer) {
+        Stack<Node<E>> nodes = new LinkedList<>();
+
+        Node<E> e = root;
+        while(true) {
+            visitAlongLeftBranch(e, consumer, nodes);
+            if(nodes.isEmpty()) { break; }
+            e = nodes.pop();
         }
     }
 
@@ -34,8 +59,6 @@ public class BinaryTree<E> {
     public boolean isEmpty() {
         return root != null;
     }
-
-
 
     private static class Node<E> {
         int size, height;
