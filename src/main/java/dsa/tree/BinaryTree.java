@@ -48,18 +48,24 @@ public class BinaryTree<E> {
         }
     }
 
-    private void InOrderTraversalRecursive(Node<E> node, Consumer<E> consumer) {
-        if(node == null) { return; }
-        InOrderTraversalRecursive(node.left, consumer);
-        consumer.accept(node.data);
-        InOrderTraversalRecursive(node.right, consumer);
+    private void goAlongLeftBranch(Node<E> x, Stack<Node<E>> S) {
+        while(x != null) {
+            S.push(x);
+            x = x.left;
+        }
     }
-
+    
     public void InOrderTraversal(Consumer<E> consumer) {
-
+        Stack<Node<E>> nodes = new LinkedList<>();
+        Node<E> x = root;
+        while(true) {
+            goAlongLeftBranch(x, nodes);
+            if(nodes.isEmpty()) { break; }
+            x = nodes.pop();
+            consumer.accept(x.data);
+            x = x.right;
+        }
     }
-
-
 
     public int size() {
         return size(root);
