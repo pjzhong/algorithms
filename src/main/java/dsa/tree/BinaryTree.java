@@ -37,7 +37,7 @@ public class BinaryTree<E> {
         }
     }
 
-    private void PreOrderTraversal(Consumer<E> consumer) {
+    public void PreOrderTraversal(Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
 
         Node<E> e = root;
@@ -47,6 +47,19 @@ public class BinaryTree<E> {
             e = nodes.pop();
         }
     }
+
+    private void InOrderTraversalRecursive(Node<E> node, Consumer<E> consumer) {
+        if(node == null) { return; }
+        InOrderTraversalRecursive(node.left, consumer);
+        consumer.accept(node.data);
+        InOrderTraversalRecursive(node.right, consumer);
+    }
+
+    public void InOrderTraversal(Consumer<E> consumer) {
+
+    }
+
+
 
     public int size() {
         return size(root);
