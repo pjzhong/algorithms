@@ -1,12 +1,10 @@
 package dsa.list;
 
-public interface Stack<E> {
+public interface Stack<E> extends Collection<E> {
 
     void push(E value);
 
     E pop();
 
     E top();
-
-    boolean isEmpty();
 }

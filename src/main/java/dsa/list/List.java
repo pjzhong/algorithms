@@ -5,13 +5,9 @@ import java.util.ListIterator;
 /**
  * Created by PJ_Z on 2/15/2018.
  */
-public interface List<E> extends Iterable<E> {
+public interface List<E>  extends Collection<E> {
 
     void add(E value);
-
-    int size();
-
-    boolean isEmpty();
 
     int indexOf(Object value);
 
@@ -24,8 +20,6 @@ public interface List<E> extends Iterable<E> {
     boolean remove(E value);
 
     E set(int index, E value);
-
-    void clear();
 
     Object[] toArray();
 

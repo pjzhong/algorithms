@@ -1,10 +1,10 @@
 package dsa.list;
 
-public interface Queue<T> {
+public interface Queue<E> extends Collection<E> {
 
-    void enqueue(T value);
+    void enqueue(E value);
 
-    T dequeue();
+    E dequeue();
 
-    T front();
+    E front();
 }
