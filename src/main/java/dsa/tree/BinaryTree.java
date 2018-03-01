@@ -100,7 +100,7 @@ public class BinaryTree<E> {
         S.pop();
     }
 
-    private void PostOrderTraversal(Node<E> x, Consumer<E> consumer) {
+    private void postOrderTraversal(Node<E> x, Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
         if(x != null) { nodes.push(x); }
 
@@ -113,8 +113,24 @@ public class BinaryTree<E> {
         }
     }
 
-    public void PostOrderTraversal(Consumer<E> consumer) {
-        PostOrderTraversal(root, consumer);
+    public void postOrderTraversal(Consumer<E> consumer) {
+        postOrderTraversal(root, consumer);
+    }
+
+    public void levelTraversal(Consumer<E> consumer) {
+        LinkedList<Node<E>> nodes = new LinkedList<>();
+        if(root != null) {
+            nodes.enqueue(root);
+        }
+
+        Node<E> x;
+        while(!nodes.isEmpty()) {
+            x = nodes.dequeue();
+            if(hasLeftChild(x)) { nodes.enqueue(x.left); }
+            if(hasRightChild(x)) { nodes.enqueue(x.right); }
+
+            consumer.accept(x.data);
+        }
     }
 
     public int size() {
