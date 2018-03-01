@@ -7,4 +7,6 @@ public interface Stack<E> {
     E pop();
 
     E top();
+
+    boolean isEmpty();
 }
