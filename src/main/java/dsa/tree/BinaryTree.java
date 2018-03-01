@@ -18,6 +18,14 @@ public class BinaryTree<E> {
         return node == null ? node.height : -1;
     }
 
+    private boolean hasLeftChild(Node<E> node) {
+        return node != null && node.left != null;
+    }
+
+    private boolean hasRightChild(Node<E> node) {
+        return node != null && node.right != null;
+    }
+
     private int updateHeight(Node<E> node) {
         return node.height = 1 + Math.max(height(node.left), height(node.right));
     }
@@ -74,8 +82,39 @@ public class BinaryTree<E> {
         consumer.accept(node.data);
     }
 
+    /**
+     * highest leaf visible from left
+     * */
+    private void gotoHLVFL(Stack<Node<E>> S) {
+        Node<E> x ;
+        while( (x = S.top()) != null) {
+            if(hasLeftChild(x)) {
+                if(hasRightChild(x)) {
+                    S.push(x.right);
+                }
+                S.push(x.left);
+            } else {
+                S.push(x.right);
+            }
+        }
+        S.pop();
+    }
+
+    private void PostOrderTraversal(Node<E> x, Consumer<E> consumer) {
+        Stack<Node<E>> nodes = new LinkedList<>();
+        if(x != null) { nodes.push(x); }
+
+        while(!nodes.isEmpty()) {
+            if(nodes.top() != x.parent) {//若栈顶非当前节点之父,则必为其右兄
+                gotoHLVFL(nodes);//在以其右为根子树中，找到HLVFL
+            }
+            x = nodes.pop();
+            consumer.accept(x.data);
+        }
+    }
+
     public void PostOrderTraversal(Consumer<E> consumer) {
-        PostOrderTraversalRecursive(root, consumer);
+        PostOrderTraversal(root, consumer);
     }
 
     public int size() {
