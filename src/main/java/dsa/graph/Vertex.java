@@ -3,13 +3,14 @@ package dsa.graph;
 import dsa.list.LinkedList;
 import dsa.list.List;
 import lombok.Getter;
-
-import java.util.Iterator;
+import lombok.Setter;
 
 public class Vertex<T> {
     @Getter private T data;
+    @Setter @Getter private VertexStatus status = VertexStatus.UNDISCOVERED;
     private List<Edge> inEdges;
     private List<Edge> outEdge;
+
 
     public Vertex(Graph G, T data) {
         this.data = data;
@@ -30,12 +31,12 @@ public class Vertex<T> {
         return inEdges.size();
     }
 
-    public Iterator<Edge> outEdges() {
-        return outEdge.listIterator();
+    public Iterable<Edge> outEdges() {
+        return outEdge;
     }
 
-    public Iterator<Edge> inEdges() {
-        return inEdges.listIterator();
+    public Iterable<Edge> inEdges() {
+        return inEdges;
     }
 
     public void addOutEdges(Edge edge) {
@@ -47,12 +48,12 @@ public class Vertex<T> {
     }
 
     public boolean removeOutEdge(Edge edge) {
-        edge.setOut(null);
+        edge.setFrom(null);
         return outEdge.remove(edge);
     }
 
     public boolean removeInEdge(Edge edge) {
-        edge.setIn(null);
+        edge.setTo(null);
         return inEdges.remove(edge);
     }
 
@@ -75,5 +76,14 @@ public class Vertex<T> {
         result = 31 * result + (inEdges != null ? inEdges.hashCode() : 0);
         result = 31 * result + (outEdge != null ? outEdge.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Vertex{");
+        sb.append("data=").append(data);
+        sb.append(", status=").append(status);
+        sb.append('}');
+        return sb.toString();
     }
 }

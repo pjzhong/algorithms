@@ -3,20 +3,29 @@ package dsa.graph;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+
 @Setter
 public class Edge<T> {
-    private T data;
-    private Vertex out;
-    private Vertex in;
+    @Getter private T data;
+    @Getter private EdgeType type = EdgeType.UNKNOWN;
+    private Vertex from;
+    private Vertex to;
 
-    public Edge(Graph G, Vertex u, Vertex w, T data) {
+    public Edge(Graph G, Vertex from, Vertex to, T data) {
         this.data = data;
         G.insert(this);
-        this.out = u;
-        this.in = w;
-        u.addOutEdges(this);
-        w.addInEdges(this);
+        this.from = from;
+        this.to = to;
+        from.addOutEdges(this);
+        to.addInEdges(this);
+    }
+
+    public Vertex to() {
+        return to;
+    }
+
+    public Vertex from() {
+        return from;
     }
 
     @Override
@@ -27,16 +36,27 @@ public class Edge<T> {
         Edge<?> edge = (Edge<?>) o;
 
         if (data != null ? !data.equals(edge.data) : edge.data != null) return false;
-        if (out != null ? !out.equals(edge.out) : edge.out != null) return false;
-        return in != null ? in.equals(edge.in) : edge.in == null;
+        if (from != null ? !from.equals(edge.from) : edge.from != null) return false;
+        return to != null ? to.equals(edge.to) : edge.to == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = data != null ? data.hashCode() : 0;
-        result = 31 * result + (out != null ? out.hashCode() : 0);
-        result = 31 * result + (in != null ? in.hashCode() : 0);
+        result = 31 * result + (from != null ? from.hashCode() : 0);
+        result = 31 * result + (to != null ? to.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Edge{");
+        sb.append("to=").append(to);
+        sb.append(", from=").append(from);
+        sb.append(", type=").append(type);
+        sb.append(", data=").append(data);
+        sb.append('}');
+        return sb.toString();
     }
 }

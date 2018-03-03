@@ -46,9 +46,8 @@ public class GraphAdjacentList<V, E> implements Graph<V, E> {
     }
 
     public Edge edgeFromTo(Vertex<V> u, Vertex<V> v) {
-        for(Iterator<Edge> it = u.outEdges(); it.hasNext();) {
-            Edge e = it.next();
-            if(v.equals(e.getIn())) {
+        for(Edge e : u.outEdges()) {
+            if(v.equals(e.to())) {
                 return e;
             }
         }
@@ -58,19 +57,16 @@ public class GraphAdjacentList<V, E> implements Graph<V, E> {
 
     @Override
     public boolean remove(Edge e) {
-        e.getOut().removeOutEdge(e);
-        e.getIn().removeInEdge(e);
+        e.from().removeOutEdge(e);
+        e.to().removeInEdge(e);
         return edges.remove(e);
     }
 
 
     @Override
     public boolean remove(Vertex<V> vertex) {
-        Iterator<Edge> out = vertex.outEdges();
-        while(out.hasNext()) { remove(out.next()); }
-
-        Iterator<Edge> in = vertex.inEdges();
-        while(in.hasNext()) { remove(in.next()); }
+        for(Edge e : vertex.outEdges()) { remove(e); }
+        for(Edge e : vertex.inEdges()) { remove(e); }
 
         return vertices.remove(vertex);
     }
