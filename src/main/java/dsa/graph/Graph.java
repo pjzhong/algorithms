@@ -1,7 +1,5 @@
 package dsa.graph;
 
-import java.util.Iterator;
-
 public interface Graph<V, E> {
 
     int V();
@@ -16,9 +14,9 @@ public interface Graph<V, E> {
 
     boolean remove(Vertex<V> vertex);
 
-    Iterator<Vertex<V>> vertices();
+    Iterable<Vertex<V>> vertices();
 
-    Iterator<Edge<E>> edges();
+    Iterable<Edge<E>> edges();
 
     boolean areAdjacent(Vertex<V> v, Vertex<V> u);
 }

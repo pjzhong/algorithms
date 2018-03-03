@@ -31,13 +31,13 @@ public class GraphAdjacentList<V, E> implements Graph<V, E> {
     }
 
     @Override
-    public Iterator<Vertex<V>> vertices() {
-        return vertices.listIterator();
+    public Iterable<Vertex<V>> vertices() {
+        return vertices;
     }
 
     @Override
-    public Iterator<Edge<E>> edges() {
-        return edges.listIterator();
+    public Iterable<Edge<E>> edges() {
+        return edges;
     }
 
     @Override
