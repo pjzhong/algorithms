@@ -386,9 +386,9 @@ public class LinkedList<E> extends AbstractList<E> implements List<E>, Queue<E>,
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("{");
-        for(Node<E> x = trailer; x != null; x = x.prev) {
+        for(Node<E> x = header; x != null; x = x.next) {
             builder.append(x.item);
-            if(x.prev != null) {
+            if(x.next != null) {
                 builder.append(',');
             }
         }
