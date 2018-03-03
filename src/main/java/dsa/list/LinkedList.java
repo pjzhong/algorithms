@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
-public class LinkedList<E> implements List<E>, Queue<E>, Stack<E> {
+public class LinkedList<E> extends AbstractList<E> implements List<E>, Queue<E>, Stack<E> {
 
     private int size = 0;
     private Node<E> header = null, trailer = null;

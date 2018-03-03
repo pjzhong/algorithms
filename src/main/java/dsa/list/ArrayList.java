@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ListIterator;
 
-public class ArrayList<T>  implements List<T> {
+public class ArrayList<E>  extends AbstractList<E> {
 
-    T add(int index, T value) {
+    E add(int index, E value) {
         expand();
         for(int i = size; i > index; i--) {
             elements[i] = elements[i -1];
@@ -44,16 +44,16 @@ public class ArrayList<T>  implements List<T> {
     }
 
 
-    private T elementIndex(int index) {
+    private E elementIndex(int index) {
         if(0 > index || index > size) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
-        return (T) elements[index];
+        return (E) elements[index];
     }
 
 
     @Override
-    public void add(T value) {  add(size, value); }
+    public void add(E value) {  add(size, value); }
 
     public int deduplicate() {
         int oldSize = this.size;
@@ -68,21 +68,21 @@ public class ArrayList<T>  implements List<T> {
         return oldSize - size;
     }
 
-    public T replace(int index, T value) {
-        T old = elementIndex(index);
+    public E replace(int index, E value) {
+        E old = elementIndex(index);
         elements[index] = value;
         return old;
     }
 
     @Override
-    public T remove(int index) {
-        T old = elementIndex(index);
+    public E remove(int index) {
+        E old = elementIndex(index);
         remove(index, index + 1);
         return old;
     }
 
     @Override
-    public boolean remove(T value) {
+    public boolean remove(E value) {
         boolean result = false;
         for(int i = 0; i < size; i++) {
             if(elementIndex(i).equals(value)) {
@@ -94,8 +94,8 @@ public class ArrayList<T>  implements List<T> {
     }
 
     @Override
-    public T set(int index, T value) {
-        T old = elementIndex(index);
+    public E set(int index, E value) {
+        E old = elementIndex(index);
         elements[index] = value;
         return old;
     }
@@ -115,16 +115,16 @@ public class ArrayList<T>  implements List<T> {
     }
 
     @Override
-    public T[] toArray(T[] a) {
+    public E[] toArray(E[] a) {
         if(a.length < size) {
-            return (T[])Arrays.copyOf(elements, size, a.getClass());
+            return (E[])Arrays.copyOf(elements, size, a.getClass());
         }
         System.arraycopy(elements, 0, a, 0, size);
         return a;
     }
 
     @Override
-    public ListIterator<T> listIterator() {
+    public ListIterator<E> listIterator() {
         return new ListItr(0);
     }
 
@@ -139,11 +139,11 @@ public class ArrayList<T>  implements List<T> {
         elements =  new Object[capacity];
     }
 
-    public ArrayList(T[] elements, int lo, int hi) {
+    public ArrayList(E[] elements, int lo, int hi) {
         copyFrom(elements, lo, hi);
     }
 
-    private void copyFrom(T[] elements, int lo, int hi) {
+    private void copyFrom(E[] elements, int lo, int hi) {
         this.elements =  new Object[this.capacity = 2 * (hi - lo)];
         size = 0;
         while(lo < hi) {
@@ -152,7 +152,7 @@ public class ArrayList<T>  implements List<T> {
     }
 
     //read only
-    public int find(T value, int lo, int hi) {//input-sensitive
+    public int find(E value, int lo, int hi) {//input-sensitive
         while ( (lo < hi--) && (!value.equals(elements[hi])) );
         return hi;//hi < lo means didn't find the target
     }
@@ -188,16 +188,16 @@ public class ArrayList<T>  implements List<T> {
     }
 
     @Override
-    public T get(int index) {
+    public E get(int index) {
         return elementIndex(index);
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<E> iterator() {
         return new ListItr(0);
     }
 
-    private class Itr implements Iterator<T> {
+    private class Itr implements Iterator<E> {
          int cursor;
          int lastRet = -1;
 
@@ -207,7 +207,7 @@ public class ArrayList<T>  implements List<T> {
         }
 
         @Override
-        public T next() {
+        public E next() {
             int i = cursor;
             cursor = i + 1;
 
@@ -215,7 +215,7 @@ public class ArrayList<T>  implements List<T> {
         }
     }
 
-    private class ListItr extends Itr implements ListIterator<T> {
+    private class ListItr extends Itr implements ListIterator<E> {
         ListItr(int index) {
             super();
             cursor = index;
@@ -228,7 +228,7 @@ public class ArrayList<T>  implements List<T> {
         }
 
         @Override
-        public T previous() {
+        public E previous() {
             int i = cursor - 1;
             cursor = i;
             return elementIndex(lastRet = i);
@@ -252,14 +252,14 @@ public class ArrayList<T>  implements List<T> {
         }
 
         @Override
-        public void set(T t) {
-            ArrayList.this.set(lastRet, t);
+        public void set(E e) {
+            ArrayList.this.set(lastRet, e);
         }
 
         @Override
-        public void add(T t) {
+        public void add(E e) {
             int i = cursor;
-            ArrayList.this.add(i, t);
+            ArrayList.this.add(i, e);
             cursor = i + 1;
             lastRet = -1;
         }
