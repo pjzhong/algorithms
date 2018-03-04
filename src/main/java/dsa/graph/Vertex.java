@@ -8,6 +8,8 @@ import lombok.Setter;
 public class Vertex<T> {
     @Getter private T data;
     @Setter @Getter private VertexStatus status = VertexStatus.UNDISCOVERED;
+    @Setter @Getter private long discoverTime;
+    @Setter @Getter private long finishedTime;
     private List<Edge> inEdges;
     private List<Edge> outEdge;
 

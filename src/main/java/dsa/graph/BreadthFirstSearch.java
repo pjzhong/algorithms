@@ -3,7 +3,6 @@ package dsa.graph;
 import dsa.list.LinkedList;
 import dsa.list.Queue;
 
-import java.util.Iterator;
 
 public class BreadthFirstSearch<V, E> {
 
@@ -14,9 +13,7 @@ public class BreadthFirstSearch<V, E> {
     }
 
     public void search() {
-        Iterator<Vertex<V>> iterator = graph.vertices();
-        while(iterator.hasNext()) {
-            Vertex<V> vertex = iterator.next();
+        for(Vertex<V> vertex : graph.vertices()) {
             if(VertexStatus.UNDISCOVERED == vertex.getStatus()) {
                 doSearch(vertex);
             }
@@ -25,7 +22,9 @@ public class BreadthFirstSearch<V, E> {
 
     private void doSearch(Vertex<V> v) {
         Queue<Vertex<V>> Q = new LinkedList<>();
-        v.setStatus(VertexStatus.DISCOVERED); Q.enqueue(v);
+        v.setStatus(VertexStatus.DISCOVERED);
+        v.setDiscoverTime(System.currentTimeMillis());
+        Q.enqueue(v);
         while(!Q.isEmpty()) {
             Vertex<V> x = Q.dequeue();
             for(Edge e : x.outEdges()) {
@@ -38,6 +37,7 @@ public class BreadthFirstSearch<V, E> {
                 }
             }
             x.setStatus(VertexStatus.VISITED);
+            x.setFinishedTime(System.currentTimeMillis());
         }
     }
 }
