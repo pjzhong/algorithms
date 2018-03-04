@@ -1,8 +1,14 @@
 package dsa.list;
 
+import java.util.Iterator;
 import java.util.ListIterator;
 
 public abstract class AbstractList<E> implements List<E> {
+
+    @Override
+    public boolean isEmpty() {
+        return size() == 0;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -31,5 +37,20 @@ public abstract class AbstractList<E> implements List<E> {
             hasCode = 31 * hasCode + (e == null ? 0 : e.hashCode());
         }
         return hasCode;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("{");
+
+        Iterator<E> iterator = this.iterator();
+        while(iterator.hasNext()) {
+            builder.append(iterator.next());
+            if(iterator.hasNext()) {
+                builder.append("}");
+            }
+        }
+        builder.append("}");
+        return builder.toString();
     }
 }

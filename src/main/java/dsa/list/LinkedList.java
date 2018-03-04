@@ -175,7 +175,6 @@ public class LinkedList<E> extends AbstractList<E> implements List<E>, Queue<E>,
         return getFirst();
     }
 
-
     @Override
     public void add(E value) {
         linkLast(value);
@@ -184,11 +183,6 @@ public class LinkedList<E> extends AbstractList<E> implements List<E>, Queue<E>,
     @Override
     public int size() {
         return size;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
     }
 
     @Override
@@ -381,19 +375,6 @@ public class LinkedList<E> extends AbstractList<E> implements List<E>, Queue<E>,
             }
             nextIndex++;
         }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder("{");
-        for(Node<E> x = header; x != null; x = x.next) {
-            builder.append(x.item);
-            if(x.next != null) {
-                builder.append(',');
-            }
-        }
-        builder.append('}');
-        return builder.toString();
     }
 
     public static class Node<T> {
