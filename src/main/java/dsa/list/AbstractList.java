@@ -47,7 +47,7 @@ public abstract class AbstractList<E> implements List<E> {
         while(iterator.hasNext()) {
             builder.append(iterator.next());
             if(iterator.hasNext()) {
-                builder.append("}");
+                builder.append(", ");
             }
         }
         builder.append("}");
