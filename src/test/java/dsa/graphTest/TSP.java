@@ -76,19 +76,19 @@ public class TSP {
         }
 
         while(!nodes.isEmpty()) {
-            Vertex current = nodes.pop();
+            Vertex from = nodes.pop();
 
-            for(Vertex to : current.outs) {
-                if(to.villages < current.villages + 1) {
-                    to.villages = current.villages + 1;
+            for(Vertex out : from.outs) {
+                if(out.villages < from.villages + 1) {
+                    out.villages = from.villages + 1;
 
-                    if(maxVillages < to.villages) {
-                        maxVillages = to.villages;
+                    if(maxVillages < out.villages) {
+                        maxVillages = out.villages;
                     }
                 }
 
-                if(--to.inDegree == 0) {
-                    nodes.push(to);
+                if(--out.inDegree == 0) {
+                    nodes.push(out);
                 }
             }
         }
