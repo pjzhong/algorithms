@@ -115,6 +115,10 @@ public abstract class BinaryTree<E> {
         return size(getRoot());
     }
 
+    public int height() {
+        return height(getRoot());
+    }
+
     public boolean isEmpty() {
         return getRoot() != null;
     }

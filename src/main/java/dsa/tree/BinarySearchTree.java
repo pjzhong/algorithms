@@ -4,17 +4,99 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> extends Binary
 
     private BinaryNode root;
 
-    private Value get(BinaryNode root, Key key) {
+    private BinaryNode min(BinaryNode x) {
+        while(hasLeftChild(x)) {
+            x = x.left;
+        }
+
+        return x;
+    }
+
+    private BinaryNode deleteMin(BinaryNode x) {
+        if(x.left == null) { return x.right; }
+        x.left = deleteMin(x.left);
+        x.size = 1 + size(x.left) + size(x.right);
+        x.height = 1 + Math.max(height(x.left), height(x.right));
+
+        return x;
+    }
+
+    public Value min() {
+        return root == null ? null : min(root).value;
+    }
+
+    public Value deleteMin() {
+        BinaryNode old = min(root);
+        root = deleteMin(root);
+        return old == null ? null : old.value;
+    }
+
+    private BinaryNode max(BinaryNode x) {
+        while(hasRightChild(x)) {
+            x = x.right;
+        }
+
+        return x;
+    }
+
+    private BinaryNode deleteMax(BinaryNode x) {
+        if(x.right == null) { return x.left; }
+        x.right = deleteMax(x.right);
+        x.size = 1 + size(x.left) + size(x.right);
+        x.height = 1 + Math.max(height(x.left), height(x.right));
+
+        return x;
+    }
+
+    public Value max() {
+        return root == null ? null : max(root).value;
+    }
+
+    public Value deleteMax() {
+        BinaryNode old = max(root);
+        root = deleteMax(root);
+        return old == null ? null : old.value;
+    }
+
+    private BinaryNode delete(BinaryNode x, Key key) {
+        if(x == null) { return null; }
+
+        int compareResult = key.compareTo(x.key);
+        if(compareResult < 0) {
+            x.left = delete(x.left, key);
+        } else if(0 < compareResult) {
+            x.right = delete(x.right, key);
+        } else {
+            if(!hasRightChild(x)) { return x.left; }
+            if(!hasLeftChild(x)) { return x.right; }
+            BinaryNode temp = x;
+            x = min(temp.right);
+            x.right = deleteMax(temp.right);
+            x.left = temp.left;
+        }
+
+        x.size = 1 + size(x.left) + size(x.right);
+        x.height = 1 + Math.max(height(x.left), height(x.right));
+        return x;
+    }
+
+    public Value delete(Key key) {
+        BinaryNode old = get(root, key);
+        root = delete(root, key);
+        return old.value;
+    }
+
+    private BinaryNode get(BinaryNode root, Key key) {
         BinaryNode x = root;
         while(x != null) {
-            int compareResult = x.key.compareTo(key);
+            int compareResult = key.compareTo(x.key);
 
             if(compareResult < 0) {
                 x = x.left;
             } else if(0 < compareResult) {
                 x = x.right;
             } else {
-                return x.value;
+                return x;
             }
         }
 
@@ -22,7 +104,8 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> extends Binary
     }
 
     public Value get(Key key) {
-        return get(root, key);
+        BinaryNode x =  get(root, key);
+        return x == null ?  null : x.value;
     }
 
     public void put(Key key, Value value) {
