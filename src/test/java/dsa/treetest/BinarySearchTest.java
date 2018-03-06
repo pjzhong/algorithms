@@ -5,45 +5,60 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+import java.util.function.Consumer;
+
 public class BinarySearchTest {
 
-    BinarySearchTree<Integer, Integer> tree = new BinarySearchTree<>();
+    BinarySearchTree<Integer, String> tree = new BinarySearchTree<>();
+    private int randomLimit = 10000000;
+
 
     @Before
     public void before() {
-        int[] values = {16, 10, 25, 5, 11, 19, 28, 2, 8, 15, 17, 22, 27, 37, 4, 13, 33};
-        for(int value : values) {
-            tree.put(value, value);
+        Random random = new Random();
+        int loops = 100000;
+        for(int i = 1, next = -1; i <= loops; i++) {
+            next = random.nextInt(randomLimit);
+            tree.put(next, String.valueOf(next));
         }
     }
 
     @Test
-    public void insertTest() {
-        int[] values = {34};
-        for(int value : values) {
-            tree.put(value, value);
-        }
-
-        Assert.assertTrue(tree.get(34).equals(34));
-        Assert.assertEquals(18, tree.size());
-        Assert.assertEquals(5, tree.height());
-    }
-
-    @Test
-    public void deleteTest() {
-        int four = tree.delete(4);
-        int twentyFive = tree.delete(25);
-        
-        Assert.assertEquals(4, four);
-        Assert.assertEquals(25, twentyFive);
+    public void inOrderTraversalTest() {
+        Consumer<String> consumer = (i) -> System.out.format("%s ", i);
+        tree.inOrderTraversal(consumer);
     }
 
     @Test
     public void deleteMaxMin() {
-        int maximum = tree.deleteMax();
-        int minimum = tree.deleteMin();
-        Assert.assertEquals(2, minimum);
-        Assert.assertEquals(37, maximum);
+        int expectedSize = tree.size() - 2;
+        String maximum = tree.max() ,minimum = tree.min();
+        String AfterDeleteMaximum = tree.deleteMax() ,AfterDeleteMinimum = tree.deleteMin();
+
+        Assert.assertEquals(expectedSize, tree.size());
+        Assert.assertEquals(maximum, AfterDeleteMaximum);
+        Assert.assertEquals(minimum, AfterDeleteMinimum);
+        Assert.assertNull(tree.get(Integer.valueOf(maximum)));
+        Assert.assertNull(tree.get(Integer.valueOf(minimum)));
+    }
+
+    @Test
+    public void randomDeleteTest() {
+        String testTarget = null;
+        Random random = new Random();
+        int loops = 100000;
+        for(int i = 0; i <= loops && testTarget == null; i++) {
+            testTarget = tree.get(random.nextInt(randomLimit));
+        }
+
+        Assert.assertNotNull("testTarget is null", testTarget);
+
+        int expectedSize = tree.size() - 1;
+        String afterDelete = tree.delete(Integer.valueOf(testTarget));
+        Assert.assertEquals(testTarget, afterDelete);
+        Assert.assertEquals(expectedSize, tree.size());
+        Assert.assertNull(tree.get(Integer.valueOf(testTarget)));
     }
 
 }

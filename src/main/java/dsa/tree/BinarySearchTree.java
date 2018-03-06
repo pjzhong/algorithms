@@ -147,6 +147,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> extends Binary
         int height = 0;
 
         public BinaryNode(BinaryNode parent, Key key, Value value) {
+            this.parent = parent;
             this.key = key;
             this.value = value;
         }

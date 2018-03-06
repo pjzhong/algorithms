@@ -30,7 +30,7 @@ public abstract class BinaryTree<E> {
         }
     }
 
-    public void PreOrderTraversal(Consumer<E> consumer) {
+    public void preOrderTraversal(Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
 
         Node<E> e = getRoot();
@@ -48,7 +48,7 @@ public abstract class BinaryTree<E> {
         }
     }
 
-    public void InOrderTraversal(Consumer<E> consumer) {
+    public void inOrderTraversal(Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
         Node<E> x = getRoot();
         while(true) {
