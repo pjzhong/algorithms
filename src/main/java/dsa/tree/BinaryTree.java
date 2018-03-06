@@ -6,49 +6,34 @@ import dsa.list.Stack;
 
 import java.util.function.Consumer;
 
-public class BinaryTree<E> {
+public abstract class BinaryTree<E> {
 
-    private Node<E> root;
-
-    private int size(Node<E> node) {
-        return node == null ? 0 : node.size;
+    protected int size(Node<E> node) {
+        return node == null ? 0 : node.size();
     }
 
-    private int height(Node<E> node) {
-        return node == null ? node.height : -1;
+    protected int height(Node<E> node) { return node == null ? -1 : node.height(); }
+
+    protected boolean hasLeftChild(Node<E> node) {
+        return node != null && node.getLeft() != null;
     }
 
-    private boolean hasLeftChild(Node<E> node) {
-        return node != null && node.left != null;
-    }
-
-    private boolean hasRightChild(Node<E> node) {
-        return node != null && node.right != null;
-    }
-
-    private int updateHeight(Node<E> node) {
-        return node.height = 1 + Math.max(height(node.left), height(node.right));
-    }
-
-    private void heightUp(Node<E> node) {
-        while(node != null) {
-            updateHeight(node);
-            node = node.parent;
-        }
+    protected boolean hasRightChild(Node<E> node) {
+        return node != null && node.getRight() != null;
     }
 
     private void visitAlongLeftBranch(Node<E> x, Consumer<E> consumer, Stack<Node<E>> S) {
         while(x != null) {
-            consumer.accept(x.data);
-            S.push(x.right);
-            x = x.left;
+            consumer.accept(x.getValue());
+            S.push(x.getRight());
+            x = x.getLeft();
         }
     }
 
     public void PreOrderTraversal(Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
 
-        Node<E> e = root;
+        Node<E> e = getRoot();
         while(true) {
             visitAlongLeftBranch(e, consumer, nodes);
             if(nodes.isEmpty()) { break; }
@@ -59,27 +44,20 @@ public class BinaryTree<E> {
     private void goAlongLeftBranch(Node<E> x, Stack<Node<E>> S) {
         while(x != null) {
             S.push(x);
-            x = x.left;
+            x = x.getLeft();
         }
     }
 
     public void InOrderTraversal(Consumer<E> consumer) {
         Stack<Node<E>> nodes = new LinkedList<>();
-        Node<E> x = root;
+        Node<E> x = getRoot();
         while(true) {
             goAlongLeftBranch(x, nodes);
             if(nodes.isEmpty()) { break; }
             x = nodes.pop();
-            consumer.accept(x.data);
-            x = x.right;
+            consumer.accept(x.getValue());
+            x = x.getRight();
         }
-    }
-
-    private void PostOrderTraversalRecursive(Node<E> node, Consumer<E> consumer) {
-        if(node == null) { return; }
-        PostOrderTraversalRecursive(node.left, consumer);
-        PostOrderTraversalRecursive(node.right, consumer);
-        consumer.accept(node.data);
     }
 
     /**
@@ -90,11 +68,11 @@ public class BinaryTree<E> {
         while( (x = S.top()) != null) {
             if(hasLeftChild(x)) {
                 if(hasRightChild(x)) {
-                    S.push(x.right);
+                    S.push(x.getRight());
                 }
-                S.push(x.left);
+                S.push(x.getLeft());
             } else {
-                S.push(x.right);
+                S.push(x.getRight());
             }
         }
         S.pop();
@@ -105,54 +83,55 @@ public class BinaryTree<E> {
         if(x != null) { nodes.push(x); }
 
         while(!nodes.isEmpty()) {
-            if(nodes.top() != x.parent) {//若栈顶非当前节点之父,则必为其右兄
+            if(nodes.top() != x.getParent()) {//若栈顶非当前节点之父,则必为其右兄
                 gotoHLVFL(nodes);//在以其右为根子树中，找到HLVFL
             }
             x = nodes.pop();
-            consumer.accept(x.data);
+            consumer.accept(x.getValue());
         }
     }
 
     public void postOrderTraversal(Consumer<E> consumer) {
-        postOrderTraversal(root, consumer);
+        postOrderTraversal(getRoot(), consumer);
     }
 
     public void levelTraversal(Consumer<E> consumer) {
         LinkedList<Node<E>> nodes = new LinkedList<>();
-        if(root != null) {
-            nodes.enqueue(root);
+        if(getRoot() != null) {
+            nodes.enqueue(getRoot());
         }
 
         Node<E> x;
         while(!nodes.isEmpty()) {
             x = nodes.dequeue();
-            if(hasLeftChild(x)) { nodes.enqueue(x.left); }
-            if(hasRightChild(x)) { nodes.enqueue(x.right); }
+            if(hasLeftChild(x)) { nodes.enqueue(x.getLeft()); }
+            if(hasRightChild(x)) { nodes.enqueue(x.getRight()); }
 
-            consumer.accept(x.data);
+            consumer.accept(x.getValue());
         }
     }
 
     public int size() {
-        return size(root);
-    }
-
-    public int height() {
-        return height(root);
+        return size(getRoot());
     }
 
     public boolean isEmpty() {
-        return root != null;
+        return getRoot() != null;
     }
 
-    private static class Node<E> {
-        int size, height;
-        E data;
-        Node<E> parent,left, right;
+    protected abstract Node<E> getRoot();
 
-        public Node(E data, Node<E> parent) {
-            this.data = data;
-            this.parent = parent;
-        }
+    protected static interface Node<E> {
+        int size();
+
+        int height();
+
+        E getValue();
+
+        Node<E> getParent();
+
+        Node<E> getLeft();
+
+        Node<E> getRight();
     }
 }
