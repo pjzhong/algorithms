@@ -3,26 +3,28 @@ package dsa.tree;
 
 import dsa.list.LinkedList;
 import dsa.list.Stack;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.function.Consumer;
 
-public abstract class BinaryTree<E> {
+public abstract class BinaryTree<Key, Value> {
 
-    protected int size(Node<E> node) {
-        return node == null ? 0 : node.size();
+    protected int size(Node node) {
+        return node == null ? 0 : node.getSize();
     }
 
-    protected int height(Node<E> node) { return node == null ? -1 : node.height(); }
+    protected int height(Node node) { return node == null ? -1 : node.getHeight(); }
 
-    protected boolean hasLeftChild(Node<E> node) {
+    protected boolean hasLeftChild(Node node) {
         return node != null && node.getLeft() != null;
     }
 
-    protected boolean hasRightChild(Node<E> node) {
+    protected boolean hasRightChild(Node node) {
         return node != null && node.getRight() != null;
     }
 
-    private void visitAlongLeftBranch(Node<E> x, Consumer<E> consumer, Stack<Node<E>> S) {
+    private void visitAlongLeftBranch(Node x, Consumer consumer, Stack<Node> S) {
         while(x != null) {
             consumer.accept(x.getValue());
             S.push(x.getRight());
@@ -30,10 +32,10 @@ public abstract class BinaryTree<E> {
         }
     }
 
-    public void preOrderTraversal(Consumer<E> consumer) {
-        Stack<Node<E>> nodes = new LinkedList<>();
+    public void preOrderTraversal(Consumer consumer) {
+        Stack<Node> nodes = new LinkedList<>();
 
-        Node<E> e = getRoot();
+        Node e = getRoot();
         while(true) {
             visitAlongLeftBranch(e, consumer, nodes);
             if(nodes.isEmpty()) { break; }
@@ -41,16 +43,16 @@ public abstract class BinaryTree<E> {
         }
     }
 
-    private void goAlongLeftBranch(Node<E> x, Stack<Node<E>> S) {
+    private void goAlongLeftBranch(Node x, Stack<Node> S) {
         while(x != null) {
             S.push(x);
             x = x.getLeft();
         }
     }
 
-    public void inOrderTraversal(Consumer<E> consumer) {
-        Stack<Node<E>> nodes = new LinkedList<>();
-        Node<E> x = getRoot();
+    public void inOrderTraversal(Consumer consumer) {
+        Stack<Node> nodes = new LinkedList<>();
+        Node x = getRoot();
         while(true) {
             goAlongLeftBranch(x, nodes);
             if(nodes.isEmpty()) { break; }
@@ -63,8 +65,8 @@ public abstract class BinaryTree<E> {
     /**
      * highest leaf visible from left
      * */
-    private void gotoHLVFL(Stack<Node<E>> S) {
-        Node<E> x ;
+    private void gotoHLVFL(Stack<Node> S) {
+        Node x ;
         while( (x = S.top()) != null) {
             if(hasLeftChild(x)) {
                 if(hasRightChild(x)) {
@@ -78,8 +80,8 @@ public abstract class BinaryTree<E> {
         S.pop();
     }
 
-    private void postOrderTraversal(Node<E> x, Consumer<E> consumer) {
-        Stack<Node<E>> nodes = new LinkedList<>();
+    private void postOrderTraversal(Node x, Consumer consumer) {
+        Stack<Node> nodes = new LinkedList<>();
         if(x != null) { nodes.push(x); }
 
         while(!nodes.isEmpty()) {
@@ -91,17 +93,17 @@ public abstract class BinaryTree<E> {
         }
     }
 
-    public void postOrderTraversal(Consumer<E> consumer) {
+    public void postOrderTraversal(Consumer consumer) {
         postOrderTraversal(getRoot(), consumer);
     }
 
-    public void levelTraversal(Consumer<E> consumer) {
-        LinkedList<Node<E>> nodes = new LinkedList<>();
+    public void levelTraversal(Consumer consumer) {
+        LinkedList<Node> nodes = new LinkedList<>();
         if(getRoot() != null) {
             nodes.enqueue(getRoot());
         }
 
-        Node<E> x;
+        Node x;
         while(!nodes.isEmpty()) {
             x = nodes.dequeue();
             if(hasLeftChild(x)) { nodes.enqueue(x.getLeft()); }
@@ -123,19 +125,35 @@ public abstract class BinaryTree<E> {
         return getRoot() != null;
     }
 
-    protected abstract Node<E> getRoot();
+    protected abstract Node getRoot();
 
-    protected static interface Node<E> {
-        int size();
+    @Getter
+    @Setter
+    protected class Node {
+        Key key;
+        Value value;
+        Node parent, left, right;
+        int size = 1;
+        int height = 0;
 
-        int height();
+        public Node(Node parent, Key key, Value value) {
+            this.parent = parent;
+            this.key = key;
+            this.value = value;
+        }
 
-        E getValue();
 
-        Node<E> getParent();
-
-        Node<E> getLeft();
-
-        Node<E> getRight();
+        @Override
+        public String toString() {
+            final StringBuilder sb = new StringBuilder("{");
+            sb.append("key=").append(key);
+            sb.append(", value=").append(value);
+            sb.append(", size=").append(size);
+            sb.append(", height=").append(height);
+            if(left != null) { sb.append(", left=").append(left.key); }
+            if(right != null) { sb.append(", right=").append(right.key); }
+            sb.append('}');
+            return sb.toString();
+        }
     }
 }
