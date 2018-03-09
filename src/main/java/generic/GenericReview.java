@@ -1,6 +1,6 @@
 package generic;
 
-import org.junit.Test;
+
 
 /**
  * <? extends T> Wildcards - Upper Bounds Wildcards （上界通配符）
@@ -25,7 +25,6 @@ class Plate<T> {
 
 public class GenericReview {
 
-    @Test
     public void test() {
         Plate<? super Fruit> p = new Plate<Food>(new Apple());
         p.set(new Fruit());

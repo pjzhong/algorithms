@@ -24,7 +24,7 @@ public abstract class BinaryTree<Key, Value> {
         return node != null && node.getRight() != null;
     }
 
-    private void visitAlongLeftBranch(Node x, Consumer consumer, Stack<Node> S) {
+    private void visitAlongLeftBranch(Node x, Consumer<Value> consumer, Stack<Node> S) {
         while(x != null) {
             consumer.accept(x.getValue());
             S.push(x.getRight());
@@ -32,7 +32,7 @@ public abstract class BinaryTree<Key, Value> {
         }
     }
 
-    public void preOrderTraversal(Consumer consumer) {
+    public void preOrderTraversal(Consumer<Value> consumer) {
         Stack<Node> nodes = new LinkedList<>();
 
         Node e = getRoot();
@@ -50,7 +50,7 @@ public abstract class BinaryTree<Key, Value> {
         }
     }
 
-    public void inOrderTraversal(Consumer consumer) {
+    public void inOrderTraversal(Consumer<Value> consumer) {
         Stack<Node> nodes = new LinkedList<>();
         Node x = getRoot();
         while(true) {
@@ -80,7 +80,7 @@ public abstract class BinaryTree<Key, Value> {
         S.pop();
     }
 
-    private void postOrderTraversal(Node x, Consumer consumer) {
+    private void postOrderTraversal(Node x, Consumer<Value> consumer) {
         Stack<Node> nodes = new LinkedList<>();
         if(x != null) { nodes.push(x); }
 
@@ -93,11 +93,11 @@ public abstract class BinaryTree<Key, Value> {
         }
     }
 
-    public void postOrderTraversal(Consumer consumer) {
+    public void postOrderTraversal(Consumer<Value> consumer) {
         postOrderTraversal(getRoot(), consumer);
     }
 
-    public void levelTraversal(Consumer consumer) {
+    public void levelTraversal(Consumer<Value> consumer) {
         LinkedList<Node> nodes = new LinkedList<>();
         if(getRoot() != null) {
             nodes.enqueue(getRoot());
