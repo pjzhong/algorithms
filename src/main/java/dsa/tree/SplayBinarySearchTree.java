@@ -11,6 +11,7 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
 
     private Node rotateLeft(Node x) {
         Node rotate = x.right;
+        if(hasLeftChild(rotate)) { rotate.left.parent = x; }
         x.right = rotate.left;
         rotate.left = x;
         rotate.parent = x.parent;
@@ -20,6 +21,7 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
 
     private Node rotateRight(Node x) {
         Node rotate = x.left;
+        if(hasRightChild(rotate)) { rotate.right.parent = x;}
         x.left = rotate.right;
         rotate.right = x;
         rotate.parent = x.parent;

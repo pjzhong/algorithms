@@ -16,25 +16,27 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> extends Bin
     }
 
     private Node rotateLeft(Node x) {
-        Node y = x.right;
-        x.right = y.left;
-        y.left = x;
-        y.parent = x.parent;
-        x.parent = y;
+        Node rotate = x.right;
+        if(hasLeftChild(rotate)) { rotate.left.parent = x; }
+        x.right = rotate.left;
+        rotate.left = x;
+        rotate.parent = x.parent;
+        x.parent = rotate;
         updateNode(x);
-        updateNode(y);
-        return y;
+        updateNode(rotate);
+        return rotate;
     }
 
     private Node rotateRight(Node x) {
-        Node y = x.left;
-        x.left = y.right;
-        y.right = x;
-        y.parent = x.parent;
-        x.parent = y;
+        Node rotate = x.left;
+        if(hasRightChild(rotate)) { rotate.right.parent = x; }
+        x.left = rotate.right;
+        rotate.right = x;
+        rotate.parent = x.parent;
+        x.parent = rotate;
         updateNode(x);
-        updateNode(y);
-        return y;
+        updateNode(rotate);
+        return rotate;
     }
 
     private Node balance(Node x) {

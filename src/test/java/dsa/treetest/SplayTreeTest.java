@@ -12,7 +12,7 @@ public class SplayTreeTest {
 
     SplayBinarySearchTree<Integer, String> tree = new SplayBinarySearchTree<>();
 
-    private int loops = 1000;
+    private int loops = 10000;
 
     @Before
     public void before() {
@@ -20,7 +20,7 @@ public class SplayTreeTest {
 
         for(int i = 0, next; i < loops; i++) {
             next = random.nextInt(loops);
-            tree.put(next, String.valueOf(next));
+            tree.put(i, String.valueOf(i));
         }
      }
 
@@ -28,16 +28,20 @@ public class SplayTreeTest {
     public void inOrderTraversalGet() {
         Set<String> stringSet = new HashSet<>();
         List<String>  stringList = new ArrayList<>();
-        tree.inOrderTraversal(stringSet::add);
-        tree.inOrderTraversal(stringList::add);
+        tree.postOrderTraversal(stringSet::add);
+        tree.postOrderTraversal(stringList::add);
 
+
+        for(String str : stringSet) {
+            System.out.println(tree.height());
+            Assert.assertNotNull(tree.get(Integer.valueOf(str)));
+        }
+
+        //todo 改写成迭代式旋转。如果数据量大，会出现stackOverFlowException
         for(String str : stringList) {
             Assert.assertNotNull(tree.get(Integer.valueOf(str)));
         }
 
-        for(String str : stringSet) {
-            Assert.assertNotNull(tree.get(Integer.valueOf(str)));
-        }
 
         for(String str : stringList) {
             Assert.assertTrue(stringSet.contains(str));
@@ -63,5 +67,15 @@ public class SplayTreeTest {
         }
 
         Assert.assertEquals(strings.size(), tree.size());
+    }
+
+    @Test
+    public void traversalTest() {
+        Consumer<String> consumer =  (s) -> {};
+
+        tree.preOrderTraversal(consumer);
+        tree.inOrderTraversal(consumer);
+        tree.levelTraversal(consumer);
+        tree.postOrderTraversal(consumer);
     }
 }
