@@ -150,8 +150,6 @@ public abstract class BinaryTree<Key, Value> {
             sb.append(", value=").append(value);
             sb.append(", size=").append(size);
             sb.append(", height=").append(height);
-            if(left != null) { sb.append(", left=").append(left.key); }
-            if(right != null) { sb.append(", right=").append(right.key); }
             sb.append('}');
             return sb.toString();
         }
