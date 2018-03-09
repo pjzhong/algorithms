@@ -20,7 +20,7 @@ public class SplayTreeTest {
 
         for(int i = 0, next; i < loops; i++) {
             next = random.nextInt(loops);
-            tree.put(i, String.valueOf(i));
+            tree.put(next, String.valueOf(next));
         }
      }
 

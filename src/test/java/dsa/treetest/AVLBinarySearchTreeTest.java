@@ -22,7 +22,7 @@ public class AVLBinarySearchTreeTest {
         int loops = 10000;
         for(int i = 1, next = -1; i <= loops; i++) {
             next = random.nextInt(randomLimit);
-            tree.put(i, String.valueOf(i));
+            tree.put(next, String.valueOf(next));
         }
     }
 
