@@ -74,3 +74,4 @@ public class AVLBinarySearchTreeTest {
         tree.postOrderTraversal(consumer);
     }
 }
+

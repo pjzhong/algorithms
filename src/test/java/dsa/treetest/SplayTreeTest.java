@@ -1,18 +1,18 @@
 package dsa.treetest;
 
-import dsa.tree.SplayBinarySearchTree;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+        import dsa.tree.SplayBinarySearchTree;
+        import org.junit.Assert;
+        import org.junit.Before;
+        import org.junit.Test;
 
-import java.util.*;
-import java.util.function.Consumer;
+        import java.util.*;
+        import java.util.function.Consumer;
 
 public class SplayTreeTest {
 
     SplayBinarySearchTree<Integer, String> tree = new SplayBinarySearchTree<>();
 
-    private int loops = 10000;
+    private int loops = 100000;
 
     @Before
     public void before() {
@@ -22,18 +22,17 @@ public class SplayTreeTest {
             next = random.nextInt(loops);
             tree.put(next, String.valueOf(next));
         }
-     }
+    }
 
     @Test
     public void inOrderTraversalGet() {
         Set<String> stringSet = new HashSet<>();
         List<String>  stringList = new ArrayList<>();
-        tree.postOrderTraversal(stringSet::add);
+        tree.inOrderTraversal(stringSet::add);
         tree.postOrderTraversal(stringList::add);
 
 
         for(String str : stringSet) {
-            System.out.println(tree.height());
             Assert.assertNotNull(tree.get(Integer.valueOf(str)));
         }
 
