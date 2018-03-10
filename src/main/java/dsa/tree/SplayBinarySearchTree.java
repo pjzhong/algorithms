@@ -80,9 +80,9 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
             removeValue = root.value;
             if(root.left == null) {
                 root = root.right;
-                root.parent = null;
             } else {
                 Node x = root.right;
+                root.left.parent = null;
                 root = splay(root.left, key);
                 root.right = x;
                 x.parent = root;
@@ -112,6 +112,7 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
         Value old = null;
         if(compareResult < 0) {
             Node n = new Node(null, key, value);
+            if(hasLeftChild(root)) { root.left.parent = n; }
             n.left = root.left;
             n.right = root;
             root.parent = n;
@@ -119,6 +120,7 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
             root = n;
         } else if (0 < compareResult) {
             Node n = new Node(null, key, value);
+            if(hasRightChild(root)) { root.right.parent = n; }
             n.right = root.right;
             n.left = root;
             root.right = null;
