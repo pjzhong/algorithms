@@ -20,8 +20,22 @@ public abstract class BinaryTree<Key, Value> {
         return node != null && node.getLeft() != null;
     }
 
+    protected Node leftOf(Node node) {
+        return hasLeftChild(node) ? node.getLeft() : null;
+    }
+
     protected boolean hasRightChild(Node node) {
         return node != null && node.getRight() != null;
+    }
+
+    protected Node rightOf(Node node) {
+        return hasRightChild(node) ? node.getRight() : null;
+    }
+
+    protected boolean hasParent(Node node) { return node != null && node.getParent() != null;}
+
+    protected boolean isRoot(Node node) {
+        return getRoot() == node;
     }
 
     private void visitAlongLeftBranch(Node x, Consumer<Value> consumer, Stack<Node> S) {
@@ -122,7 +136,7 @@ public abstract class BinaryTree<Key, Value> {
     }
 
     public boolean isEmpty() {
-        return getRoot() != null;
+        return getRoot() == null;
     }
 
     protected abstract Node getRoot();
@@ -140,6 +154,49 @@ public abstract class BinaryTree<Key, Value> {
             this.parent = parent;
             this.key = key;
             this.value = value;
+        }
+
+        public void setLeft(Node child) {
+            for(Node n = this; n != null; n = n.parent) {
+                if(n == child) { throw new IllegalArgumentException("ancestor can't not be child"); }
+            }
+
+            if(hasLeftChild(this)) {
+                left.parent = null;
+            }
+
+            if(child != null) {
+                child.removeFromParent();
+                child.parent = this;
+            }
+            this.left = child;
+        }
+
+        public void setRight(Node child) {
+            for(Node n = this; n != null; n = n.parent) {
+                if(n == child) { throw new IllegalArgumentException("ancestor can't not be child"); }
+            }
+
+            if(hasRightChild(this)) {
+                right.parent = null;
+            }
+
+            if(child != null) {
+                child.removeFromParent();
+                child.parent = this;
+            }
+            this.right = child;
+        }
+
+        public void removeFromParent() {
+            if(hasParent(this)) {
+                if(parent.left == this) {
+                    parent.left = null;
+                } else if (parent.right == this) {
+                    parent.right = null;
+                }
+                this.parent = null;
+            }
         }
 
 

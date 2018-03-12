@@ -105,14 +105,14 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> extends Bin
         return old == null ? null : old.value;
     }
 
-    private Node delete(Node x, Key key) {
+    private Node remove(Node x, Key key) {
         if(x == null) { return null; }
 
         int compareResult = key.compareTo(x.key);
         if(compareResult < 0) {
-            x.left = delete(x.left, key);
+            x.left = remove(x.left, key);
         } else if(0 < compareResult) {
-            x.right = delete(x.right, key);
+            x.right = remove(x.right, key);
         } else {
             if(!hasRightChild(x)) { return x.left; }
             if(!hasLeftChild(x)) { return x.right; }
@@ -126,9 +126,9 @@ public class AVLBinarySearchTree<Key extends Comparable<Key>, Value> extends Bin
         return balance(x);
     }
 
-    public Value delete(Key key) {
+    public Value remove(Key key) {
         Node old = get(root, key);
-        root = delete(root, key);
+        root = remove(root, key);
         return old.value;
     }
 

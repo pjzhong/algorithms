@@ -5,9 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class AVLBinarySearchTreeTest {
@@ -46,21 +44,16 @@ public class AVLBinarySearchTreeTest {
     }
 
     @Test
-    public void randomDeleteTest() {
-        String testTarget = null;
-        Random random = new Random();
-        int loops = 100000;
-        for(int i = 0; i <= loops && testTarget == null; i++) {
-            testTarget = tree.get(random.nextInt(randomLimit));
+    public void deleteTest() {
+        List<String> strs = new LinkedList<>();
+        tree.inOrderTraversal(strs::add);
+
+        for(String str : strs) {
+            tree.remove(Integer.valueOf(str));
         }
 
-        Assert.assertNotNull("testTarget is null", testTarget);
-
-        int expectedSize = tree.size() - 1;
-        String afterDelete = tree.delete(Integer.valueOf(testTarget));
-        Assert.assertEquals(testTarget, afterDelete);
-        Assert.assertEquals(expectedSize, tree.size());
-        Assert.assertNull(tree.get(Integer.valueOf(testTarget)));
+        Assert.assertEquals(0, tree.size());
+        Assert.assertTrue(tree.isEmpty());
     }
 
 

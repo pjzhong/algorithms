@@ -87,7 +87,9 @@ public class SplayBinarySearchTree<Key extends Comparable<Key>, Value> extends B
                 root.right = x;
                 x.parent = root;
             }
-            root.parent = null;
+            if(root != null) {
+                root.parent = null;
+            }
         }
 
         return removeValue;
