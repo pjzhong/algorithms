@@ -20,16 +20,8 @@ public abstract class BinaryTree<Key, Value> {
         return node != null && node.getLeft() != null;
     }
 
-    protected Node leftOf(Node node) {
-        return hasLeftChild(node) ? node.getLeft() : null;
-    }
-
     protected boolean hasRightChild(Node node) {
         return node != null && node.getRight() != null;
-    }
-
-    protected Node rightOf(Node node) {
-        return hasRightChild(node) ? node.getRight() : null;
     }
 
     protected boolean hasParent(Node node) { return node != null && node.getParent() != null;}
