@@ -1,5 +1,9 @@
 package dsa.tree;
 
+/**
+ * If you want to visualization the insert and remove process of this tree
+ * see this link:https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
+ * */
 public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree<Key, Value> {
 
     private static final boolean RED = true;
@@ -86,7 +90,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
         if(node == null) {
             return null;
         } else if(hasLeftChild(node) && hasRightChild(node)) {
-            RedBlackNode successor = min(node.getRight());
+            RedBlackNode successor = max(node.getLeft());
             node.setKey(successor.key);
             node.setValue(successor.value);
             node = successor;
@@ -262,7 +266,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
     }
 
     private boolean isBlack(RedBlackNode node) {
-        return node != null && !node.color;
+        return node == null || !node.color;
     }
 
     private void setColor(RedBlackNode node , boolean color) {

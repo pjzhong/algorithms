@@ -15,11 +15,9 @@ public class RedBlackTreeTest {
 
     @Before
     public void before() {
-        int[] datas= {10, 20, 30, 15};
-        
-        for(int i : datas) {
-            tree.put(i, i);
-        }
+       for(int i = 1; i <= 22; i++) {
+           tree.put(i, i);
+       }
     }
 
     @Test
@@ -43,6 +41,11 @@ public class RedBlackTreeTest {
         tree.inOrderTraversal(consumer);
         tree.levelTraversal(consumer);
         tree.postOrderTraversal(consumer);
+    }
+
+    @Test
+    public void test() {
+        tree.remove(17);
     }
 
 }
