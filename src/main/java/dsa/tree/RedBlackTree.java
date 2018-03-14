@@ -12,15 +12,15 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
     private RedBlackNode root;
     private int size = 0;
 
-    public void put(Key key, Value value) {
-        put(root, key, value);
+    public Value put(Key key, Value value) {
+        return put(root, key, value);
     }
 
-    private void put(RedBlackNode node, Key key, Value value) {
+    private Value put(RedBlackNode node, Key key, Value value) {
         if(node == null) {
             size++;
             root = new RedBlackNode(null, key, value, BLACK);
-            return;
+            return null;
         }
 
         RedBlackNode x = node, parent = node;
@@ -34,8 +34,9 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
             } else if(0 < comparisonResult) {
                 x = x.getRight();
             } else {
+                Value old = node.getValue();
                 node.setValue(value);
-                return;
+                return old;
             }
         }
 
@@ -46,6 +47,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
         }
         size++;
         balanceAfterInsert((RedBlackNode) (comparisonResult < 0 ? parent.left : parent.right));
+        return null;
     }
 
     //A double red problem is corrected with zero or more recoloring followed by zer or one restructuring
@@ -244,6 +246,10 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
     @Override
     public int size() {
         return size;
+    }
+
+    public void clear() {
+        root = null;
     }
 
     private RedBlackNode min(RedBlackNode x) {
