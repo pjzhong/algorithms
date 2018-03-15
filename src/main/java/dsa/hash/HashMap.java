@@ -136,12 +136,12 @@ public class HashMap<Key, Value> implements Map<Key, Value> {
     private void rehash() {
         if((capacity * loadFactor) < size) {
             int newCapacity =  (capacity << 1);
-            int oldSize = size;
             if(newCapacity < capacity) { capacity = Integer.MAX_VALUE; }
 
             capacity = newCapacity;
             Node<Key, Value>[] newTable = new Node[capacity], oldTab  = table;
             table = newTable;
+            size = 0;
             for(int i = 0, size = oldTab.length; i < size; i++) {
                 if(oldTab[i] != null) {
                     Node<Key, Value> p = oldTab[i];
@@ -159,7 +159,6 @@ public class HashMap<Key, Value> implements Map<Key, Value> {
                     oldTab[i] = null;
                 }
             }
-            size = oldSize;
         }
     }
 
