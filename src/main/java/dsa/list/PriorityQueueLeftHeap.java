@@ -3,7 +3,8 @@ package dsa.list;
 import java.util.Iterator;
 
 /**
- * This implementation is wrong
+ * for more info, please see the link below
+ * https://www.geeksforgeeks.org/leftist-tree-leftist-heap/
  * */
 public class PriorityQueueLeftHeap<E extends Comparable<E>> implements Queue<E> {
 
