@@ -1,5 +1,6 @@
 package dsa.list;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 
@@ -48,19 +49,19 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
         }
     }
 
-    private int maxChild(int i) {
+    private int maxChild(int i, int size) {
         int right = rightChild(i), left = leftChild(i);
 
-        return right < size() ?
+        return right < size ?
                 (less(elements[right], elements[left]) ? left : right) :
-                (left < size()) ? left : i;
+                (left < size) ? left : i;
     }
 
-    private void percolateDown(int parent) {
-        int maxChild;
-        while(parent != (maxChild = maxChild(parent)) && less(elements[parent], elements[maxChild])) {
-            exchange(parent, maxChild);
-            parent = maxChild;
+    private void percolateDown(int parent, int size) {
+        int child;
+        while(parent != (child = maxChild(parent, size)) && less(elements[parent], elements[child])) {
+            exchange(parent, child);
+            parent = child;
         }
     }
 
@@ -85,6 +86,12 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
         }
     }
 
+    private void heapify() {
+        for(int i = (size / 2) - 1; i >= 0; i--) {
+            percolateDown(i, size);
+        }
+    }
+
     public PriorityQueue(int capacity) {
         elements = new Comparable[capacity];
         this.capacity = capacity;
@@ -93,6 +100,13 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
 
     public PriorityQueue() {
         this(DEFAULT_CAPACITY);
+    }
+
+    public PriorityQueue(E[] elements) {
+        this.elements = Arrays.copyOf(elements, elements.length);
+        capacity = elements.length;
+        size = elements.length;
+        heapify();
     }
 
 
@@ -114,7 +128,7 @@ public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
         E max = (E) elements[0];
         elements[0] = elements[--size];
         elements[size] = null;
-        percolateDown(0);
+        percolateDown(0, size);
         shrink();
         return max;
     }

@@ -56,7 +56,7 @@ public class Sorts {
                 int mid=(begin+end)/2, inversion = 0;
                 inversion += MergeSort(num, begin, mid, temp);
                 inversion += MergeSort(num, mid+1, end, temp);
-                return inversion += Merge(num, begin, mid, end, temp);
+                return inversion + Merge(num, begin, mid, end, temp);
             }
 
             return 0;

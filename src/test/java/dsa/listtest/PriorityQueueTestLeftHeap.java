@@ -1,16 +1,17 @@
 package dsa.listtest;
 
-import dsa.list.PriorityQueue;
+import dsa.list.PriorityQueueLeftHeap;
+import dsa.list.Queue;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Random;
 
-public class PriorityQueueTest {
+public class PriorityQueueTestLeftHeap {
 
     @Test
     public void addAndRemoveTest() {
-        PriorityQueue<Integer> integers = new PriorityQueue<>();
+        Queue<Integer> integers = new PriorityQueueLeftHeap<>();
         Random random = new Random();
         int loops = 100;
         for(int i = 0; i < loops; i++) {
@@ -32,15 +33,14 @@ public class PriorityQueueTest {
 
     @Test
     public void heapifyTest() {
-        int size = 1000;
+        int size = 10000;
         Random random = new Random();
         Integer[] ints = new Integer[size];
         for(int i = 0; i < size; i++) {
-           // ints[i] = random.nextInt(size);
-            ints[i] =i;
+           ints[i] = random.nextInt(size);
         }
 
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(ints);
+        Queue<Integer> queue = new PriorityQueueLeftHeap<>(ints);
         int lastRemove = Integer.MAX_VALUE;
         for(int i = 0; i < size; i++) {
             int remove = queue.dequeue();
