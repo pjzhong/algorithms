@@ -29,6 +29,17 @@ public class PriorityQueueLeftHeap<E extends Comparable<E>> implements Queue<E> 
         e.right = t;
     }
 
+    /**
+     * Detailed Steps for Merge:
+     * 1.Compare the roots of two heaps.
+     * 2.Push the smaller key into an empty stack, and move to the right child of smaller key.
+     * 3.Recursively compare two keys and go on pushing the smaller key onto the stack and move to its right child.
+     * 4.Repeat until a null node is reached.
+     * 5.Take the last node processed and make it the right child of the node at top of the stack, and convert it to
+     *   leftist heap if the properties of leftist heap are violated.
+     * 6.Recursively go on popping the elements from the stack and making them the right child of new stack top.
+     *
+     * */
     private Node<E> merge(Node<E> a, Node<E> b) {
         if(a == null) { return b;}
         if(b == null) { return a;}
