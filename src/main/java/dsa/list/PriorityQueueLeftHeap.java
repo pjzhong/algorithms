@@ -72,11 +72,6 @@ public class PriorityQueueLeftHeap<E extends Comparable<E>> implements Queue<E> 
         }
     }
 
-    public PriorityQueueLeftHeap(PriorityQueueLeftHeap<E> queue) {
-        this.root = queue.root;
-        this.size = queue.size;
-    }
-
     @Override
     public void enqueue(E value) {
         Node<E> n = new Node<>(value);
