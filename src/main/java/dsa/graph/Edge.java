@@ -1,13 +1,9 @@
 package dsa.graph;
 
-import lombok.Getter;
-import lombok.Setter;
 
-
-@Setter
 public class Edge<T> {
-    @Getter private T data;
-    @Getter private EdgeType type = EdgeType.UNKNOWN;
+    private T data;
+    private EdgeType type = EdgeType.UNKNOWN;
     private Vertex from;
     private Vertex to;
 
@@ -26,6 +22,26 @@ public class Edge<T> {
 
     public Vertex from() {
         return from;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public EdgeType getType() {
+        return type;
+    }
+
+    public void setType(EdgeType type) {
+        this.type = type;
+    }
+
+    public void setFrom(Vertex from) {
+        this.from = from;
+    }
+
+    public void setTo(Vertex to) {
+        this.to = to;
     }
 
     @Override

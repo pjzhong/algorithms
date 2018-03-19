@@ -2,14 +2,12 @@ package dsa.graph;
 
 import dsa.list.LinkedList;
 import dsa.list.List;
-import lombok.Getter;
-import lombok.Setter;
 
 public class Vertex<T> {
-    @Getter private T data;
-    @Setter @Getter private VertexStatus status = VertexStatus.UNDISCOVERED;
-    @Setter @Getter private long discoverTime;
-    @Setter @Getter private long finishedTime;
+    private T data;
+    private VertexStatus status = VertexStatus.UNDISCOVERED;
+    private long discoverTime;
+    private long finishedTime;
     private List<Edge> inEdges;
     private List<Edge> outEdge;
 
@@ -57,6 +55,34 @@ public class Vertex<T> {
     public boolean removeInEdge(Edge edge) {
         edge.setTo(null);
         return inEdges.remove(edge);
+    }
+
+    public VertexStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(VertexStatus status) {
+        this.status = status;
+    }
+
+    public long getDiscoverTime() {
+        return discoverTime;
+    }
+
+    public void setDiscoverTime(long discoverTime) {
+        this.discoverTime = discoverTime;
+    }
+
+    public long getFinishedTime() {
+        return finishedTime;
+    }
+
+    public void setFinishedTime(long finishedTime) {
+        this.finishedTime = finishedTime;
+    }
+
+    public T getData() {
+        return data;
     }
 
     @Override
