@@ -6,18 +6,21 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 public class HashMapTest {
 
     Map<Integer, Integer> map = new HashMap<>();
 
     @Before
     public void before() {
+        Random random = new Random();
         int loop = 1000;
-        for(int i = 0; i < loop; i++) {
-            map.put(i, i);
+        for(int i = 0, next; i < loop; i++) {
+            next = random.nextInt();
+            map.put(next, next);
         }
 
-        Assert.assertEquals(loop, map.size());
         Assert.assertFalse(map.isEmpty());
     }
 

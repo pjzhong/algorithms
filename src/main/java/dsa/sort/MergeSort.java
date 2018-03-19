@@ -7,7 +7,7 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
     @Override
     public E[] sort(E[] e, int lo, int hi) {
         E[] temp =(E[]) Array.newInstance(e.getClass().getComponentType(), e.length);
-        MergeSort(e, lo, hi, temp);
+        MergeSort(e, lo, hi - 1, temp);
         return e;
     }
 
@@ -27,7 +27,7 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
         int start=0;
 
         int inversion = 0;
-        while(left<=mid && right<=end) {
+        while(left <= mid && right <= end) {
             if(less(num[left], num[right])) {
                 temp[start++] = num[left++];
             } else {
@@ -44,7 +44,7 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
             temp[start++] = num[right++];
         }
 
-        for(int loop=0;loop<start;loop++)
+        for(int loop=0; loop < start; loop++)
             num[begin+loop]=temp[loop];
 
         return inversion;

@@ -133,8 +133,6 @@ public abstract class BinaryTree<Key, Value> {
 
     protected abstract Node getRoot();
 
-    @Getter
-    @Setter
     protected class Node {
         Key key;
         Value value;
@@ -146,6 +144,54 @@ public abstract class BinaryTree<Key, Value> {
             this.parent = parent;
             this.key = key;
             this.value = value;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+
+        public void setHeight(int height) {
+            this.height = height;
+        }
+
+        public int getSize() {
+            return size;
+        }
+
+        public void setSize(int size) {
+            this.size = size;
+        }
+
+        public Node getRight() {
+            return right;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getParent() {
+            return parent;
+        }
+
+        public void setParent(Node parent) {
+            this.parent = parent;
+        }
+
+        public Value getValue() {
+            return value;
+        }
+
+        public void setValue(Value value) {
+            this.value = value;
+        }
+
+        public Key getKey() {
+            return key;
+        }
+
+        public void setKey(Key key) {
+            this.key = key;
         }
 
         public void setLeft(Node child) {

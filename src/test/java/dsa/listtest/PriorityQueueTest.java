@@ -36,8 +36,7 @@ public class PriorityQueueTest {
         Random random = new Random();
         Integer[] ints = new Integer[size];
         for(int i = 0; i < size; i++) {
-           // ints[i] = random.nextInt(size);
-            ints[i] =i;
+            ints[i] = random.nextInt(size);
         }
 
         PriorityQueue<Integer> queue = new PriorityQueue<Integer>(ints);
