@@ -3,8 +3,6 @@ package dsa.tree;
 
 import dsa.list.LinkedList;
 import dsa.list.Stack;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.function.Consumer;
 
