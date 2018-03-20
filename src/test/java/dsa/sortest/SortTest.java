@@ -2,8 +2,10 @@ package dsa.sortest;
 
 import dsa.sort.*;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class SortTest {
@@ -38,17 +40,25 @@ public class SortTest {
         Sort(sort);
     }
 
-    private static <E extends Comparable<E>>void Sort(Sort<E> sort) {
+    private void Sort(Sort sort) {
+        Integer[] thiData = Arrays.copyOf(data, data.length);
+
+        sort.sort(thiData, 0, thiData.length);
+        for(int i = 1, size = thiData.length; i < size; i++) {
+            Assert.assertTrue((thiData[i - 1].compareTo(thiData[i])) <= 0);
+        }
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
         int size = 100000;
         Random random = new Random();
-        Integer[] data = new Integer[size];
+        data = new Integer[size];
         for(int i = 0; i < size; i++) {
             data[i] = random.nextInt(size);
         }
-
-        sort.sort((E[]) data, 0, data.length);
-        for(int i = 1; i < size; i++) {
-            Assert.assertTrue((data[i - 1].compareTo(data[i])) <= 0);
-        }
     }
+
+    private static Integer[] data;
+
 }
