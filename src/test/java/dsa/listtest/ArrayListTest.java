@@ -4,14 +4,15 @@ import dsa.list.ArrayList;
 import dsa.list.List;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ArrayListTest {
 
-    List<Integer> list = new ArrayList<>();
+    private static List<Integer> list = new ArrayList<>();
 
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         int sizes = 100;
         for(int i = 0; i < 100; i++) {
             list.add(i);

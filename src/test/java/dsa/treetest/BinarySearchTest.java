@@ -3,6 +3,7 @@ package dsa.treetest;
 import dsa.tree.BinarySearchTree;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Random;
@@ -10,12 +11,11 @@ import java.util.function.Consumer;
 
 public class BinarySearchTest {
 
-    BinarySearchTree<Integer, String> tree = new BinarySearchTree<>();
-    private int randomLimit = 10000000;
+    private static BinarySearchTree<Integer, String> tree = new BinarySearchTree<>();
+    private static int randomLimit = 10000000;
 
-
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         Random random = new Random();
         int loops = 100000;
         for(int i = 1, next = -1; i <= loops; i++) {

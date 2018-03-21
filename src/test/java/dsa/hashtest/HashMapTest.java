@@ -4,16 +4,17 @@ import dsa.hash.HashMap;
 import dsa.hash.Map;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Random;
 
 public class HashMapTest {
 
-    Map<Integer, Integer> map = new HashMap<>();
+    private static Map<Integer, Integer> map = new HashMap<>();
 
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         Random random = new Random();
         int loop = 1000;
         for(int i = 0, next; i < loop; i++) {

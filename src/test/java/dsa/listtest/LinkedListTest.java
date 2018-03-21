@@ -3,14 +3,15 @@ package dsa.listtest;
 import dsa.list.*;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LinkedListTest {
 
-    LinkedList<Integer> list = new LinkedList<>();
+    private static LinkedList<Integer> list = new LinkedList<>();
 
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         int sizes = 100;
         for(int i = 0; i < 100; i++) {
             list.add(i);

@@ -3,6 +3,7 @@ package dsa.treetest;
 import dsa.tree.SplayBinarySearchTree;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.*;
@@ -10,12 +11,12 @@ import java.util.function.Consumer;
 
 public class SplayTreeTest {
 
-    SplayBinarySearchTree<Integer, String> tree = new SplayBinarySearchTree<>();
+    private static SplayBinarySearchTree<Integer, String> tree = new SplayBinarySearchTree<>();
 
-    private int loops = 100;
+    private static int loops = 100;
 
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         Random random = new Random();
 
         for(int i = 0, next; i < loops; i++) {
@@ -49,19 +50,6 @@ public class SplayTreeTest {
         Assert.assertEquals(stringSet.size(), tree.size());
         Assert.assertEquals(stringList.size(), tree.size());
         Assert.assertEquals(stringSet.size(), stringList.size());
-    }
-
-    @Test
-    public void deleteTest() {
-        List<String> strs = new LinkedList<>();
-        tree.inOrderTraversal(strs::add);
-
-        for(String str : strs) {
-            tree.remove(Integer.valueOf(str));
-        }
-
-        Assert.assertEquals(0, tree.size());
-        Assert.assertTrue(tree.isEmpty());
     }
 
     @Test

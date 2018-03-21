@@ -3,6 +3,7 @@ package dsa.treetest;
 import dsa.tree.AVLBinarySearchTree;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.*;
@@ -10,12 +11,12 @@ import java.util.function.Consumer;
 
 public class AVLBinarySearchTreeTest {
 
-    AVLBinarySearchTree<Integer, String> tree = new AVLBinarySearchTree<>();
-    private int randomLimit = 100000000;
+    private static AVLBinarySearchTree<Integer, String> tree = new AVLBinarySearchTree<>();
+    private static int randomLimit = 100000000;
 
 
-    @Before
-    public void before() {
+    @BeforeClass
+    public static void before() {
         Random random = new Random();
         int loops = 10000;
         for(int i = 1, next = -1; i <= loops; i++) {

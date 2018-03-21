@@ -2,36 +2,51 @@ package dsa.treetest;
 
 import dsa.tree.RedBlackTree;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class RedBlackTreeTest {
 
-    RedBlackTree<Integer, Integer> tree = new RedBlackTree<>();
+    private static RedBlackTree<Integer, Integer> tree = new RedBlackTree<>();
 
-    @Before
-    public void before() {
-       for(int i = 1; i <= 22; i++) {
-           tree.put(i, i);
-       }
+    @BeforeClass
+    public static void before() {
+        int size = 1000;
+        for(int i = 1; i <= size; i++) {
+            tree.put(i, i);
+        }
     }
 
     @Test
-    public void deleteTest() {
-        List<Integer> strs = new LinkedList<>();
-        tree.inOrderTraversal(strs::add);
+    public void inOrderTraversalGet() {
+        Set<Integer> stringSet = new HashSet<>();
+        List<Integer>  stringList = new ArrayList<>();
+        tree.inOrderTraversal(stringSet::add);
+        tree.postOrderTraversal(stringList::add);
 
-        for(Integer i : strs) {
-            tree.remove(Integer.valueOf(i));
+
+        for(Integer str : stringSet) {
+            Assert.assertNotNull(tree.get(Integer.valueOf(str)));
         }
 
-        Assert.assertEquals(0, tree.size());
-        Assert.assertTrue(tree.isEmpty());
+        //todo 改写成迭代式旋转。如果数据量大，会出现stackOverFlowException
+        for(Integer str : stringList) {
+            Assert.assertNotNull(tree.get(Integer.valueOf(str)));
+        }
+
+
+        for(Integer str : stringList) {
+            Assert.assertTrue(stringSet.contains(str));
+        }
+
+        Assert.assertEquals(stringSet.size(), tree.size());
+        Assert.assertEquals(stringList.size(), tree.size());
+        Assert.assertEquals(stringSet.size(), stringList.size());
     }
+
 
     @Test
     public void traversalTest() {
@@ -42,10 +57,4 @@ public class RedBlackTreeTest {
         tree.levelTraversal(consumer);
         tree.postOrderTraversal(consumer);
     }
-
-    @Test
-    public void test() {
-        tree.remove(17);
-    }
-
 }
