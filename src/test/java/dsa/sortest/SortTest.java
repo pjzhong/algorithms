@@ -40,6 +40,12 @@ public class SortTest {
         Sort(sort);
     }
 
+    @Test
+    public void QuickSOrt() {
+        Sort<Integer> sort = new QuickSort<>();
+        Sort(sort);
+    }
+
     private void Sort(Sort sort) {
         Integer[] thiData = Arrays.copyOf(data, data.length);
 

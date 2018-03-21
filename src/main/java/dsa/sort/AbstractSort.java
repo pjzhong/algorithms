@@ -11,6 +11,10 @@ public abstract class AbstractSort<E> implements Sort<E> {
         return a.compareTo(b) < 0;
     }
 
+    protected boolean lessEq(Comparable a, Comparable b) {
+        return a.compareTo(b) <= 0;
+    }
+
     protected void swap(Comparable[] elements, int a, int b) {
         Comparable t = elements[a];
         elements[a] = elements[b];
