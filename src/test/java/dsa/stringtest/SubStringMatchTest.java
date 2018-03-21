@@ -2,27 +2,43 @@ package dsa.stringtest;
 
 import dsa.string.SubStringMatchBruteForce;
 import dsa.string.SubStringMatchKMP;
+import dsa.string.SubStringMatchBMBC;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.*;
+import java.net.URISyntaxException;
 
 public class SubStringMatchTest {
 
-    private String pattern;
-    private String text;
-    private int javaStringResult;
+    private static String pattern;
+    private static String text;
+    private static int javaStringResult;
 
-    @Before
-    public void before() {
-        this.pattern = "aaaaaaaaac";
-        int size = 29999999;
-        StringBuilder builder = new StringBuilder(size);
-        for(int i = 0; i < size; i++) {
-            builder.append('a');
+    @BeforeClass
+    public static void before() {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new InputStreamReader((Thread.currentThread().getContextClassLoader().getResourceAsStream("data.txt"))));
+            StringBuilder builder = new StringBuilder();
+            reader.lines().forEach(builder::append);
+
+            text = builder.toString();
+            pattern = "going";
+            javaStringResult = text.indexOf(pattern);
+        } finally {
+            if(reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
-        builder.append('c');
-        this.text = builder.toString();
-        this.javaStringResult = text.indexOf(pattern);
+
     }
 
     @Test
@@ -34,7 +50,12 @@ public class SubStringMatchTest {
     @Test
     public void bruteForceTest() {
         SubStringMatchBruteForce match = new SubStringMatchBruteForce(pattern);
+        Assert.assertEquals(javaStringResult, match.match(text));
+    }
 
+    @Test
+    public void BMBCTest() {
+        SubStringMatchBMBC match = new SubStringMatchBMBC(pattern);
         Assert.assertEquals(javaStringResult, match.match(text));
     }
 
