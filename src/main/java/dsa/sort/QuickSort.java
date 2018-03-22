@@ -11,7 +11,7 @@ public class QuickSort<E extends Comparable<E>> extends AbstractSort<E> {
         return quickSort(e, lo, hi - 1);
     }
 
-    private E[] quickSort(E[] e, int lo, int hi) {
+    private E[] quickSort(E[] e, int lo, int hi) {//[lo, hi]
         if(hi - lo < 1) { return e; }
         int mid = partition(e, lo, hi);
         quickSort(e, lo, mid);

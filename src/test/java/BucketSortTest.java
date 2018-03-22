@@ -1,3 +1,5 @@
+import dsa.sort.InsertionSort;
+import dsa.sort.Sort;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ import java.util.List;
 public class BucketSortTest {
 
     private final int DEFAULT_BUCKET_SIZE = 10;
+    private Sort<Integer> integerSort = new InsertionSort<>();
 
     @Test
     public void test() {
@@ -48,7 +51,7 @@ public class BucketSortTest {
         for(int i = 0, size = buckets.size(), currentIndex = 0; i < size; i++) {
             Integer[] bucketArray = new Integer[buckets.get(i).size()];
             bucketArray = buckets.get(i).toArray(bucketArray);
-            InsertingSort.sort(bucketArray);
+            integerSort.sort(bucketArray, 0, bucketArray.length);
             for(int j = 0; j < bucketArray.length; j++) {
                 array[currentIndex++] = bucketArray[j];
             }
