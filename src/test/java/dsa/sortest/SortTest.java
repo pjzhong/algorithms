@@ -23,6 +23,12 @@ public class SortTest {
     }
 
     @Test
+    public void ShellSortTest() {
+        Sort<Integer> sort = new ShellSort<>();
+        Sort(sort);
+    }
+
+    @Test
     public void MergeSortTest() {
         Sort<Integer> sort = new MergeSort<>();
         Sort(sort);
@@ -35,13 +41,13 @@ public class SortTest {
     }
 
     @Test
-    public void SelectionSort() {
+    public void SelectionSortTest() {
         Sort<Integer> sort = new SelectionSort<>();
         Sort(sort);
     }
 
     @Test
-    public void QuickSOrt() {
+    public void QuickSortTest() {
         Sort<Integer> sort = new QuickSort<>();
         Sort(sort);
     }

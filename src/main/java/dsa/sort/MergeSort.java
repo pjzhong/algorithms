@@ -13,7 +13,7 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
 
     private int MergeSort(Comparable[] num, int begin, int end, Comparable[] temp) {
         if(begin<end) {
-            int mid=(begin+end)/2, inversion = 0;
+            int mid = (begin + end) / 2, inversion = 0;
             inversion += MergeSort(num, begin, mid, temp);
             inversion += MergeSort(num, mid+1, end, temp);
             return inversion + Merge(num, begin, mid, end, temp);
@@ -23,8 +23,8 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
     }
 
     private int Merge(Comparable[] num, int begin, int mid, int end, Comparable[] temp) {
-        int left=begin,right=mid+1;
-        int start=0;
+        int left = begin,right = mid + 1;
+        int start = 0;
 
         int inversion = 0;
         while(left <= mid && right <= end) {
@@ -45,7 +45,7 @@ public class MergeSort<E extends Comparable<E>> extends AbstractSort<E> {
         }
 
         for(int loop=0; loop < start; loop++)
-            num[begin+loop]=temp[loop];
+            num[begin+loop] = temp[loop];
 
         return inversion;
     }
