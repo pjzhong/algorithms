@@ -76,7 +76,6 @@
 		│  	├─ deleteAndEarnTest.java
 		│  	├─ DivisionTest.java
 		│  	├─ dsa
-		│  	│  	├─ DirectoryTreeTest.java
 		│  	│  	├─ graphTest
 		│  	│  	│  	├─ BreadthSearchFirstTest.java
 		│  	│  	│  	├─ GraphTest.java
@@ -124,5 +123,5 @@
 		│  	└─ TheMissing.java
 		└─ resources
 			└─ data.txt
-23 directories,	97 files	
+23 directories,	96 files	
 ```	
