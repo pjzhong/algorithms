@@ -69,6 +69,9 @@
 	│  	└─ resources
 	└─ test
 		├─ java
+		│  	├─ BinaryTreeInorderTraversal.java
+		│  	├─ BinaryTreePostorderorderTraversal.java
+		│  	├─ BinaryTreePreorderorderTraversal.java
 		│  	├─ bitOnes.java
 		│  	├─ BucketSortTest.java
 		│  	├─ ClimbWays.java
@@ -82,7 +85,6 @@
 		│  	│  	│  	├─ ProperBinaryTreeReBuild.java
 		│  	│  	│  	└─ TSP.java
 		│  	│  	├─ hashtest
-		│  	│  	│  	├─ Deduplicate.java
 		│  	│  	│  	├─ HashMapTest.java
 		│  	│  	│  	└─ TreeMapTest.java
 		│  	│  	├─ listtest
@@ -91,12 +93,6 @@
 		│  	│  	│  	├─ LinkedListTest.java
 		│  	│  	│  	├─ PriorityQueueTest.java
 		│  	│  	│  	└─ PriorityQueueTestLeftHeap.java
-		│  	│  	├─ problems
-		│  	│  	│  	├─ ConvertTest.java
-		│  	│  	│  	├─ EvaluaterTest.java
-		│  	│  	│  	├─ ParensTest.java
-		│  	│  	│  	├─ RangHomeWork.java
-		│  	│  	│  	└─ ZumaTest.java
 		│  	│  	├─ sortest
 		│  	│  	│  	├─ MajorityTest.java
 		│  	│  	│  	└─ SortTest.java
@@ -120,8 +116,9 @@
 		│  	├─ TargetSumTest.java
 		│  	├─ TheLongestCommonSequenceTest.java
 		│  	├─ TheMaxDiffTest.java
-		│  	└─ TheMissing.java
+		│  	├─ TheMissing.java
+		│  	└─ TreeNode.java
 		└─ resources
 			└─ data.txt
-23 directories,	96 files	
+22 directories,	94 files	
 ```	
