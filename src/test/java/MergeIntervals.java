@@ -25,23 +25,23 @@ public class MergeIntervals {
     }
 
     public List<Interval> merge(List<Interval> intervals) {
+        if(intervals.isEmpty()) { return intervals; }
         Comparator<Interval> comparator = (i1, i2) -> i1.start - i2.start;
         Collections.sort(intervals, comparator);
 
         List<Interval> result = new ArrayList<>(intervals.size());
 
+        Interval that = intervals.get(0);
         for(int i = 0, size = intervals.size(); i < size; i++) {
-            Interval that = intervals.get(i);
-            for(int k = i + 1; k < size;i = k++) {
-                Interval temp = intervals.get(k);
-                if(temp.start <= that.end) {
-                    that.end = Math.max(temp.end, that.end);
-                } else {
-                    i = k - 1;break;
-                }
+            Interval temp = intervals.get(i);
+            if(temp.start <= that.end) {
+                that.end = Math.max(temp.end, that.end);
+            } else {
+                result.add(that);
+                that = temp;
             }
-            result.add(that);
         }
+        result.add(that);
 
         return result;
     }
