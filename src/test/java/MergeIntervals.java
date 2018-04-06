@@ -32,7 +32,6 @@ public class MergeIntervals {
 
         for(int i = 0, size = intervals.size(); i < size; i++) {
             Interval that = intervals.get(i);
-            that = new Interval(that.start, that.end);
             for(int k = i + 1; k < size;i = k++) {
                 Interval temp = intervals.get(k);
                 if(temp.start <= that.end) {
