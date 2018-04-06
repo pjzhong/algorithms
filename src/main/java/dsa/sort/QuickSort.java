@@ -22,7 +22,7 @@ public class QuickSort<E extends Comparable<E>> extends AbstractSort<E> {
     /***
      * this implementation is more simpler than the previous
      * in this version, @param e would  be separate into four parts
-     * e = [lo] + L(lo, mi] + G(mi, k) + U[u, hi]
+     * e = [lo] + L(lo, mi] + G(mi, k) + U[k, hi]
      * L < pivot <= G
      * for more info, see the link below
      * http://www.xuetangx.com/courses/course-v1:TsinghuaX+30240184_2X+sp/courseware/c15aad6e2dac4250934ea61d71deafd9/ab3cca35d795409f9693edd6cf25f192/
