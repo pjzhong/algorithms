@@ -18,7 +18,7 @@ import java.util.List;
  *
  *  https://leetcode.com/problems/binary-tree-preorder-traversal/description/
  * */
-public class BinaryTreePreorderorderTraversal {
+public class BinaryTreePreorderTraversal {
 
     public List<Integer> preOrderTraversal(TreeNode root) {
         List<Integer> result = new LinkedList<>();
