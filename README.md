@@ -123,5 +123,5 @@
 		│  	└─ TreeNode.java
 		└─ resources
 			└─ data.txt
-22 directories,	97 files	
+22 directories,	97 files
 ```	
