@@ -44,7 +44,6 @@ public class HouseRobberTest {
         System.out.println(hourRobberDp(nums));
         System.out.println(hourRobberOfficialDp(nums));
         System.out.println(hourRobberRecursiveOptimize(0, 0, 0, nums));
-
     }
 
     private int hourRobberOfficialDp(int[] nums) {
@@ -63,7 +62,7 @@ public class HouseRobberTest {
      *
      * 状态转移公式：F[i] = Math.MAX(F[i - 2] + nums[i], F[i - 1])
      *
-     * 本来中午的时候就快抽象成功了，在最后的时候遇到苦难你的思路就全部乱了
+     * 本来中午的时候就快抽象成功了，快到最后你的思路就全部乱了
      * 反思一下，为什么会这样？
      * */
     private int hourRobberDp(int[] nums) {
