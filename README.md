@@ -74,6 +74,7 @@
 		│  	├─ BinaryTreePreorderTraversal.java
 		│  	├─ bitOnes.java
 		│  	├─ BucketSortTest.java
+		│  	├─ ClimbingStairsTest.java
 		│  	├─ ClimbWays.java
 		│  	├─ CoinChangeTest.java
 		│  	├─ deleteAndEarnTest.java
@@ -110,7 +111,9 @@
 		│  	├─ HouseRobberTestII.java
 		│  	├─ HouseRobberTestIII.java
 		│  	├─ LargestNumber.java
+		│  	├─ LongestIncreasingSubsequence.java
 		│  	├─ MergeIntervals.java
+		│  	├─ MinCostClimbingStairsTest.java
 		│  	├─ MissingNumbersTest.java
 		│  	├─ MoveZerosTest.java
 		│  	├─ PartitionEqualSubsetSumTest.java
@@ -123,5 +126,5 @@
 		│  	└─ TreeNode.java
 		└─ resources
 			└─ data.txt
-22 directories,	97 files
+22 directories,	100 files	
 ```	
