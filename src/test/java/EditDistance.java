@@ -32,7 +32,7 @@ public class EditDistance {
                 {"abc", "abeabc"},
                 {"geek", "gesek"},
                 {"pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopicsilicovolcanoconiosis"},
-                {"pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopically"}// worst  case
+              //  {"pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopically"}// worst  case
         };
 
         for(String[] test : testCases) {
@@ -41,10 +41,14 @@ public class EditDistance {
     }
 
     public void minDistance(String str1, String str2) {
-        Assert.assertEquals(my(str1, str2), editDist(str1, str2, str1.length(), str2.length()));
+        Assert.assertEquals(my(str1, str2), editDist(str1, str2, str1.length(), str2.length()), editDistDp(str1, str2));
     }
 
-    //ugly code....... my code
+    /**
+     * ugly code....... my code
+     *
+     * failed to solve this problem by myself,
+     * */
     private int my(String str1, String str2) {
         min = Integer.MAX_VALUE;
         StringBuilder builder = new StringBuilder(str2.length()).append(str1);
@@ -117,9 +121,36 @@ public class EditDistance {
             return editDist(str1, str2, m - 1, n - 1);
         }
 
-        return 1 + Math.min(
-                Math.min(editDist(str1, str2, m, n - 1), editDist(str1, str2, m - 1, n)),//Insert, remove
-                editDist(str1,str2, m - 1, n - 1)//Replace
+        return 1 + Math.min(//try to draw a graph for these three operations, if you can't understand
+                Math.min(editDist(str1, str2, m, n - 1), //Insert
+                        editDist(str1, str2, m - 1, n)),//remove
+                 editDist(str1,str2, m - 1, n - 1)//Replace
         );
+    }
+
+    //find in bottom up manner
+    private int editDistDp(String str1, String str2) {
+        int[][] dp = new int[str1.length() + 1][str2.length() + 1];
+
+        for(int m = 0, mSize = str1.length(); m <= mSize; ++m) {
+            for(int n = 0, nSize = str2.length(); n <= nSize; ++n) {
+                if(m == 0) { dp[m][n] = n;}
+                else if(n == 0) { dp[m][n] = m;}
+                else if(str1.charAt(m - 1) == str2.charAt(n - 1)) {
+                    dp[m][n] = dp[m - 1][n - 1];
+                } else {
+                    dp[m][n] = 1 + Math.min(
+                              Math.min(
+                                      dp[m][n - 1], //Insert
+                                      dp[m - 1][n] //Remove
+                              ),
+                                      dp[m - 1][n - 1]//Replace
+                            );
+                }
+
+            }
+        }
+
+        return dp[str1.length()][str2.length()];
     }
 }
