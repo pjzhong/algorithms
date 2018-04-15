@@ -121,7 +121,9 @@ public class EditDistance {
             return editDist(str1, str2, m - 1, n - 1);
         }
 
-        return 1 + Math.min(//try to draw a graph for these three operations, if you can't understand
+        // One of the keys to solved this problem, untouched the two Strings to find the answer.
+        //try to draw a graph for these three operations, if you can't understand
+        return 1 + Math.min(
                 Math.min(editDist(str1, str2, m, n - 1), //Insert
                         editDist(str1, str2, m - 1, n)),//remove
                  editDist(str1,str2, m - 1, n - 1)//Replace

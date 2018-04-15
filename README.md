@@ -105,6 +105,7 @@
 		│  	│  		├─ RedBlackTreeTest.java
 		│  	│  		└─ SplayTreeTest.java
 		│  	├─ DynamicProgramming.java
+		│  	├─ EditDistance.java
 		│  	├─ EuclideanAlgorithm.java
 		│  	├─ FindDuplicatesTest.java
 		│  	├─ HouseRobberTest.java
@@ -114,6 +115,7 @@
 		│  	├─ LongestIncreasingSubsequence.java
 		│  	├─ MergeIntervals.java
 		│  	├─ MinCostClimbingStairsTest.java
+		│  	├─ MinimumPathSum.java
 		│  	├─ MissingNumbersTest.java
 		│  	├─ MoveZerosTest.java
 		│  	├─ PartitionEqualSubsetSumTest.java
@@ -126,5 +128,5 @@
 		│  	└─ TreeNode.java
 		└─ resources
 			└─ data.txt
-22 directories,	100 files	
+22 directories,	102 files	
 ```	
