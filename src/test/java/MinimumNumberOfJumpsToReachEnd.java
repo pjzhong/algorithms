@@ -34,7 +34,7 @@ public class MinimumNumberOfJumpsToReachEnd {
     }
 
     /**
-     * Perfect, you can solved this question by myself without looking at the answer!!!!
+     * Perfect, you can solved this question by yourself without looking at the answer!!!!
      * */
     public static int minimumJumps(int[] jumps) {
         final int MAX_VALUE = Integer.MAX_VALUE - 1;
