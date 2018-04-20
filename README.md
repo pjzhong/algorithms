@@ -5,7 +5,6 @@
 
 ```
 ├─ .gitignore
-├─ blablabla.txt
 ├─ LICENSE
 ├─ pom.xml
 ├─ README.md
@@ -108,6 +107,7 @@
 			│  		└─ SplayTreeTest.java
 			├─ DynamicProgramming.java
 			├─ EditDistance.java
+			├─ EggDroppingPuzzle.java
 			├─ EuclideanAlgorithm.java
 			├─ FindDuplicatesTest.java
 			├─ HouseRobberTest.java
@@ -115,6 +115,7 @@
 			├─ HouseRobberTestIII.java
 			├─ LargestNumber.java
 			├─ LongestIncreasingSubsequence.java
+			├─ LongestPalindromicSubsequence.java
 			├─ MergeIntervals.java
 			├─ MinCostClimbingStairsTest.java
 			├─ MinimumNumberOfJumpsToReachEnd.java
@@ -129,5 +130,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-20 directories,	105 files
+20 directories,	106 files
 ```	

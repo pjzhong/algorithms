@@ -1,4 +1,5 @@
 import java.io.BufferedInputStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -28,7 +29,8 @@ public class LongestPalindromicSubsequence {
         String input;
         for(; testCases > 0; --testCases) {
             input = in.nextLine();
-            System.out.println(recursive(input));
+            //System.out.println(recursive(input));
+            System.out.println(dp(input));
         }
     }
 
@@ -44,7 +46,11 @@ public class LongestPalindromicSubsequence {
 
     private static int recursive(String str) {
         int[][] dp = new int[str.length()][str.length()];
-        return recursive(str, 0, str.length() - 1, dp);
+        int result = recursive(str, 0, str.length() - 1, dp);
+        for(int[] d : dp) {
+            System.out.println(Arrays.toString(d));
+        }
+        return result;
     }
 
     private static int recursive(String str, int lo, int hi, int[][] dp) {//[lo, hi]
@@ -58,4 +64,43 @@ public class LongestPalindromicSubsequence {
             return dp[lo][hi] = Math.max(recursive(str, lo + 1, hi, dp), recursive(str, lo, hi - 1, dp));
         }
     }
+
+    /**
+     * iterative version is much slower then recursive version on leetcode
+     * */
+    private static int dp(String str) {
+        final int length = str.length();
+        int[][] dp = new int[length][length];
+        for(int i = 0; i < length; i++) {
+            dp[i][i] = 1;
+        }
+
+        /*your iterative-failed, shame.......
+        /* 漏处理了子字符串的长度
+        for(int hi = 1; hi < length - 1; hi++) {
+            for(int lo = 0; lo <= hi; lo++) {
+                if(lo == hi) {
+                    dp[lo][hi] = 1;
+                } else if(str.charAt(lo) == str.charAt(hi)) {
+                    dp[lo][hi] = 2 + dp[lo + 1][hi - 1];
+                } else {
+                    dp[lo][hi] = Math.max(dp[lo + 1][hi], dp[lo][hi - 1]);
+                }
+            }
+        }*/
+
+        for(int subLength = 1, hi = 0; subLength < length; ++subLength) {
+            for(int lo = 0, size = length - subLength; lo < size; ++lo) {
+                hi = lo + subLength;
+                if(str.charAt(lo) == str.charAt(hi)) {
+                    dp[lo][hi] = 2 + dp[lo + 1][hi - 1];
+                } else {
+                    dp[lo][hi] = Math.max(dp[lo + 1][hi], dp[lo][hi - 1]);
+                }
+            }
+        }
+
+        return dp[0][length - 1];
+    }
+
 }
