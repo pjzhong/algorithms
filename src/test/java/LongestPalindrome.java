@@ -46,8 +46,32 @@ public class LongestPalindrome {
     }
 
     /**
+     * A palindrome consists of letters with equal partners, plus possibly a unique center (without a partner).
+     * The letter i from the left has its partner i from the right. For example in 'abcba', 'aa' and 'bb' are partners,
+     * and 'c' is a unique center.
+     * Imagine we built our palindrome. It consists of as many partnered letters as possible,plus a unique center
+     * if possible. This motivates a greedy approach.
+     * */
+    private int longestPalindromeOffical(String s) {
+        int result = 0;
+        int[] count = new int[128];
+        for(int i = 0, size = s.length(); i < size; i++) {
+            count[s.charAt(i)]++;
+        }
+
+        for(int i : count) {
+            result += i / 2 * 2;
+            if(isEven(result) && !isEven(i)) {
+                result++;
+            }
+        }
+        return result;
+    }
+
+    /**
      * My solution.
-     * What can I say? ugly, hard to understand
+     * What can I say? ugly, hard to understand.
+     * You are not deeply understand this question!!!!!!!!!!!!!!!!!!!!!
      * */
     private int longestPalindrome(String s) {
         int result = 0;
