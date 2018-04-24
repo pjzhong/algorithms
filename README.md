@@ -93,6 +93,7 @@
 			├─ ClimbWays.java
 			├─ CoinChangeII.java
 			├─ CoinChangeTest.java
+			├─ CuttingRod.java
 			├─ deleteAndEarnTest.java
 			├─ DivisionTest.java
 			├─ dsa
@@ -132,6 +133,7 @@
 			├─ LongestIncreasingSubsequence.java
 			├─ LongestPalindrome.java
 			├─ LongestPalindromicSubsequence.java
+			├─ LongestPalindromicSubstring.java
 			├─ MergeIntervals.java
 			├─ MinCostClimbingStairsTest.java
 			├─ MinimumNumberOfJumpsToReachEnd.java
@@ -146,5 +148,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-21 directories,	121 files
+21 directories,	123 files
 ```	
