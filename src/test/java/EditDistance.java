@@ -112,7 +112,7 @@ public class EditDistance {
     }
     //ugly code....... my code -- end
 
-    //concise, but fast enough
+    //concise, but not fast enough
     private int editDist(String str1, String str2, int m, int n) {
         if(m == 0) { return n;}
         if(n == 0) { return m;}
