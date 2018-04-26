@@ -134,6 +134,7 @@
 			├─ LongestPalindrome.java
 			├─ LongestPalindromicSubsequence.java
 			├─ LongestPalindromicSubstring.java
+			├─ MaximumSumIncreasingSubsequence.java
 			├─ MergeIntervals.java
 			├─ MinCostClimbingStairsTest.java
 			├─ MinimumNumberOfJumpsToReachEnd.java
@@ -148,5 +149,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-21 directories,	123 files
+21 directories,	124 files
 ```	
