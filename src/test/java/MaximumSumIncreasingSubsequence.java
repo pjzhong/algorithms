@@ -39,13 +39,11 @@ public class MaximumSumIncreasingSubsequence {
             if(nums[maxIdx] < nums[i]) {
                 dp[i] += dp[maxIdx];
             } else {
-                int tail = dp[i];
                 for(int k = i - 1; 0 <= k; --k) {
-                    if(nums[k] < nums[i] && (tail < dp[k] + dp[i])) {//
-                        tail = dp[k] + dp[i];
+                    if(nums[k] < nums[i] && (dp[i] < dp[k] + nums[i])) {//
+                        dp[i] = dp[k] + nums[i];
                     }
                 }
-                dp[i] = tail;
             }
             if(dp[maxIdx] < dp[i]) { maxIdx = i; }
         }
