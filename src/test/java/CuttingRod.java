@@ -39,11 +39,7 @@ public class CuttingRod {
 
     /**
      * Complete package problem
-     * Pl = the price of length
-     * Pc = the length need to be cut
-     * L = the total length
-     * P = all prices of different length
-     * C(L, P) = Math.max(C(L, P), C(L - Pc, P) + Pl)
+     * cutRod(n) = max(prices[i] + cutRod(n-i-1)) for all i in {0, 1 .. n-1}
      * */
     private static int cuttingRod(int[] prices) {
         final int length = prices.length;
