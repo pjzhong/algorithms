@@ -1,7 +1,3 @@
-import org.junit.Test;
-
-import java.util.Random;
-
 /**
  * Given two binary trees, write a function to check if they are the same or not.
 
@@ -37,7 +33,7 @@ import java.util.Random;
  https://leetcode.com/problems/same-tree/description/
  * */
 public class SameTree {
-    
+
     public boolean isSameTree(TreeNode p, TreeNode q) {
         return isSame(p, q);
     }
