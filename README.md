@@ -85,6 +85,7 @@
 		└─ java
 			├─ BinaryTreeInorderTraversal.java
 			├─ BinaryTreeLevelOrderTraversal.java
+			├─ BinaryTreePaths.java
 			├─ BinaryTreePostorderTraversal.java
 			├─ BinaryTreePreorderTraversal.java
 			├─ bitOnes.java
@@ -129,6 +130,7 @@
 			├─ HouseRobberTest.java
 			├─ HouseRobberTestII.java
 			├─ HouseRobberTestIII.java
+			├─ InvertBinaryTree.java
 			├─ LargestNumber.java
 			├─ LongestIncreasingSubsequence.java
 			├─ LongestPalindrome.java
@@ -144,6 +146,7 @@
 			├─ MissingNumbersTest.java
 			├─ MoveZerosTest.java
 			├─ PartitionEqualSubsetSumTest.java
+			├─ SameTree.java
 			├─ ShiftTest.java
 			├─ SortColors.java
 			├─ TargetSumTest.java
@@ -151,5 +154,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-21 directories,	126 files
+21 directories,	129 files
 ```	
