@@ -31,14 +31,12 @@ public class MaximumSubarray {
         }
     }
 
-    //MySolution
+    //MySolution - after optimize readability
     public int maxSubArray(int[] nums) {
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
-        int max = Math.max(dp[0], dp[1]);
-        for(int i = 2; i < nums.length; i++) {
-            dp[i] = Math.max(Math.max(nums[i], nums[i] + dp[i - 1]), nums[i] + nums[i - 1] + dp[i - 2]);
-            if(max < dp[i]) { max = dp[i]; }
+        int max = nums[0], prev = nums[0];
+        for(int i = 1; i < nums.length; i++) {
+            prev = Math.max(prev + nums[i], nums[i]);
+            if(max < prev) { max = prev; }
         }
 
         return max;
