@@ -16,6 +16,7 @@ import java.util.Scanner;
  First element is 1, so can only go to 3. Second element is 3, so can make at most 3 steps eg to 5 or 8 or 9.
 
  https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
+ https://leetcode.com/problems/jump-game-ii/description/
  * */
 public class MinimumNumberOfJumpsToReachEnd {
 
