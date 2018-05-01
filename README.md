@@ -156,6 +156,9 @@
 			├─ MissingNumbersTest.java
 			├─ MoveZerosTest.java
 			├─ PartitionEqualSubsetSumTest.java
+			├─ PathSum.java
+			├─ PathSumII.java
+			├─ PathSumIII.java
 			├─ SameTree.java
 			├─ ShiftTest.java
 			├─ SortColors.java
@@ -165,5 +168,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-25 directories,	136 files
+25 directories,	139 files
 ```	
