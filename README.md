@@ -88,6 +88,7 @@
 			├─ BinaryTreePaths.java
 			├─ BinaryTreePostorderTraversal.java
 			├─ BinaryTreePreorderTraversal.java
+			├─ BinaryTreePruning.java
 			├─ bitOnes.java
 			├─ BucketSortTest.java
 			├─ ClimbingStairsTest.java
@@ -155,6 +156,7 @@
 			├─ MinimumPathSum.java
 			├─ MissingNumbersTest.java
 			├─ MoveZerosTest.java
+			├─ NumberOfIslands.java
 			├─ PartitionEqualSubsetSumTest.java
 			├─ PathSum.java
 			├─ PathSumII.java
@@ -168,5 +170,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-25 directories,	139 files
+25 directories,	141 files
 ```	
