@@ -1,3 +1,8 @@
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
@@ -37,25 +42,39 @@
 * */
 public class SumRootToLeafNumbers {
 
-    private int result = 0;
+    @Test
+    public void test() {
+        for(TreeNode node : buildTest()) {
+            System.out.println(sumNumbers(node));
+        }
+    }
+
+    //More concise than the previous
     public int sumNumbers(TreeNode root) {
         return sumNumbers(root, 0);
     }
 
-    public int sumNumbers(TreeNode root, int accumlate) {
-        if(root == null) { return result;}
-        accumlate = 10 * accumlate + root.val;
+    public int sumNumbers(TreeNode root, int result) {
+        if(root == null) { return 0;}
+        result = 10 * result + root.val;
         if(isLeaf(root)) {
-            return  result += accumlate;
-        } else {
-            sumNumbers(root.left, accumlate);
-            sumNumbers(root.right, accumlate);
+            return  result;
         }
 
-        return result;
+        return sumNumbers(root.left, result) +  sumNumbers(root.right, result);
     }
 
     private boolean isLeaf(TreeNode node) {
         return node != null && node.left == null && node.right == null;
+    }
+
+    public List<TreeNode> buildTest() {
+        List<TreeNode> result = new ArrayList<>();
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(3);
+        node.right = new TreeNode(2);
+        result.add(node);
+
+        return result;
     }
 }
