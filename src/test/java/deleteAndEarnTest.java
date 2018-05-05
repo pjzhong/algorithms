@@ -55,11 +55,14 @@ public class deleteAndEarnTest {
         int rob = 0, not_rob = 0;
         for(int i : nums) { count[i] += i;}//reduce it to house robber problems
         for(int i = 1; i < count.length; i++) {
-            if((i & 1) == 0) {
+           /*if((i & 1) == 0) {
                 rob = Math.max(count[i] + rob, not_rob);
             } else {
                 not_rob = Math.max(count[i] + not_rob, rob);
-            }
+            }*/
+            int temp = rob;//an excellent example of do not use if to program
+            rob = not_rob + count[i];
+            not_rob = Math.max(not_rob, temp);
         }
 
         return Math.max(not_rob, rob);
