@@ -29,16 +29,20 @@ import org.junit.Test;
  *
  * Problems.740
  *
- * DELAY THIS QUESTION, SOLVE HouseRobber FIRST
+ * https://leetcode.com/problems/delete-and-earn/description/
  */
 public class deleteAndEarnTest {
 
     @Test
     public void test() {
         int[][] testCases = {
+                {8,3,4,7,6,6,9,2,5,8,2,4,9,5,9,1,5,7,1,4},
+                {8,10,4,9,1,3,5,9,4,10},
                 {1,2,5},
                 {2},
-                {2,5,10,1}
+                {2,5,10,1},
+                {3,4, 2},
+                {2,2,3,3,3,4}
         };
         for(int[] testCase : testCases) {
             System.out.println(deleteAndEarn(testCase));
@@ -46,7 +50,18 @@ public class deleteAndEarnTest {
     }
 
     private int deleteAndEarn(int[] nums) {
-        int result = -1;
-        return result;
+        int[] count = new int[10001];
+
+        int rob = 0, not_rob = 0;
+        for(int i : nums) { count[i] += i;}//reduce it to house robber problems
+        for(int i = 1; i < count.length; i++) {
+            if((i & 1) == 0) {
+                rob = Math.max(count[i] + rob, not_rob);
+            } else {
+                not_rob = Math.max(count[i] + not_rob, rob);
+            }
+        }
+
+        return Math.max(not_rob, rob);
     }
 }
