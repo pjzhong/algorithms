@@ -62,7 +62,7 @@ public class deleteAndEarnTest {
             }*/
             int temp = rob;//an excellent example of do not use if to program
             rob = not_rob + count[i];
-            not_rob = Math.max(not_rob, temp);
+            not_rob = Math.max(not_rob, temp);// dp[i] = Math.max(dp[i - 2] + num[i], dp[i - 1]);
         }
 
         return Math.max(not_rob, rob);
