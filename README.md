@@ -166,6 +166,8 @@
 			├─ PathSum.java
 			├─ PathSumII.java
 			├─ PathSumIII.java
+			├─ Permutations.java
+			├─ PermutationsII.java
 			├─ SameTree.java
 			├─ Searcha2DMartic.java
 			├─ SetMartixZeros.java
@@ -178,5 +180,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-26 directories,	148 files
+26 directories,	150 files
 ```	

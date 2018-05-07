@@ -36,6 +36,7 @@ public class PermutationsII {
         return doPermute(nums, 0, new LinkedList<>());
     }
 
+    //not an efficient solution - (n!)
     private List<List<Integer>> doPermute(int[] nums, int start, List<List<Integer>> result) {
         if(nums.length <= start) {
             if(results.add(Arrays.toString(nums))) {
