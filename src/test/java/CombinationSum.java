@@ -53,19 +53,19 @@ public class CombinationSum {
     private List<List<Integer>> result;
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         result = new LinkedList<>();
-        combinationSum(candidates, target, 0, 0, new LinkedList<>());
+        combinationSum(candidates, target, 0, new ArrayList<>());
         return result;
     }
 
-    public void combinationSum(int[] candidates, int target, int sum, int start , LinkedList<Integer> count) {
-        if(target < sum) { return;}
-        if(candidates.length <= start || sum == target) {
+    public void combinationSum(int[] candidates, int target,  int start , List<Integer> count) {
+        if(0 < target) {
+            for(int i = start; i < candidates.length; i++) {
+                count.add(candidates[i]);
+                combinationSum(candidates, target - candidates[i], i, count);
+                count.remove(count.size() - 1);
+            }
+        } else if(target == 0) {
             result.add(new ArrayList<>(count));
-        }
-        for(int i = start; i < candidates.length; i++) {
-            count.add(candidates[i]);
-            combinationSum(candidates, target, sum + candidates[i], i, count);
-            count.removeLast();
         }
     }
 }

@@ -17,9 +17,9 @@ public class SudokuSolver {
 
     private final int MAX = 9;
     private boolean solving = true;
-    private boolean[][] ROW = new boolean[9][9];
-    private boolean[][] COL = new boolean[9][9];
-    private boolean[][] GRID = new boolean[9][9];
+    private boolean[][] ROW = new boolean[MAX][MAX];
+    private boolean[][] COL = new boolean[MAX][MAX];
+    private boolean[][] GRID = new boolean[MAX][MAX];
 
     @Test
     public void test() {
