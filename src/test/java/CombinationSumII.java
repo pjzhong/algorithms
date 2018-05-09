@@ -42,21 +42,19 @@ public class CombinationSumII {
         int[][] testCases = {
                 {10,1,2,7,6,1,5},
                 {2,5,2,1,2},
+                {1,1,1,2,3},
         };
-        int[] target = {8, 5};
+        int[] target = {8, 5,5};
 
         for(int i = 0; i < testCases.length; i++) {
-
             combinationSum2(testCases[i], target[i]).forEach(System.out::println);
             System.out.println();
         }
     }
 
     private List<List<Integer>> result;
-    private Set<String> filter;
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         result = new LinkedList<>();
-        filter = new HashSet<>();
         Arrays.sort(candidates);
         combinationSum2(candidates, target, 0, new ArrayList<>());
         return result;
@@ -64,15 +62,16 @@ public class CombinationSumII {
 
     public void combinationSum2(int[] candidates, int target, int start , List<Integer> count) {
         if(0 < target) {
-            for(int i = start; i < candidates.length; i++) {
-                count.add(candidates[i]);
-                combinationSum2(candidates, target - candidates[i], i + 1, count);
-                count.remove(count.size() - 1);
+            int last = -1;
+            for(int i = start; i < candidates.length && candidates[i] <= target; i++) {
+                if(last != candidates[i]) {
+                    count.add(candidates[i]);
+                    combinationSum2(candidates, target - candidates[i], i + 1, count);
+                    last = count.remove(count.size() - 1);
+                }
             }
         } else if(target == 0) {
-            if(filter.add(count.toString())) {
-                result.add(new ArrayList<>(count));
-            }
+            result.add(new ArrayList<>(count));
         }
     }
 }
