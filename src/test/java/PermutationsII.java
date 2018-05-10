@@ -14,6 +14,8 @@ import java.util.*;
  [1,2,1],
  [2,1,1]
  ]
+
+ https://leetcode.com/problems/permutations-ii/description/
  * */
 public class PermutationsII {
 

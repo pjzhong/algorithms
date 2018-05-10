@@ -165,6 +165,7 @@
 			├─ MinimumPathSum.java
 			├─ MissingNumbersTest.java
 			├─ MoveZerosTest.java
+			├─ NQueens.java
 			├─ NumberOfIslands.java
 			├─ PartitionEqualSubsetSumTest.java
 			├─ PathSum.java
@@ -185,5 +186,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-26 directories,	155 files
+26 directories,	156 files
 ```	
