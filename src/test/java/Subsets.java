@@ -42,22 +42,17 @@ public class Subsets {
 
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new LinkedList<>();
-        for(int k = 0; k <= nums.length; k++) {
-            subset(nums, 0, k, new ArrayList<>(k), result);
-        }
-
+        subset(nums, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void subset(int[] nums , int start , int k, List<Integer> count, List<List<Integer>> result) {
-        if(k == 0) {
-            result.add(new ArrayList<>(count));
-        } else {
-            for(int i = start; i < nums.length; i++) {
-                count.add(nums[i]);
-                subset(nums, i + 1, k - 1, count, result);
-                count.remove(count.size() - 1);
-            }
+    //This version is more concise than mine.....You didn't understand this problem deeply
+    private void subset(int[] nums , int start , List<Integer> count, List<List<Integer>> result) {
+        result.add(new ArrayList<>(count));
+        for(int i = start; i < nums.length; i++) {
+            count.add(nums[i]);
+            subset(nums, i + 1,  count, result);
+            count.remove(count.size() - 1);
         }
     }
 }
