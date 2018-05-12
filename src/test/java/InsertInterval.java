@@ -31,6 +31,7 @@ public class InsertInterval {
 
     /**
      * binarySearch solution, time complexity:O(logn + n).
+     * You din't utilize  the ordered property
      * */
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
         int index = binarySearch(intervals, newInterval);
@@ -64,5 +65,4 @@ public class InsertInterval {
         }//出口时 A[lo = hi] 为大于e的最小元素
         return --lo;//lo - 1既不大于value的元素的最大index
     }
-    
 }
