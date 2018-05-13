@@ -72,6 +72,9 @@ public class FlippingAnImage {
     }
 
     private void invert(int[] a) {
-        for(int i = 0; i < a.length; i++) { a[i] = a[i] == 0 ? 1 : 0;}
+        for(int i = 0; i < a.length; i++) {
+            //a[i] = a[i] == 0 ? 1 : 0;
+            a[i] ^= 1;
+        }
     }
 }

@@ -98,7 +98,7 @@ public class FindAndReplaceInString {
         int offset = 0, start;
         for(Replace r : re) {
             start = r.index + offset;
-            builder.replace(start, start + r.soruce.length(), r.target);
+            builder.replace(start, start + r.source.length(), r.target);
             offset = builder.length() - S.length();
         }
 
@@ -107,12 +107,12 @@ public class FindAndReplaceInString {
 
     private class Replace implements Comparable<Replace> {
         int index;
-        String soruce;
+        String source;
         String target;
 
         public Replace(int index, String soruce, String target) {
             this.index = index;
-            this.soruce = soruce;
+            this.source = soruce;
             this.target = target;
         }
 
