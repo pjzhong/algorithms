@@ -150,8 +150,11 @@
 			│  	├─ Contest82
 			│  	│  	├─ GoatLatin.java
 			│  	│  	└─ MostProfitAssigningWork.java
-			│  	└─ Contest83
-			│  		└─ PositionsOfLargeGroups.java
+			│  	├─ Contest83
+			│  	│  	└─ PositionsOfLargeGroups.java
+			│  	└─ Contest84
+			│  		├─ FindAndReplaceInString.java
+			│  		└─ FlippingAnImage.java
 			├─ LongestIncreasingSubsequence.java
 			├─ LongestPalindrome.java
 			├─ LongestPalindromicSubsequence.java
@@ -189,5 +192,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-26 directories,	159 files
+27 directories,	161 files
 ```	
