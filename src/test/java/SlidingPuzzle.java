@@ -130,6 +130,7 @@ public class SlidingPuzzle {
                 hash = 1;
                 for(int[] b : board) {
                     for(int n : b) {
+                        //Copy from Arrays.hashCode(int[]), this method can hash evenly. try to use permutation  to test it/
                         hash = 31 * hash + n;
                     }
                 }
