@@ -101,6 +101,7 @@
 			├─ CombinationSum.java
 			├─ CombinationSumII.java
 			├─ CombinationSumIII.java
+			├─ CourseSchedule.java
 			├─ CuttingRod.java
 			├─ deleteAndEarnTest.java
 			├─ DivisionTest.java
@@ -182,6 +183,7 @@
 			├─ Searcha2DMartic.java
 			├─ SetMartixZeros.java
 			├─ ShiftTest.java
+			├─ SlidingPuzzle.java
 			├─ SortColors.java
 			├─ Subsets.java
 			├─ SudokuSolver.java
@@ -192,5 +194,5 @@
 			├─ TheMaxDiffTest.java
 			├─ TheMissing.java
 			└─ TreeNode.java
-27 directories,	161 files
+27 directories,	163 files
 ```	
