@@ -63,7 +63,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         boolean right = false;
         for(;!parent.isEmpty();) {
             LinkedList<Integer> integers = new LinkedList<>();
-            int size = parent.size();
+            int size = parent.size();//A more elegance way to travel better then use to list(parent, child)
             for(int i = 0; i < size; i++) {
                 node = parent.poll();
                 if(right) { integers.addFirst(node.val); }
