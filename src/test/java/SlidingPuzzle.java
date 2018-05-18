@@ -48,6 +48,7 @@ public class SlidingPuzzle {
                 {{4,1,2},{5,0,3}},
                 {{1,2,3},{5,4,0}},
                 {{3,2,4},{1,5,0}},
+                {{0,5,4},{3,2,1}}
         };
 
         for(int[][] b : testCases) {
@@ -61,19 +62,22 @@ public class SlidingPuzzle {
         LinkedList<Puzzle> queue = new LinkedList<>();
         Set<Integer> hashCodes = new HashSet<>();
 
-        queue.add(new Puzzle(board, 0));
-        if(queue.getFirst().hash() == result.hash()) { return 0;}
+        Puzzle start = new Puzzle(board, 0);
+        if(start.hash() == result.hash()) {
+            return  0;
+        } else {
+            hashCodes.add(start.hash());
+        }
 
+        queue.add(start);
         int[][] dir = {{1, 0}, {-1,0}, {0, 1}, {0, -1}};
         while(!queue.isEmpty()) {
             Puzzle p = queue.removeFirst();
             for(int[] d : dir) {
                 Puzzle r =  p.move(p.row + d[0], p.col + d[1]);
-                if(r != null) {
+                if(r != null && hashCodes.add(r.hash())) {
                     if(result.hash() == r.hash()) { return r.count;}
-                    else if(hashCodes.add(r.hash())) {
-                        queue.addLast(r);
-                    }
+                    else { queue.addLast(r);}
                 }
             }
         }
