@@ -55,32 +55,30 @@ public class PushDominoes {
     }
 
     public String pushDominoes(String dominoes) {
-        StringBuilder builder = new StringBuilder(dominoes);
-        final int size = builder.length();
+        char[] array = dominoes.toCharArray();
+        final int size = array.length;
 
         int pushRight = -1;
         for(int i = 0; i < size; i++) {
-            switch (builder.charAt(i)) {
+            switch (array[i]) {
                 case 'L':{//I can safely push Left, because I know the [0, i](let part)  of dominoes
                     int pushLeft  = i - 1;
                     if(pushRight == -1) {
-                       for(;0 <= pushLeft && builder.charAt(pushLeft) == '.';pushLeft--) {
-                           builder.setCharAt(pushLeft, 'L');
+                       while(0 <= pushLeft && array[pushLeft] == '.') {
+                           array[pushLeft--]  = 'L';
                        }
                     } else {
                         while(pushRight < pushLeft) {
-                            builder.setCharAt(pushRight, 'R');
-                            builder.setCharAt(pushLeft, 'L');
-                            pushRight++;
-                            pushLeft--;
+                            array[pushRight++]  = 'R';
+                            array[pushLeft--]  = 'L';
                         }
                     }
                     pushRight = -1;
                 }break;
-                case 'R':{//I not idea what the [i, size](right part) look like, I will try deal with it later.
+                case 'R':{//I not idea what the [i, size)(right part) look like, I will try deal with it later.
                     if(pushRight != -1) {
-                        while(pushRight < i && builder.charAt(pushRight) == '.') {
-                            builder.setCharAt(pushRight++, 'R');
+                        while(pushRight < i && array[pushRight] == '.') {
+                            array[pushRight++]  = 'R';
                         }
                     }
                     pushRight = i + 1;
@@ -88,9 +86,9 @@ public class PushDominoes {
             }
         }
         if(pushRight != -1) {
-            while(pushRight < size && builder.charAt(pushRight) == '.') { builder.setCharAt(pushRight++, 'R'); }
+            while(pushRight < size && array[pushRight] == '.') { array[pushRight++]  = 'R'; }
         }
 
-        return builder.toString();
+        return new String(array);
     }
 }
