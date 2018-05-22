@@ -1,5 +1,12 @@
 # algorithms-practice
-个人编程练习,<a href="https://leetcode.com/pj_zhong/" target="_blank">leetcode:pj_zhong</a>
+日常编程练习，常用数据结构实现。
+
+- [list, stack, queue](src/main/java/dsa/list)
+- [graph](src/main/java/dsa/graph)
+- [hash](src/main/java/dsa/hash)
+- [tree](src/main/java/dsa/tree)
+- [sort](src/main/java/dsa/sort)
+
 
 ## Directory Tree
 
