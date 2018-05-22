@@ -1,7 +1,5 @@
 ## Algorithms And Data Structures
 
-日常编程练习，常用数据结构实现。
-
 - [list, stack, queue](src/main/java/dsa/list)
 - [graph](src/main/java/dsa/graph)
 - [hash](src/main/java/dsa/hash)
@@ -45,4 +43,3 @@
 				└─ Contest85
 28 directories
 ```
-..........................
