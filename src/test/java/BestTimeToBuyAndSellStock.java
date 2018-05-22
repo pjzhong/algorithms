@@ -20,6 +20,7 @@ import org.junit.Test;
  Output: 0
  Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
+ https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
  * */
 public class BestTimeToBuyAndSellStock {
 
@@ -53,7 +54,7 @@ public class BestTimeToBuyAndSellStock {
         return result;
     }
 
-    //After optimize time complexity O(n), you still can optimize the space complexity
+    //After optimize time complexity O(n), you still can optimize the space complexity to O(1)
     public int maxProfitDp(int[] prices) {
         if(prices == null || prices.length == 0) { return 0;}
 
