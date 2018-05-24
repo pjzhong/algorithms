@@ -8,7 +8,7 @@
 
 ## Programming Exercise
 
-[LeetCode](src/test)
+- [LeetCode](src/test)
 
 ## Directories
 
