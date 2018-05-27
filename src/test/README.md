@@ -6,6 +6,7 @@
 └─ java
 	├─ BasicCalculator.java
 	├─ BestTimeToBuyAndSellStock.java
+	├─ BestTimetoBuyandSellStockII.java
 	├─ BinaryTreeInorderTraversal.java
 	├─ BinaryTreeLevelOrderTraversal.java
 	├─ BinaryTreeMaximumPathSum.java
@@ -17,6 +18,7 @@
 	├─ BinaryTreeZigzagLevelOrderTraversal.java
 	├─ bitOnes.java
 	├─ BucketSortTest.java
+	├─ CheapestFlightsWithinKStops.java
 	├─ ClimbingStairsTest.java
 	├─ ClimbWays.java
 	├─ CoinChangeII.java
@@ -66,6 +68,7 @@
 	├─ InsertInterval.java
 	├─ IntegerBreak.java
 	├─ InvertBinaryTree.java
+	├─ IsBipartite.java
 	├─ LargestNumber.java
 	├─ leetcode
 	│  	├─ Contest80
@@ -80,9 +83,12 @@
 	│  	├─ Contest84
 	│  	│  	├─ FindAndReplaceInString.java
 	│  	│  	└─ FlippingAnImage.java
-	│  	└─ Contest85
-	│  		├─ PushDominoes.java
-	│  		└─ RectangleOverlap.java
+	│  	├─ Contest85
+	│  	│  	├─ PushDominoes.java
+	│  	│  	└─ RectangleOverlap.java
+	│  	└─ Contest86
+	│  		├─ KeysAndRooms.java
+	│  		└─ MagicSquaresInGrid.java
 	├─ LongestIncreasingSubsequence.java
 	├─ LongestPalindrome.java
 	├─ LongestPalindromicSubsequence.java
@@ -122,5 +128,5 @@
 	├─ TheMaxDiffTest.java
 	├─ TheMissing.java
 	└─ TreeNode.java
-15 directories,	104 files
+16 directories,	109 files
 ```
