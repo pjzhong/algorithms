@@ -100,7 +100,7 @@ public class UniquePathsII {
         }
     }
 
-    //Please, get it right first
+    //Please, make it right first
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         if(obstacleGrid == null || obstacleGrid.length == 0) { return 0;}
         final int ROW = obstacleGrid.length, COL = obstacleGrid[0].length;
