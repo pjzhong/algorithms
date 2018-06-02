@@ -66,7 +66,7 @@ public class Triangle {
     }
 
     /**
-     * My soltuion
+     * My solution
      * */
     public int minimumTotal(List<List<Integer>> triangle) {
         if(triangle.size() == 1) { triangle.get(0).get(0); }
