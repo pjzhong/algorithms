@@ -1,12 +1,9 @@
-package leetcode.Contest82;
+package leetcode.contest82;
 
 import org.junit.Test;
 
 import java.awt.*;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  *Most Profit Assigning Work

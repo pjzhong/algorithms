@@ -1,4 +1,4 @@
-package leetcode.Contest84;
+package leetcode.contest84;
 
 import org.junit.Test;
 

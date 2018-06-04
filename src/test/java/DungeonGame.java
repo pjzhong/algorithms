@@ -66,6 +66,11 @@ public class DungeonGame {
                         {-5,-10,1},
                         {10,30,-5},
                 },
+                {
+                        {2,-3,3},
+                        {5,10,1},
+                        {10,30,-5},
+                }
         };
 
         for(int[][] t : testCases) {
@@ -92,27 +97,6 @@ public class DungeonGame {
         }
 
         return min;
-    }
-
-    //Dynamic programming, wrong answer
-    public int calculateMinimumHP(int[][] dungeon) {
-        final int ROW = dungeon.length, COL = dungeon[0].length;
-        Step[] steps = new Step[COL]; doStep(steps[0] = new Step(), dungeon[0][0]);
-        for(int i = 1; i < COL; i++) {
-            doStep(steps[i] = new Step(steps[i - 1].init, steps[i - 1].upper), dungeon[0][i]);
-        }
-
-        for(int r = 1; r < ROW; r++) {
-            for(int c = 0; c < COL; c++) {
-                if(0 < c && steps[c - 1].init <= steps[c].init ) {
-                    steps[c].upper = (steps[c - 1].init == steps[c].init) ?
-                            Math.max(steps[c - 1].upper, steps[c].upper) : steps[c - 1].upper;
-                    steps[c].init  = steps[c - 1].init;
-                }
-                doStep(steps[c], dungeon[r][c]);
-            }
-        }
-        return steps[COL - 1].init;
     }
 
     private Step doStep(Step step, int[][] dungeon) {
@@ -156,4 +140,30 @@ public class DungeonGame {
             return sb.toString();
         }
     }
+
+    //always miss something to solve this question by yourself.
+    //What is the missing?
+    //bottom up solution, optimize from https://leetcode.com/problems/dungeon-game/discuss/132489/Java-Bottom-up-DP-with-Detailed-Explanations
+    //Why not try to solve this using recursive and memorization?
+    public int calculateMinimumHP(int[][] dungeon) {
+        final int ROW = dungeon.length - 1, COL = dungeon[0].length - 1;
+        int[] dp = new int[COL + 1];
+
+        dp[COL] = dungeon[ROW][COL] <= 0 ? -dungeon[ROW ][COL] + 1 : 1;
+        for(int r = ROW; 0 <= r; r--) {
+            for(int c = COL; 0 <= c; c--) {
+                if(r != ROW && c != COL) {
+                    dp[c] = Math.max(1, Math.min(dp[c], dp[c + 1]) - dungeon[r][c]);
+                }  else if(r != ROW) {
+                    dp[c] = Math.max(1, dp[c] - dungeon[r][c]);
+                }  else if(c != COL) {
+                    dp[c] = Math.max(1, dp[c + 1] - dungeon[r][c]);
+                }
+            }
+        }
+
+        return dp[0];
+    }
+
+
 }

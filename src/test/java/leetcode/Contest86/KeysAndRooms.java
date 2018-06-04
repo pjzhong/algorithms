@@ -1,4 +1,4 @@
-package leetcode.Contest86;
+package leetcode.contest86;
 
 import java.util.HashSet;
 import java.util.LinkedList;
