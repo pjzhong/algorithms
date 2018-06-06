@@ -150,13 +150,14 @@ public class DungeonGame {
         int[] dp = new int[COL + 1];
 
         dp[COL] = dungeon[ROW][COL] <= 0 ? -dungeon[ROW ][COL] + 1 : 1;
+        //This algorithm use a reverse way to record threats or power-ups
         for(int r = ROW; 0 <= r; r--) {
             for(int c = COL; 0 <= c; c--) {
                 if(r != ROW && c != COL) {
                     dp[c] = Math.max(1, Math.min(dp[c], dp[c + 1]) - dungeon[r][c]);
                 }  else if(r != ROW) {
                     dp[c] = Math.max(1, dp[c] - dungeon[r][c]);
-                }  else if(c != COL) {
+                }  else if(c != COL) {//initialization
                     dp[c] = Math.max(1, dp[c + 1] - dungeon[r][c]);
                 }
             }
