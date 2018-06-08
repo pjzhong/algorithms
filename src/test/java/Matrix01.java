@@ -67,7 +67,7 @@ public class Matrix01 {
 
     private int R, C, SLAT;
     private Queue<Step> queue = new LinkedList<>();
-    private Set<Step> set = new HashSet<>();
+    private Set<Integer> set = new HashSet<>();
 
     public int[][] updateMatrix(int[][] matrix) {
         R = matrix.length; C = matrix[0].length;SLAT = Math.max(R, C);
@@ -87,7 +87,7 @@ public class Matrix01 {
     private int  min(int[][] matrix, int r, int c) {
         queue.clear();set.clear();
         Step s = new Step(r, c, 0);
-        queue.add(s);set.add(s);
+        queue.add(s);set.add(s.hash);
 
         Step step;
         while(!queue.isEmpty()) {
@@ -136,24 +136,9 @@ public class Matrix01 {
         }
 
         private void go(Step step) {
-            if(set.add(step)) {
+            if(set.add(step.hash)) {
                 queue.add(step);
             }
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Step step = (Step) o;
-
-            return hash == step.hash;
-        }
-
-        @Override
-        public int hashCode() {
-            return hash;
         }
     }
 
