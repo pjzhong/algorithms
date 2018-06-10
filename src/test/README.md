@@ -28,6 +28,7 @@
 	├─ CombinationSumII.java
 	├─ CombinationSumIII.java
 	├─ CourseSchedule.java
+	├─ CourseScheduleII.java
 	├─ CuttingRod.java
 	├─ deleteAndEarnTest.java
 	├─ DivisionTest.java
@@ -98,6 +99,8 @@
 	├─ LongestPalindromicSubsequence.java
 	├─ LongestPalindromicSubstring.java
 	├─ LongestUnivaluePath.java
+	├─ Matrix01.java
+	├─ MaximizeDistanceClosestPerson.java
 	├─ MaximumProductOfThreeNumbers.java
 	├─ MaximumSubarray.java
 	├─ MaximumSumIncreasingSubsequence.java
@@ -119,6 +122,7 @@
 	├─ SameTree.java
 	├─ Searcha2DMartic.java
 	├─ SetMartixZeros.java
+	├─ ShiftingLetters.java
 	├─ ShiftTest.java
 	├─ SingleNumberI.java
 	├─ SlidingPuzzle.java
@@ -135,5 +139,5 @@
 	├─ Triangle.java
 	├─ UniquePaths.java
 	└─ UniquePathsII.java
-17 directories,	115 files
+17 directories,	119 files	
 ```

@@ -6,7 +6,7 @@
 - [tree](src/main/java/dsa/tree)
 - [sort](src/main/java/dsa/sort)
 
-## Programming Exercise
+## LeetCode
 
 - [LeetCode](src/test)
 
@@ -35,11 +35,4 @@
 			│  	├─ stringtest
 			│  	└─ treetest
 			└─ leetcode
-				├─ Contest80
-				├─ Contest81
-				├─ Contest82
-				├─ Contest83
-				├─ Contest84
-				└─ Contest85
-28 directories
 ```
