@@ -1,12 +1,14 @@
-# Example
+# Tools
   - Synchronizers
      - [A simple ObjectPool with Semaphore](example/ObjectPool.java)
      - [Latch Demo](example/TestHarness.java)
      - [HorseRace using CyclicBarrier](example/HorseRace.java)
+   - [Something I know about Executor](example/Executor)
 
 # Pattern
 * [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)
 * [Cache Example](pattern/MomorizerExample.java)
+* [MonitorPattern](pattern/MonitorPattern.java)
 
 ## Race Conditions
 A race condition occurs when the correctness of a computation depends on the relative timing or interleaving of multiple
@@ -20,7 +22,6 @@ consistently. These build-in locks are called intrinsic locks or monitor locks, 
 mutexes(Only One thread can held the lock at a time).Intrinsic lock is reentrancy, acquiring the same lock would't
 cause deadlock.
  - [IntrinsicLocks](lock/IntrinsicLocks.java)
- - [MonitorPattern](lock/MonitorPattern.java)
 
 ## Volatile Variables
 A weaker form of synchronization, Volatile. Using volatile can ensure memory visibility and prevent reordered with other
