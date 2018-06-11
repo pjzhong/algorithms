@@ -3,7 +3,7 @@
      - [A simple ObjectPool with Semaphore](example/ObjectPool.java)
      - [Latch Demo](example/TestHarness.java)
      - [HorseRace using CyclicBarrier](example/HorseRace.java)
-   - [Something I know about Executor](example/Executor)
+   - [Something I know about Executor](example/Executor.java)
 
 # Pattern
 * [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)
