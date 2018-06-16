@@ -1,14 +1,22 @@
-# Tools
+# Examples
   - Synchronizers
      - [A simple ObjectPool with Semaphore](example/ObjectPool.java)
      - [Latch Demo](example/TestHarness.java)
      - [HorseRace using CyclicBarrier](example/HorseRace.java)
-   - [Something I know about Executor](example/Executor.java)
+  - Executor
+     - [Something I know about Executor](example/Executor.java)
+  - Lock - Locking is not just about mutual exclusion; it is also about memory visibility
+     - [LockSplitting](exmaple/LockSplitting.java)
+     - [IntrinsicLocks](lock/IntrinsicLocks.java)
+  - Deadlock
+     - [dependent Tasks Deadlock](example/ThreadDeadlock.java)
+     - [LockOrdering](example/LeftRightDeadLock.java)
 
 # Pattern
-* [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)
-* [Cache Example](pattern/MomorizerExample.java)
-* [MonitorPattern](pattern/MonitorPattern.java)
+- [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)
+- [Cache Example](pattern/MomorizerExample.java)
+- [MonitorPattern](pattern/MonitorPattern.java)
+
 
 ## Race Conditions
 A race condition occurs when the correctness of a computation depends on the relative timing or interleaving of multiple
