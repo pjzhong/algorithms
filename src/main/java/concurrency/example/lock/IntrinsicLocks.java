@@ -1,4 +1,4 @@
-package concurrency.lock;
+package concurrency.example.lock;
 
 /**
  Every Java can act as a Lock, using the keyword - synchronized, as long it is use consistently

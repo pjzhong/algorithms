@@ -1,4 +1,4 @@
-package concurrency.example;
+package concurrency.example.lock;
 
 /**
  * You can fixed this by using explicitly lock(ReentrantLock.tryLock())

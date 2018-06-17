@@ -1,4 +1,4 @@
-package concurrency.example;
+package concurrency.example.lock;
 
 import java.util.HashSet;
 import java.util.Set;
