@@ -4,33 +4,6 @@
 
 ```
 └─ java
-	├─ concurrency
-	│  	└─ OneShotLatchTest.java
-	├─ dsa
-	│  	├─ graphTest
-	│  	│  	├─ BreadthSearchFirstTest.java
-	│  	│  	├─ GraphTest.java
-	│  	│  	├─ ProperBinaryTreeReBuild.java
-	│  	│  	└─ TSP.java
-	│  	├─ hashtest
-	│  	│  	├─ HashMapTest.java
-	│  	│  	└─ TreeMapTest.java
-	│  	├─ listtest
-	│  	│  	├─ ArrayListTest.java
-	│  	│  	├─ FibonacciTest.java
-	│  	│  	├─ LinkedListTest.java
-	│  	│  	├─ PriorityQueueTest.java
-	│  	│  	└─ PriorityQueueTestLeftHeap.java
-	│  	├─ sortest
-	│  	│  	├─ MajorityTest.java
-	│  	│  	└─ SortTest.java
-	│  	├─ stringtest
-	│  	│  	└─ SubStringMatchTest.java
-	│  	└─ treetest
-	│  		├─ AVLBinarySearchTreeTest.java
-	│  		├─ BinarySearchTest.java
-	│  		├─ RedBlackTreeTest.java
-	│  		└─ SplayTreeTest.java
 	└─ leetcode
 		├─ BasicCalculator.java
 		├─ BestTimeToBuyAndSellStock.java
@@ -144,5 +117,5 @@
 		├─ Triangle.java
 		├─ UniquePaths.java
 		└─ UniquePathsII.java
-19 directories,	122 files
+11 directories,	103 files
 ```

@@ -6,11 +6,18 @@
   - Executor
      - [Something I know about Executor](example/Executor.java)
   - Lock - Locking is not just about mutual exclusion; it is also about memory visibility
-     - [LockSplitting](exmaple/LockSplitting.java)
-     - [IntrinsicLocks](lock/IntrinsicLocks.java)
+     - [LockSplitting](exmaple/locl/LockSplitting.java)
+     - [IntrinsicLocks](example/lock/IntrinsicLocks.java)
+     - ConditionQueue
+         - [GrumpyBoundedBuffer - just throw exception](example/managestate/impl/GrumpyBoundedBuffer.java)
+         - [SleepyBoundedBuffer - sleep a while](example/managestate/impl/SleepyBoundedBuffer.java)
+         - [IntrinsicBoundedBuffer - multi predicates on the same queue](example/managestate/impl/IntrinsicBoundedBuffer.java)
+         - [ConditionQueueBoundedBuffer - multi predicates on the different queues](example/managestate/impl/ConditionQueueBoundedBuffer.java)
   - Deadlock
-     - [dependent Tasks Deadlock](example/ThreadDeadlock.java)
-     - [LockOrdering](example/LeftRightDeadLock.java)
+     - [dependent Tasks Deadlock](example/lock/ThreadDeadlock.java)
+     - [LockOrdering](example/lock/LeftRightDeadLock.java)
+  - AQS - AbstractQueuedSynchronizer
+     - [OneShotLatch](example/aqs/OneShotLatch.java)
 
 # Pattern
 - [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)

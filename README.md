@@ -20,6 +20,7 @@
 └─ src
 	├─ main
 	│  	└─ java
+	│  		├─ concurrency
 	│  		├─ dsa
 	│  		│  	├─ graph
 	│  		│  	├─ hash
@@ -32,11 +33,5 @@
 	└─ test
 		└─ java
 			├─ dsa
-			│  	├─ graphTest
-			│  	├─ hashtest
-			│  	├─ listtest
-			│  	├─ sortest
-			│  	├─ stringtest
-			│  	└─ treetest
 			└─ leetcode
 ```
