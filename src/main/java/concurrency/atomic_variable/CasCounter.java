@@ -1,4 +1,4 @@
-package concurrency.atomicvariable;
+package concurrency.atomic_variable;
 
 import concurrency.anno.ThreadSafe;
 

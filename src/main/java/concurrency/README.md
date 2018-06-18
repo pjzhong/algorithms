@@ -27,7 +27,8 @@
 
 ## Race Conditions
 A race condition occurs when the correctness of a computation depends on the relative timing or interleaving of multiple
-threads by the runtime.
+threads by the runtime.for example, more than one threads read or write on the same shared variable without proper
+synchronization
  - using a potentially stale observation to make a decision or perform a computation.This type of race condition is
  called [check-then-act](example/LazyInitRace.java) or [read-modify-write](example/HitCounter.java).
 
@@ -52,10 +53,9 @@ CAS has three operands - a memory location V on which to operate,, the expected 
 CAS atomically updates V to the new value B, but only if the value in V matches the expected old value A; otherWise it
 does nothing.In either case, it return the value currently in V.(The variant called compare-and-set instead return
 whether the operation succeeded.)
- - [SimulatedCAS](atomicvariable/SimulatedCAS.java)
- - [A threadSafe Counter Using SimulatedCAS](atomicvariable/CasCounter.java)
+ - [SimulatedCAS](atomic_variable/SimulatedCAS.java)
+ - [A threadSafe Counter Using SimulatedCAS](atomic_variable/CasCounter.java)
  - Non-blocking Algorithms base on CAS
-     - [ConcurrentStack](atomicvariable/ConcurrentStask.java)
-     - [LinkedQueue](atomicvariable/LinkedQueue.java)
-
+     - [ConcurrentStack](atomic_variable/ConcurrentStask.java)
+     - [LinkedQueue](atomic_variable/LinkedQueue.java)
 

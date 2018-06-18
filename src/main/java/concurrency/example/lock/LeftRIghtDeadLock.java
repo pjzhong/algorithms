@@ -3,7 +3,7 @@ package concurrency.example.lock;
 /**
  * You can fixed this by using explicitly lock(ReentrantLock.tryLock())
  * */
-public class LeftRIghtDeadLock {
+public class LeftRightDeadLock {
     private final Object left = new Object();
     private final Object right = new Object();
 
