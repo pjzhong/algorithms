@@ -47,5 +47,15 @@ operations. volatile variable mostly use as completion, interruption, or status 
 Immutable object are always thread-safe, you are free to share it to multi threads without any protection.Like the object
 you most use in java:String, Integer....etc
 
+## Compare and Swap(CAS)
+CAS has three operands - a memory location V on which to operate,, the expected old value A, and the new value B.
+CAS atomically updates V to the new value B, but only if the value in V matches the expected old value A; otherWise it
+does nothing.In either case, it return the value currently in V.(The variant called compare-and-set instead return
+whether the operation succeeded.)
+ - [SimulatedCAS](atomicvariable/SimulatedCAS.java)
+ - [A threadSafe Counter Using SimulatedCAS](atomicvariable/CasCounter.java)
+ - Non-blocking Algorithms base on CAS
+     - [ConcurrentStack](atomicvariable/ConcurrentStask.java)
+     - [LinkedQueue](atomicvariable/LinkedQueue.java)
 
 
