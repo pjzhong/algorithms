@@ -1,4 +1,4 @@
-package concurrency.pattern;
+package concurrency.example;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

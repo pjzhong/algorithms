@@ -1,4 +1,4 @@
-package concurrency.pattern;
+package concurrency.example.lock;
 
 import java.util.ArrayList;
 import java.util.List;

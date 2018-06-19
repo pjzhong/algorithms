@@ -8,6 +8,8 @@
   - Lock - Locking is not just about mutual exclusion; it is also about memory visibility
      - [LockSplitting](exmaple/locl/LockSplitting.java)
      - [IntrinsicLocks](example/lock/IntrinsicLocks.java)
+     - [MonitorPattern](example/lock/MonitorPattern.java)
+     - [ReadWriteLock](example/lock/ReadWriteMap.java)
      - ConditionQueue
          - [GrumpyBoundedBuffer - just throw exception](example/managestate/impl/GrumpyBoundedBuffer.java)
          - [SleepyBoundedBuffer - sleep a while](example/managestate/impl/SleepyBoundedBuffer.java)
@@ -18,12 +20,9 @@
      - [LockOrdering](example/lock/LeftRightDeadLock.java)
   - AQS - AbstractQueuedSynchronizer
      - [OneShotLatch](example/aqs/OneShotLatch.java)
-
-# Pattern
-- [ProducerConsumer - Using BlockQueue](pattern/ProducerConsumer.java)
-- [Cache Example](pattern/MomorizerExample.java)
-- [MonitorPattern](pattern/MonitorPattern.java)
-
+  - ConcurrencyCollection
+      - [ProducerConsumer - Using BlockQueue](example/ProducerConsumer.java)
+      - [Cache Example - ConcurrentHashMap](example/MomorizerExample.java)
 
 ## Race Conditions
 A race condition occurs when the correctness of a computation depends on the relative timing or interleaving of multiple

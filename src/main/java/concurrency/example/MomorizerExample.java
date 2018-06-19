@@ -1,4 +1,4 @@
-package concurrency.pattern;
+package concurrency.example;
 
 import concurrency.anno.GuardeBy;
 
