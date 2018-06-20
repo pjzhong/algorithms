@@ -8,82 +8,67 @@ import org.junit.Test;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LinkedQueueTest {
-    LinkedQueue<Integer> queue;
-    ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
+    private int grow = 1000,  multi = 10, limit = grow * multi;
 
     public class adder implements Runnable {
         private int start, end;
-        private CountDownLatch putEnd;
         private LinkedQueue<Integer> queue;
 
-        public adder(int start, int end, LinkedQueue<Integer> queue, CountDownLatch putEnd) {
+        public adder(int start, int end, LinkedQueue<Integer> queue) {
             this.start = start;
             this.end = end;
             this.queue = queue;
-            this.putEnd = putEnd;
         }
 
         @Override
         public void run() {
-            try {
-                for(int i = start; i < end; i++) {
-                    queue.enqueue(i);
-                }
-            }  finally {
-                putEnd.countDown();
+            for(int i = start; i < end; i++) {
+                queue.enqueue(i);
             }
         }
     }
     public class taker implements Runnable {
         private LinkedQueue<Integer> queue;
-        private CountDownLatch latch;
         private Integer[] result;
 
-        public taker(LinkedQueue<Integer> queue, CountDownLatch latch, Integer[] result) {
-            this.latch = latch;
+        public taker(LinkedQueue<Integer> queue, Integer[] result) {
             this.queue = queue;
             this.result = result;
         }
 
         @Override
         public void run() {
-            try {
-                while (true) {
-                    Integer i = queue.dequeue();
-                    if(i == null) { break;}
+            int take = 0;
+            while (take < grow) {
+                Integer i = queue.dequeue();
+                if(i != null) {
                     result[i] = i;
+                    take++;
                 }
-            } finally {
-                latch.countDown();
             }
         }
     }
 
-    private int loop = 1000, grow = 1000, workers = 10;
-
-    @Before
-    public void before() throws InterruptedException {
-        CountDownLatch putEnd = new CountDownLatch(workers);
-        queue = new LinkedQueue<>();
-
-        for(int i = 0; i < workers; i++) {
-            executor.execute(new adder(loop - grow, loop, queue, putEnd));
-            loop += grow;
-        }
-        putEnd.await();
-    }
 
     @Test
     public void test() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(workers);
-        Integer[] result = new Integer[grow * workers];
-        for(int i = 0; i < workers; i++) {
-            executor.execute(new taker(queue, latch, result));
+        ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
+        LinkedQueue<Integer> queue = new LinkedQueue<>();
+        Integer[] result = new Integer[limit];
+
+        for(int lo = 0, hi = grow; hi <= limit;) {
+            executor.execute(new adder(lo, hi, queue));
+            executor.execute(new taker(queue, result));
+            lo = hi;
+            hi += grow;
         }
-        latch.await();
-        for(int i = 0; i < result.length; i++) {
+
+        executor.awaitTermination(500, TimeUnit.MILLISECONDS);
+        for(int i = 0; i < limit; i++) {
             Assert.assertNotNull(result[i]);
         }
     }

@@ -12,7 +12,7 @@ public class QuickSort<E extends Comparable<E>> extends AbstractSort<E> {
     }
 
     private E[] quickSort(E[] e, int lo, int hi) {//[lo, hi]
-        if(hi - lo < 1) { return e; }
+        if(hi <= lo) { return e; }
         int mid = partition(e, lo, hi);
         quickSort(e, lo, mid - 1);
         quickSort(e, mid + 1, hi);
