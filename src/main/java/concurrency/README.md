@@ -56,5 +56,5 @@ whether the operation succeeded.)
  - [A threadSafe Counter Using SimulatedCAS](atomic_variable/CasCounter.java)
  - Non-blocking Algorithms base on CAS
      - [ConcurrentStack](atomic_variable/ConcurrentStask.java)
-     - [LinkedQueue](atomic_variable/LinkedQueue.java)
+     - [LinkedQueue](atomic_variable/LinkedQueue.java) and it's [unit-test](/src/test/java/concurrency/LinkedQueueTest.java)
 
