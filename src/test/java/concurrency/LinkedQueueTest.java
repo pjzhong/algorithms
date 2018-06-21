@@ -60,11 +60,9 @@ public class LinkedQueueTest {
         LinkedQueue<Integer> queue = new LinkedQueue<>();
         Integer[] result = new Integer[limit];
 
-        for(int lo = 0, hi = grow; hi <= limit;) {
+        for(int lo = 0, hi = grow; hi <= limit; lo = hi, hi += grow) {
             executor.execute(new adder(lo, hi, queue));
             executor.execute(new taker(queue, result));
-            lo = hi;
-            hi += grow;
         }
 
         executor.awaitTermination(500, TimeUnit.MILLISECONDS);
