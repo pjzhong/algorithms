@@ -53,8 +53,8 @@ class MemorizerWithConcurrencyHashMap<A, V> implements Computable<A, V>  {
         if(result == null) {
             /**
              * had the ability to compute same result twice or more
-             * for example:thread X computing  f(27), but thread Y didn't X is computing , so Y would compute f(27) by
-             * itself
+             * for example:thread X computing  f(27), but thread Y didn't know X is computing , so Y would compute f(27) by
+             * itself. and then Y and X would their result to the map
              * */
             result = c.compute(arg);
             cache.put(arg, result);
@@ -75,14 +75,8 @@ class MemorizerWithConcurrencyHashMapAndFutureTask<A, V> implements Computable<A
         Future<V> f = cache.get(arg);
         if(f == null) {
             FutureTask<V> ft = new FutureTask<>(() -> c.compute(arg));
-            /**
-             * had the ability to compute same result twice or more but this time is smaller, because
-             * the compound action(put-if-absent), but we fixed this using the putIfAbsent() method.
-             * for example:thread X computing  f(27), but thread Y didn't X is computing , so Y would compute f(27) by
-             * itself
-             * */
-            //cache.put(arg, ft);
-            //ft.run();
+
+            //使用FutureTask来确保重复计算不会发生
             f = cache.putIfAbsent(arg, ft);
             if(f == null) { f = ft; ft.run(); }
         }
