@@ -1,8 +1,8 @@
 package concurrency.java_memory_model;
 
-import concurrency.anno.NotThreadSafe;
+import concurrency.anno.ThreadSafe;
 
-@NotThreadSafe
+@ThreadSafe
 public class DoubledCheckedLocking {
     private static volatile Object singleton;
 
