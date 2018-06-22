@@ -40,9 +40,10 @@ cause deadlock.
  - [IntrinsicLocks](lock/IntrinsicLocks.java)
 
 ## Volatile Variables
-A weaker form of synchronization, Volatile. Using volatile can ensure memory visibility and prevent reordered with other
-operations. volatile variable mostly use as completion, interruption, or status flag.
+Weaker form of synchronization. Volatile variable can only  guarantee memory visibility(no atomicity) and prevent
+reordered. volatile variable mostly use as completion, interruption, or status flag.
  - [UsingVolatileVariable](example/VolatileVariable.java)
+ - [DoubledCheckedLocking](java_memory_model/DoubledCheckedLocking.java)
 
 ## Immutable Object
 Immutable object are always thread-safe, you are free to share it to multi threads without any protection.Like the object
