@@ -37,7 +37,8 @@ Every Java object can act as a lock for purposes of synchronization(using the Ke
 consistently. These build-in locks are called intrinsic locks or monitor locks, these lock are
 mutexes(Only One thread can held the lock at a time).Intrinsic lock is reentrancy, acquiring the same lock would't
 cause deadlock.
- - [IntrinsicLocks](lock/IntrinsicLocks.java)
+ - [IntrinsicLocks](example/lock/IntrinsicLocks.java)
+ - [MonitorPattern](example/lock/MonitorPattern.java)
 
 ## Volatile Variables
 Weaker form of synchronization. Volatile variable can only  guarantee memory visibility(no atomicity) and prevent
