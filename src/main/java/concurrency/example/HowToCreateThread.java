@@ -9,7 +9,7 @@ class UsingRunnable implements Runnable {
 
 
     public static void main(String[] args) {
-        //Runnable就像其它接口一样是独立的，可以单独使用来某个特定的任务来单独使用。不一定要与线程绑定
+        //Runnable就像其它接口一样是独立的，可以单独使用。不一定要与线程绑定
         //所以创建Runnable的实例不算创建线程，Thread只是用Runnable来表示它要执行什么。
         UsingRunnable runnable = new UsingRunnable();
         runnable.run();
@@ -35,7 +35,6 @@ class ExtendingThread extends Thread {
 
         System.out.println("启动线程");
         thread.start();
-
     }
 
 }
