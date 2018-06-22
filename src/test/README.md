@@ -83,7 +83,9 @@
 		├─ MaximumSubarray.java
 		├─ MaximumSumIncreasingSubsequence.java
 		├─ MergeIntervals.java
+		├─ MergeSortedArray.java
 		├─ MergeTwoBinaryTree.java
+		├─ MergeTwoLists.java
 		├─ MinCostClimbingStairsTest.java
 		├─ MinimumNumberOfJumpsToReachEnd.java
 		├─ MinimumPathSum.java
@@ -117,5 +119,5 @@
 		├─ Triangle.java
 		├─ UniquePaths.java
 		└─ UniquePathsII.java
-11 directories,	103 files
+11 directories,	105 files
 ```
