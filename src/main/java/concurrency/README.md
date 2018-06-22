@@ -7,7 +7,7 @@
   - Executor
      - [Something I know about Executor](example/Executor.java)
   - Lock - Locking is not just about mutual exclusion; it is also about memory visibility
-     - [LockSplitting](exmaple/locl/LockSplitting.java)
+     - [LockSplitting](exmaple/lock/LockSplitting.java)
      - [IntrinsicLocks](example/lock/IntrinsicLocks.java)
      - [MonitorPattern](example/lock/MonitorPattern.java)
      - [ReadWriteLock](example/lock/ReadWriteMap.java)
