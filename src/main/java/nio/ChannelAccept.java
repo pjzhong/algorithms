@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * Start this program, then "telnet localhost 1234" to connect to it
  * */
 public class ChannelAccept {
-    public static final String GREETING = "Hello I must be going.\r\n";
+    public static final String GREETING = "Hello, But I should leave.\r\n";
 
     public static void main(String[] args) throws Exception {
         int port = 1234;

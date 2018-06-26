@@ -28,7 +28,7 @@ public class ArrayListTest {
             test.add(i);
         }
 
-        for(Integer i : list) {
+        for(int i = 0, size = list.size(); i < size; i++) {
             test.remove(0);
         }
 

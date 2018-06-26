@@ -3,6 +3,9 @@ package dsa.tree;
 /**
  * If you want to visualization the insert and remove process of this tree
  * see this link:https://www.cs.usfca.edu/~galles/visualization/RedBlack.html
+ *
+ * RedBlockTree only one rotates and multi recolored after delete, than balance property will be hold again.
+ * AVLBinarySearchTree need O(logN) times
  * */
 public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree<Key, Value> {
 
