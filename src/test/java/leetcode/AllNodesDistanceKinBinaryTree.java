@@ -46,7 +46,7 @@ public class AllNodesDistanceKinBinaryTree {
             result.add(root.val);
         } else {
             nodesInKDistance(root.left, k - 1, pre, result);
-            nodesInKDistance(root.right, k - 1, pre,  result);
+            nodesInKDistance(root.right, k - 1, pre, result);
         }
     }
 }
