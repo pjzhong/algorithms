@@ -11,14 +11,6 @@ package leetcode;
 
  https://leetcode.com/problems/merge-two-sorted-lists/description/
  * */
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
 
 public class MergeTwoLists {
 
