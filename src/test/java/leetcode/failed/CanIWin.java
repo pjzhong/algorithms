@@ -55,17 +55,14 @@ public class CanIWin {
     }
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
-        return canIWin(1, maxChoosableInteger, desiredTotal, 0);
+        map = new HashMap<>();
+        used = new boolean[maxChoosableInteger + 1];
+        return helper(desiredTotal);
     }
 
     Map<Integer, Boolean> map;
     boolean[] used;
 
-    public boolean canIWin(int min, int max, int desiredTotal, int running) {
-        map = new HashMap<>();
-        used = new boolean[max + 1];
-        return helper(desiredTotal);
-    }
 
 
     /**
