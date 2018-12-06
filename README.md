@@ -14,6 +14,7 @@
     - [AVLBinarySearchTree](src/main/java/dsa/tree/AVLBinarySearchTree.java)
     - [SplayBinarySearchTree](src/main/java/dsa/tree/SplayBinarySearchTree.java)
     - [RedBlackTree](src/main/java/dsa/tree/RedBlackTree.java)
+    - [BTree](src/main/java/dsa/tree/BTree.java)
 - [sort](src/main/java/dsa/sort) - [unit test](src/test/java/dsa/sortest/SortTest.java)
     - [BubbleSort](src/main/java/dsa/sort/BubbleSort.java)
     - [SelectionSort](src/main/java/dsa/sort/SelectionSort.java)
