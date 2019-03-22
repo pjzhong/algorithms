@@ -10,7 +10,7 @@ public class OddEven {
   private ReentrantLock lock = new ReentrantLock();
   private Condition evenGo = lock.newCondition();
   private Condition oddGo = lock.newCondition();
-  private volatile String working = "even";
+  private String working = "even";
   private volatile boolean go = true;
 
   private class Even implements Runnable {
