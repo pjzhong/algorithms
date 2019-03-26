@@ -1,12 +1,15 @@
 package time;
 
 import java.time.DateTimeException;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -82,5 +85,27 @@ public class TimeZoneAndOffsetClasses {
     } else {
       System.out.printf(" (%s standard time will be in effect.)%n", arrivingZone);
     }
+  }
+
+  /**
+   * the OffsetDateTime class, in effect, combines the LocalDateTime class with the ZoneOffset
+   * class. It is used to represent a full date (year, month, day) and time (hour, minute, second,
+   * nanosecond) with an offset from Greenwich/UTC time (+/-hours:minutes, such as +06:00 or
+   * -08:00)
+   *
+   * @since 2019年03月22日 09:55:43
+   */
+  @Test
+  public void OffsetDateTime() {
+    // Find the last Thursday in July 2018
+    LocalDateTime localDate = LocalDateTime.of(2013, Month.JULY, 20, 19, 30);
+    ZoneOffset offset = ZoneOffset.of("-08:00");
+
+    OffsetDateTime offsetDate = OffsetDateTime.of(localDate, offset);
+    OffsetDateTime lastThursday = offsetDate
+        .with(TemporalAdjusters.lastInMonth(DayOfWeek.THURSDAY));
+    System.out
+        .printf("The last Thursday in July 2013 is the %sth,%n", lastThursday.getDayOfMonth());
+
   }
 }
