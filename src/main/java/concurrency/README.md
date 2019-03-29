@@ -16,6 +16,7 @@
          - [SleepyBoundedBuffer - sleep a while](example/managestate/impl/SleepyBoundedBuffer.java)
          - [IntrinsicBoundedBuffer - multi predicates on the same queue](example/managestate/impl/IntrinsicBoundedBuffer.java)
          - [ConditionQueueBoundedBuffer - multi predicates on the different queues](example/managestate/impl/ConditionQueueBoundedBuffer.java)
+         - [OddEven - Even, odd, Even, odd...repeat](example/lock/OddEven.java)
   - Deadlock
      - [dependent Tasks Deadlock](example/lock/ThreadDeadlock.java)
      - [LockOrdering](example/lock/LeftRightDeadLock.java)
