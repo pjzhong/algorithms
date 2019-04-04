@@ -65,8 +65,8 @@ public class OddEven {
 
   public void start() {
     Condition evenGo = lock.newCondition(), oddGo = lock.newCondition();
-    new Thread(new Count(1, "odd", "even", oddGo, evenGo), "1").start();
-    new Thread(new Count(2, "even", "odd", evenGo, oddGo), "3").start();
+    new Thread(new Count(1, "odd", "even", oddGo, evenGo)).start();
+    new Thread(new Count(2, "even", "odd", evenGo, oddGo)).start();
   }
 
   private void stop() {
