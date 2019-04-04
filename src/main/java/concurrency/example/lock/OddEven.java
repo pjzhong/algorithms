@@ -4,77 +4,69 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-
+/**
+ * 基偶轮流输出
+ */
 public class OddEven {
 
   private ReentrantLock lock = new ReentrantLock();
-  private Condition evenGo = lock.newCondition();
-  private Condition oddGo = lock.newCondition();
-  private String working = "even";
+  private volatile String working = "even";
   private volatile boolean go = true;
 
-  private class Even implements Runnable {
+  private class Count implements Runnable {
+
+    private int start;
+    private String self, other;
+    private Condition selfGo, otherGo;
+
+    Count(int start, String self, String other, Condition selfWait,
+        Condition otherGo) {
+      this.start = start;
+      this.self = self;
+      this.other = other;
+      this.selfGo = selfWait;
+      this.otherGo = otherGo;
+    }
 
     @Override
     public void run() {
-      int start = 2, grow = 2;
+      lock.lock();
       try {
-        lock.lock();
-        while (go) {
-          while (!working.equals(Thread.currentThread().getName())) {
-            evenGo.await();
+        do {
+          //检查运行条件
+          while (!working.equals(self)) {
+            if (go) {
+              selfGo.await(1000L, TimeUnit.MILLISECONDS);
+            } else {
+              return;
+            }
           }
 
+          //干活
           for (int i = 0; i < 10; i++) {
-            System.out.format("%d ", start);
-            start += grow;
+            System.out.printf("%d ", start);
+            start += 2;
           }
-          System.out.printf("--------------%s--------%n", working);
-          working = "odd";
-          oddGo.signal();
-        }
+          System.out.printf("--------%4s--------%n", self);
+
+          //切换
+          working = other;
+          otherGo.signal();
+        } while (go);
       } catch (InterruptedException e) {
         e.printStackTrace();
         stop();
       } finally {
-        oddGo.signalAll();
-        lock.unlock();
-      }
-    }
-  }
-
-  private class Odd implements Runnable {
-
-    @Override
-    public void run() {
-      int start = 1, grow = 2;
-      try {
-        lock.lock();
-        while (go) {
-          while (!working.equals(Thread.currentThread().getName())) {
-            oddGo.await();
-          }
-
-          for (int i = 0; i < 10; i++) {
-            System.out.format("%d ", start);
-            start += grow;
-          }
-          System.out.printf("-------------%s----------------%n", working);
-          working = "even";
-          evenGo.signal();
-        }
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      } finally {
-        evenGo.signalAll();
+        otherGo.signal();
         lock.unlock();
       }
     }
   }
 
   public void start() {
-    new Thread(new Even(), "even").start();
-    new Thread(new Odd(), "odd").start();
+    Condition evenGo = lock.newCondition(), oddGo = lock.newCondition();
+    new Thread(new Count(1, "odd", "even", oddGo, evenGo), "1").start();
+    new Thread(new Count(2, "even", "odd", evenGo, oddGo), "3").start();
   }
 
   private void stop() {
