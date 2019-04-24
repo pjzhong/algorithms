@@ -35,21 +35,42 @@
 ## Directories
 
 ```
-└─ src
-	├─ main
-	│  	└─ java
-	│  		├─ concurrency
-	│  		├─ dsa
-	│  		│  	├─ graph
-	│  		│  	├─ hash
-	│  		│  	├─ list
-	│  		│  	├─ sort
-	│  		│  	├─ string
-	│  		│  	└─ tree
-	│  		├─ nio
-	│  		└─ util
-	└─ test
-		└─ java
-			├─ dsa
-			└─ leetcode
+├─ main
+│  	├─ java
+│  	│  	├─ concurrency
+│  	│  	│  	├─ anno
+│  	│  	│  	├─ atomic_variable
+│  	│  	│  	├─ example
+│  	│  	│  	│  	├─ aqs
+│  	│  	│  	│  	├─ lock
+│  	│  	│  	│  	└─ managestate
+│  	│  	│  	│  		└─ impl
+│  	│  	│  	└─ java_memory_model
+│  	│  	├─ dsa
+│  	│  	│  	├─ graph
+│  	│  	│  	├─ hash
+│  	│  	│  	├─ list
+│  	│  	│  	├─ sort
+│  	│  	│  	├─ string
+│  	│  	│  	└─ tree
+│  	│  	├─ nio
+│  	│  	└─ util
+│  	└─ resources
+└─ test
+	├─ java
+	│  	├─ concurrency
+	│  	├─ dsa
+	│  	│  	├─ graphTest
+	│  	│  	├─ hashtest
+	│  	│  	├─ listtest
+	│  	│  	├─ problems
+	│  	│  	├─ sortest
+	│  	│  	├─ stringtest
+	│  	│  	└─ treetest
+	│  	├─ leetcode
+	│  	│  	├─ content131
+	│  	│  	└─ failed
+	│  	└─ time
+	└─ resources
+37 directories
 ```
