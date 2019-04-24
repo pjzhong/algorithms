@@ -2,6 +2,7 @@ package time;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import org.junit.Test;
@@ -30,6 +31,19 @@ public class ParsingAndFormatting {
    * @see TimeZoneAndOffsetClasses#ZonedDateTime()
    * @since 2019年03月22日 11:57:13
    */
-  public void formatting() {
+  @Test
+  public void customFormatting() {
+    String input = "2019-03-27 15:09:47";
+    try {
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+      LocalDateTime date = LocalDateTime.parse(input, formatter);
+      System.out.printf("%s%n", date);
+      System.out.println(Instant.now());
+    } catch (DateTimeParseException exc) {
+      System.out.printf("%s is not parsable!%n", input);
+      throw exc;
+    }
+
+
   }
 }

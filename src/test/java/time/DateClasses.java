@@ -1,11 +1,14 @@
 package time;
 
 import java.time.DayOfWeek;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.MonthDay;
 import java.time.Year;
 import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.temporal.TemporalAdjusters;
 import org.junit.Test;
 
@@ -28,6 +31,11 @@ public class DateClasses {
 
     DayOfWeek dotw = date.getDayOfWeek();
     System.out.println(dotw);
+
+    // Is Same Day
+    LocalDate now = LocalDate.from(LocalDateTime
+        .ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.systemDefault()));
+    System.out.printf("%s and %s is same day %s%n", now, date, now.equals(date));
   }
 
   @Test
