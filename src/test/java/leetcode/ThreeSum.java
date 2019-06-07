@@ -11,7 +11,7 @@ import org.junit.Test;
  * Given a collection of numbers that might contain duplicates, return all possible unique
  * permutations.
  *
- * https://leetcode.com/problems/permutations-ii/description/
+ * @link https://leetcode.com/problems/3sum/
  */
 public class ThreeSum {
 
