@@ -2,8 +2,10 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.TreeMap;
 import org.junit.Test;
 
 /**
@@ -41,6 +43,24 @@ public class CarPooling {
   }
 
   public boolean carPooling(int[][] trips, int capacity) {
+    Map<Integer, Integer> onAndOff = new TreeMap<>();
+    for (int[] trip : trips) {
+      onAndOff.merge(trip[1], trip[0], Integer::sum);//上车位置，加
+      onAndOff.merge(trip[2], -trip[0], Integer::sum);//下车位置，减
+    }
+
+    int count = 0;
+    for (Integer i : onAndOff.values()) {
+      count += i;
+      if (capacity < count) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private boolean useSortAndPriorityQueue(int[][] trips, int capacity) {
     Arrays.sort(trips, Comparator.comparingInt(a -> a[1]));//上车顺序
     Queue<int[]> passengers = new PriorityQueue<>(Comparator.comparingInt(a -> a[2])); //下车顺序
     int left = capacity;
