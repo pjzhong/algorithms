@@ -66,13 +66,12 @@ public class RotateImage {
         matrix[col][toCol] = matrix[down][start];
         matrix[down][start] = copy;
 
-        if (col == down && toCol == start) {
+        row = col;
+        col = toCol;
+        if (row == down && col == start) {
           down++;
           row = down;
           col = start;
-        } else {
-          row = col;
-          col = toCol;
         }
       }
     }
