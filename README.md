@@ -32,6 +32,9 @@
 
 - [What I know about concurrency](src/main/java/concurrency)
 
+# netty
+- [simple-chat](src/main/java/netty/chat)
+
 ## Directories
 
 ```
