@@ -3,6 +3,12 @@ package dsa.list;
 import java.util.Iterator;
 import java.util.Random;
 
+/**
+ * Fore more info, please check the link below
+ *
+ * @link https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/SkipList.html#id1
+ * @since 2019年08月15日 21:47:53
+ **/
 public class SkipListMap<K extends Comparable<K>, V> {
 
   private int level;
