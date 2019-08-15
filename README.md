@@ -3,6 +3,7 @@
 - [list](src/main/java/dsa/list)
     - [ArrayList](src/main/java/dsa/list/ArrayList.java)
     - [LinkedList](src/main/java/dsa/list/LinkedList.java)
+    - [SkipListMap](src/main/java/dsa/list/SkipListMap.java)
     - [PriorityQueue](src/main/java/dsa/list/PriorityQueue.java)
     - [PriorityQueueLeftHeap](src/main/java/dsa/list/PriorityQueueLeftHeap.java)
 - [graph](src/main/java/dsa/graph)

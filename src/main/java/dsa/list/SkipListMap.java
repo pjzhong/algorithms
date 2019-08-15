@@ -178,10 +178,8 @@ public class SkipListMap<K extends Comparable<K>, V> {
       builder.setLength(0);
       while (x != null) {
         String xStr = x.toString();
-        int idx = base.indexOf(xStr);
-        String fill = builder.length() == 0 ? " " : "-";
-        for (int l = builder.length(); l < idx; l++) {
-          builder.append(fill);
+        for (int l = builder.length(), idx  = base.indexOf(xStr); l < idx; l++) {
+          builder.append('-');
         }
         builder.append(xStr);
         x = x.forward[i];

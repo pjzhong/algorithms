@@ -122,7 +122,7 @@ public class SkipListTest {
   @Test
   public void prettyTest() {
     SkipListMap<Integer, Integer> list = new SkipListMap<>();
-    int ceil = 1000;
+    int ceil = 100;
     for (int i = ceil; i > 0; i--) {
       list.insert(i, i);
     }
