@@ -11,7 +11,7 @@ public class H2O {
 
   private Semaphore H = new Semaphore(0);
   private Semaphore O = new Semaphore(1);
-  private volatile AtomicInteger h = new AtomicInteger();
+  private AtomicInteger h = new AtomicInteger();
 
   public H2O() {
 
