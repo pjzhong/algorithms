@@ -43,3 +43,4 @@ target/
 
 # custom #
 logs/
+/src/test/java/com/pjzhong/protocol/*

@@ -1,29 +1,29 @@
 ## Algorithms And Data Structures
 
-- [list](src/main/java/dsa/list)
-    - [ArrayList](src/main/java/dsa/list/ArrayList.java)
-    - [LinkedList](src/main/java/dsa/list/LinkedList.java)
-    - [SkipListMap](src/main/java/dsa/list/SkipListMap.java)
-    - [PriorityQueue](src/main/java/dsa/list/PriorityQueue.java)
-    - [PriorityQueueLeftHeap](src/main/java/dsa/list/PriorityQueueLeftHeap.java)
-- [graph](src/main/java/dsa/graph)
-- [hash](src/main/java/dsa/hash)
-     - [HashMap](src/main/java/dsa/hash/HashMap.java)
-     - [TreeMap](src/main/java/dsa/hash/TreeMap.java)
-- [tree](src/main/java/dsa/tree)
-    - [BinarySearchTree](src/main/java/dsa/tree/BinarySearchTree.java)
-    - [AVLBinarySearchTree](src/main/java/dsa/tree/AVLBinarySearchTree.java)
-    - [SplayBinarySearchTree](src/main/java/dsa/tree/SplayBinarySearchTree.java)
-    - [RedBlackTree](src/main/java/dsa/tree/RedBlackTree.java)
-    - [BTree](src/main/java/dsa/tree/BTree.java)
-- [sort](src/main/java/dsa/sort) - [unit test](src/test/java/dsa/sortest/SortTest.java)
-    - [BubbleSort](src/main/java/dsa/sort/BubbleSort.java)
-    - [SelectionSort](src/main/java/dsa/sort/SelectionSort.java)
-    - [InsertionSort](src/main/java/dsa/sort/InsertionSort.java)
-    - [HeapSort](src/main/java/dsa/sort/HeapSort.java)
-    - [ShellSort](src/main/java/dsa/sort/ShellSort.java)
-    - [MergeSort](src/main/java/dsa/sort/MergeSort.java)
-    - [QuickSort](src/main/java/dsa/sort/QuickSort.java)
+- [list](src/main/java/com.pjzhong.dsa/list)
+    - [ArrayList](src/main/java/com.pjzhong.dsa/list/ArrayList.java)
+    - [LinkedList](src/main/java/com.pjzhong.dsa/list/LinkedList.java)
+    - [SkipListMap](src/main/java/com.pjzhong.dsa/list/SkipListMap.java)
+    - [PriorityQueue](src/main/java/com.pjzhong.dsa/list/PriorityQueue.java)
+    - [PriorityQueueLeftHeap](src/main/java/com.pjzhong.dsa/list/PriorityQueueLeftHeap.java)
+- [graph](src/main/java/com.pjzhong.dsa/graph)
+- [hash](src/main/java/com.pjzhong.dsa/hash)
+     - [HashMap](src/main/java/com.pjzhong.dsa/hash/HashMap.java)
+     - [TreeMap](src/main/java/com.pjzhong.dsa/hash/TreeMap.java)
+- [tree](src/main/java/com.pjzhong.dsa/tree)
+    - [BinarySearchTree](src/main/java/com.pjzhong.dsa/tree/BinarySearchTree.java)
+    - [AVLBinarySearchTree](src/main/java/com.pjzhong.dsa/tree/AVLBinarySearchTree.java)
+    - [SplayBinarySearchTree](src/main/java/com.pjzhong.dsa/tree/SplayBinarySearchTree.java)
+    - [RedBlackTree](src/main/java/com.pjzhong.dsa/tree/RedBlackTree.java)
+    - [BTree](src/main/java/com.pjzhong.dsa/tree/BTree.java)
+- [sort](src/main/java/com.pjzhong.dsa/sort) - [unit test](src/test/java/com.pjzhong.dsa/sortest/SortTest.java)
+    - [BubbleSort](src/main/java/com.pjzhong.dsa/sort/BubbleSort.java)
+    - [SelectionSort](src/main/java/com.pjzhong.dsa/sort/SelectionSort.java)
+    - [InsertionSort](src/main/java/com.pjzhong.dsa/sort/InsertionSort.java)
+    - [HeapSort](src/main/java/com.pjzhong.dsa/sort/HeapSort.java)
+    - [ShellSort](src/main/java/com.pjzhong.dsa/sort/ShellSort.java)
+    - [MergeSort](src/main/java/com.pjzhong.dsa/sort/MergeSort.java)
+    - [QuickSort](src/main/java/com.pjzhong.dsa/sort/QuickSort.java)
 
 ## LeetCode
 
@@ -31,17 +31,17 @@
 
 # Concurrency
 
-- [What I know about concurrency](src/main/java/concurrency)
+- [What I know about com.pjzhong.concurrency](src/main/java/com.pjzhong.concurrency)
 
-# netty
-- [simple-chat](src/main/java/netty/chat)
+# com.pjzhong.netty
+- [simple-chat](src/main/java/com/pjzhong/chat)
 
 ## Directories
 
 ```
 ├─ main
 │  	├─ java
-│  	│  	├─ concurrency
+│  	│  	├─ com.pjzhong.concurrency
 │  	│  	│  	├─ anno
 │  	│  	│  	├─ atomic_variable
 │  	│  	│  	├─ example
@@ -50,20 +50,20 @@
 │  	│  	│  	│  	└─ managestate
 │  	│  	│  	│  		└─ impl
 │  	│  	│  	└─ java_memory_model
-│  	│  	├─ dsa
+│  	│  	├─ com.pjzhong.dsa
 │  	│  	│  	├─ graph
 │  	│  	│  	├─ hash
 │  	│  	│  	├─ list
 │  	│  	│  	├─ sort
 │  	│  	│  	├─ string
 │  	│  	│  	└─ tree
-│  	│  	├─ nio
-│  	│  	└─ util
+│  	│  	├─ com.pjzhong.nio
+│  	│  	└─ com.pjzhong.util
 │  	└─ resources
 └─ test
 	├─ java
-	│  	├─ concurrency
-	│  	├─ dsa
+	│  	├─ com.pjzhong.concurrency
+	│  	├─ com.pjzhong.dsa
 	│  	│  	├─ graphTest
 	│  	│  	├─ hashtest
 	│  	│  	├─ listtest
@@ -71,10 +71,10 @@
 	│  	│  	├─ sortest
 	│  	│  	├─ stringtest
 	│  	│  	└─ treetest
-	│  	├─ leetcode
+	│  	├─ com.pjzhong.leetcode
 	│  	│  	├─ content131
 	│  	│  	└─ failed
-	│  	└─ time
+	│  	└─ com.pjzhong.time
 	└─ resources
 37 directories
 ```
