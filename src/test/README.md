@@ -1,167 +1,147 @@
 [LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
 
-# Files
-```
-└─ java
-	└─ com.pjzhong.leetcode
-		├─ AllNodesDistanceKinBinaryTree.java
-		├─ BasicCalculator.java
-		├─ BinaryTreeInorderTraversal.java
-		├─ BinaryTreeLevelOrderTraversal.java
-		├─ BinaryTreeMaximumPathSum.java
-		├─ BinaryTreePaths.java
-		├─ BinaryTreePostorderTraversal.java
-		├─ BinaryTreePreorderTraversal.java
-		├─ BinaryTreePruning.java
-		├─ BinaryTreeRightSideView.java
-		├─ BinaryTreeZigzagLevelOrderTraversal.java
-		├─ bitOnes.java
-		├─ BucketSortTest.java
-		├─ CarPooling.java
-		├─ CheapestFlightsWithinKStops.java
-		├─ ClimbingStairsTest.java
-		├─ ClimbWays.java
-		├─ CoinChangeII.java
-		├─ CoinChangeTest.java
-		├─ Combinations.java
-		├─ CombinationSum.java
-		├─ CombinationSumII.java
-		├─ CombinationSumIII.java
-		├─ ContainsDuplicate.java
-		├─ ContainsDuplicateII.java
-		├─ ContainsDuplicateIII.java
-		├─ content131
-		│  	├─ RemoveOutermostParentheses.java
-		│  	└─ SumofRootToLeafBinaryNumbers.java
-		├─ contest100
-		│  	├─ IncreasingOrderSearchTree.java
-		│  	└─ MonotonicArray.java
-		├─ contest80
-		│  	└─ MostCommonWord.java
-		├─ contest81
-		│  	└─ ShortestDistanceToCharacter.java
-		├─ contest82
-		│  	├─ GoatLatin.java
-		│  	└─ MostProfitAssigningWork.java
-		├─ contest83
-		│  	└─ PositionsOfLargeGroups.java
-		├─ contest84
-		│  	├─ FindAndReplaceInString.java
-		│  	└─ FlippingAnImage.java
-		├─ contest85
-		│  	├─ PushDominoes.java
-		│  	└─ RectangleOverlap.java
-		├─ contest86
-		│  	├─ KeysAndRooms.java
-		│  	└─ MagicSquaresInGrid.java
-		├─ contest87
-		│  	└─ LongestMountainInArray.java
-		├─ contest88
-		│  	├─ CarFleet.java
-		│  	└─ PeakIndexinaMountainArray.java
-		├─ contest92
-		│  	├─ SmallestSubtreewitalltheDeepestNodes.java
-		│  	└─ TransposeMatrix.java
-		├─ contest93
-		│  	├─ BinaryGap.java
-		│  	└─ ReorderedPowerOf2.java
-		├─ contest94
-		│  	└─ LeafSimilarTrees.java
-		├─ contest95
-		│  	└─ MiddleOftheLinkedList.java
-		├─ contest96
-		│  	└─ BoatsToSavePeople.java
-		├─ contest97
-		│  	└─ UncommonWordsfromTwoSentences.java
-		├─ contest98
-		├─ contest99
-		├─ CountingBits.java
-		├─ CourseSchedule.java
-		├─ CourseScheduleII.java
-		├─ CuttingRod.java
-		├─ deleteAndEarnTest.java
-		├─ DeleteNodeInaBST.java
-		├─ DivisionTest.java
-		├─ DungeonGame.java
-		├─ DynamicProgramming.java
-		├─ EditDistance.java
-		├─ EggDroppingPuzzle.java
-		├─ EuclideanAlgorithm.java
-		├─ FindBottomLeftTreeValue.java
-		├─ FindDuplicatesTest.java
-		├─ FindEventualSafeStates.java
-		├─ FindLargestValueinEachTreeRow.java
-		├─ HouseRobberTest.java
-		├─ HouseRobberTestII.java
-		├─ HouseRobberTestIII.java
-		├─ InsertInterval.java
-		├─ IntegerBreak.java
-		├─ InvertBinaryTree.java
-		├─ IsBipartite.java
-		├─ LargestNumber.java
-		├─ LemonadeChange.java
-		├─ LinkedListCycle.java
-		├─ LinkedListCycleII.java
-		├─ ListNode.java
-		├─ LongestIncreasingSubsequence.java
-		├─ LongestPalindrome.java
-		├─ LongestPalindromicSubsequence.java
-		├─ LongestPalindromicSubstring.java
-		├─ LongestUnivaluePath.java
-		├─ LowestCommonAncestorOfaBinarySearchTree.java
-		├─ LowestCommonAncestorOfaBinaryTree.java
-		├─ Matrix01.java
-		├─ MaximizeDistanceClosestPerson.java
-		├─ MaximumBinaryTree.java
-		├─ MaximumProductOfThreeNumbers.java
-		├─ MaximumSubarray.java
-		├─ MaximumSumIncreasingSubsequence.java
-		├─ MergeIntervals.java
-		├─ MergeSortedArray.java
-		├─ MergeTwoBinaryTree.java
-		├─ MergeTwoLists.java
-		├─ MinCostClimbingStairsTest.java
-		├─ MinimumNumberOfJumpsToReachEnd.java
-		├─ MinimumPathSum.java
-		├─ MissingNumbersTest.java
-		├─ MoveZerosTest.java
-		├─ NQueens.java
-		├─ NumberOfIslands.java
-		├─ PartitionEqualSubsetSumTest.java
-		├─ PathSum.java
-		├─ PathSumII.java
-		├─ PathSumIII.java
-		├─ Permutations.java
-		├─ PermutationsII.java
-		├─ PrimePalindrome.java
-		├─ RotateArray.java
-		├─ RotateImage.java
-		├─ SameTree.java
-		├─ Searcha2DMartic.java
-		├─ SetMartixZeros.java
-		├─ ShiftingLetters.java
-		├─ ShiftTest.java
-		├─ SingleNumberI.java
-		├─ SlidingPuzzle.java
-		├─ SortColors.java
-		├─ Subsets.java
-		├─ SudokuSolver.java
-		├─ SumRootToLeafNumbers.java
-		├─ SymmetricTree.java
-		├─ TargetSumTest.java
-		├─ TheLongestCommonSequenceTest.java
-		├─ TheMaxDiffTest.java
-		├─ TheMissing.java
-		├─ ThreeSum.java
-		├─ TopKFrequentElements.java
-		├─ TopKFrequentWords.java
-		├─ TreeNode.java
-		├─ Triangle.java
-		├─ TwoSum.java
-		├─ UniquePaths.java
-		├─ UniquePathsII.java
-		├─ ValidateBinarySearchTree.java
-		├─ WalkingRobotSimulation.java
-		└─ WiggleSubsequence.java
-21 directories,	140 files	
-```
+# Questions-143
+
+- [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
+- [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
+- [BinaryTreeInorderTraversal](java/com/pjzhong/leetcode/BinaryTreeInorderTraversal.java)
+- [BinaryTreeLevelOrderTraversal](java/com/pjzhong/leetcode/BinaryTreeLevelOrderTraversal.java)
+- [BinaryTreeMaximumPathSum](java/com/pjzhong/leetcode/BinaryTreeMaximumPathSum.java)
+- [BinaryTreePaths](java/com/pjzhong/leetcode/BinaryTreePaths.java)
+- [BinaryTreePostorderTraversal](java/com/pjzhong/leetcode/BinaryTreePostorderTraversal.java)
+- [BinaryTreePreorderTraversal](java/com/pjzhong/leetcode/BinaryTreePreorderTraversal.java)
+- [BinaryTreePruning](java/com/pjzhong/leetcode/BinaryTreePruning.java)
+- [BinaryTreeRightSideView](java/com/pjzhong/leetcode/BinaryTreeRightSideView.java)
+- [BinaryTreeZigzagLevelOrderTraversal](java/com/pjzhong/leetcode/BinaryTreeZigzagLevelOrderTraversal.java)
+- [bitOnes](java/com/pjzhong/leetcode/bitOnes.java)
+- [BucketSortTest](java/com/pjzhong/leetcode/BucketSortTest.java)
+- [CarPooling](java/com/pjzhong/leetcode/CarPooling.java)
+- [CheapestFlightsWithinKStops](java/com/pjzhong/leetcode/CheapestFlightsWithinKStops.java)
+- [ClimbingStairsTest](java/com/pjzhong/leetcode/ClimbingStairsTest.java)
+- [ClimbWays](java/com/pjzhong/leetcode/ClimbWays.java)
+- [CoinChangeII](java/com/pjzhong/leetcode/CoinChangeII.java)
+- [CoinChangeTest](java/com/pjzhong/leetcode/CoinChangeTest.java)
+- [Combinations](java/com/pjzhong/leetcode/Combinations.java)
+- [CombinationSum](java/com/pjzhong/leetcode/CombinationSum.java)
+- [CombinationSumII](java/com/pjzhong/leetcode/CombinationSumII.java)
+- [CombinationSumIII](java/com/pjzhong/leetcode/CombinationSumIII.java)
+- [ContainerWithMostWater](java/com/pjzhong/leetcode/ContainerWithMostWater.java)
+- [ContainsDuplicate](java/com/pjzhong/leetcode/ContainsDuplicate.java)
+- [ContainsDuplicateII](java/com/pjzhong/leetcode/ContainsDuplicateII.java)
+- [ContainsDuplicateIII](java/com/pjzhong/leetcode/ContainsDuplicateIII.java)
+- [CountingBits](java/com/pjzhong/leetcode/CountingBits.java)
+- [CourseSchedule](java/com/pjzhong/leetcode/CourseSchedule.java)
+- [CourseScheduleII](java/com/pjzhong/leetcode/CourseScheduleII.java)
+- [CuttingRod](java/com/pjzhong/leetcode/CuttingRod.java)
+- [deleteAndEarnTest](java/com/pjzhong/leetcode/deleteAndEarnTest.java)
+- [DeleteNodeInaBST](java/com/pjzhong/leetcode/DeleteNodeInaBST.java)
+- [DivisionTest](java/com/pjzhong/leetcode/DivisionTest.java)
+- [DungeonGame](java/com/pjzhong/leetcode/DungeonGame.java)
+- [DynamicProgramming](java/com/pjzhong/leetcode/DynamicProgramming.java)
+- [EditDistance](java/com/pjzhong/leetcode/EditDistance.java)
+- [EggDroppingPuzzle](java/com/pjzhong/leetcode/EggDroppingPuzzle.java)
+- [EuclideanAlgorithm](java/com/pjzhong/leetcode/EuclideanAlgorithm.java)
+- [FindBottomLeftTreeValue](java/com/pjzhong/leetcode/FindBottomLeftTreeValue.java)
+- [FindDuplicatesTest](java/com/pjzhong/leetcode/FindDuplicatesTest.java)
+- [FindEventualSafeStates](java/com/pjzhong/leetcode/FindEventualSafeStates.java)
+- [FindLargestValueinEachTreeRow](java/com/pjzhong/leetcode/FindLargestValueinEachTreeRow.java)
+- [H2O](java/com/pjzhong/leetcode/H2O.java)
+- [HouseRobberTest](java/com/pjzhong/leetcode/HouseRobberTest.java)
+- [HouseRobberTestII](java/com/pjzhong/leetcode/HouseRobberTestII.java)
+- [HouseRobberTestIII](java/com/pjzhong/leetcode/HouseRobberTestIII.java)
+- [InsertInterval](java/com/pjzhong/leetcode/InsertInterval.java)
+- [IntegerBreak](java/com/pjzhong/leetcode/IntegerBreak.java)
+- [InvertBinaryTree](java/com/pjzhong/leetcode/InvertBinaryTree.java)
+- [IsBipartite](java/com/pjzhong/leetcode/IsBipartite.java)
+- [JumpGame](java/com/pjzhong/leetcode/JumpGame.java)
+- [LargestNumber](java/com/pjzhong/leetcode/LargestNumber.java)
+- [LemonadeChange](java/com/pjzhong/leetcode/LemonadeChange.java)
+- [LinkedListCycle](java/com/pjzhong/leetcode/LinkedListCycle.java)
+- [LinkedListCycleII](java/com/pjzhong/leetcode/LinkedListCycleII.java)
+- [ListNode](java/com/pjzhong/leetcode/ListNode.java)
+- [LongestIncreasingSubsequence](java/com/pjzhong/leetcode/LongestIncreasingSubsequence.java)
+- [LongestPalindrome](java/com/pjzhong/leetcode/LongestPalindrome.java)
+- [LongestPalindromicSubsequence](java/com/pjzhong/leetcode/LongestPalindromicSubsequence.java)
+- [LongestPalindromicSubstring](java/com/pjzhong/leetcode/LongestPalindromicSubstring.java)
+- [LongestUnivaluePath](java/com/pjzhong/leetcode/LongestUnivaluePath.java)
+- [LowestCommonAncestorOfaBinarySearchTree](java/com/pjzhong/leetcode/LowestCommonAncestorOfaBinarySearchTree.java)
+- [LowestCommonAncestorOfaBinaryTree](java/com/pjzhong/leetcode/LowestCommonAncestorOfaBinaryTree.java)
+- [Matrix01](java/com/pjzhong/leetcode/Matrix01.java)
+- [MaximizeDistanceClosestPerson](java/com/pjzhong/leetcode/MaximizeDistanceClosestPerson.java)
+- [MaximumBinaryTree](java/com/pjzhong/leetcode/MaximumBinaryTree.java)
+- [MaximumProductOfThreeNumbers](java/com/pjzhong/leetcode/MaximumProductOfThreeNumbers.java)
+- [MaximumSubarray](java/com/pjzhong/leetcode/MaximumSubarray.java)
+- [MaximumSumIncreasingSubsequence](java/com/pjzhong/leetcode/MaximumSumIncreasingSubsequence.java)
+- [MergeIntervals](java/com/pjzhong/leetcode/MergeIntervals.java)
+- [MergeSortedArray](java/com/pjzhong/leetcode/MergeSortedArray.java)
+- [MergeTwoBinaryTree](java/com/pjzhong/leetcode/MergeTwoBinaryTree.java)
+- [MergeTwoLists](java/com/pjzhong/leetcode/MergeTwoLists.java)
+- [MinCostClimbingStairsTest](java/com/pjzhong/leetcode/MinCostClimbingStairsTest.java)
+- [MinimumNumberOfJumpsToReachEnd](java/com/pjzhong/leetcode/MinimumNumberOfJumpsToReachEnd.java)
+- [MinimumPathSum](java/com/pjzhong/leetcode/MinimumPathSum.java)
+- [MissingNumbersTest](java/com/pjzhong/leetcode/MissingNumbersTest.java)
+- [MoveZerosTest](java/com/pjzhong/leetcode/MoveZerosTest.java)
+- [NQueens](java/com/pjzhong/leetcode/NQueens.java)
+- [NumberOfIslands](java/com/pjzhong/leetcode/NumberOfIslands.java)
+- [PartitionEqualSubsetSumTest](java/com/pjzhong/leetcode/PartitionEqualSubsetSumTest.java)
+- [PathSum](java/com/pjzhong/leetcode/PathSum.java)
+- [PathSumII](java/com/pjzhong/leetcode/PathSumII.java)
+- [PathSumIII](java/com/pjzhong/leetcode/PathSumIII.java)
+- [Permutations](java/com/pjzhong/leetcode/Permutations.java)
+- [PermutationsII](java/com/pjzhong/leetcode/PermutationsII.java)
+- [PrimePalindrome](java/com/pjzhong/leetcode/PrimePalindrome.java)
+- [RotateArray](java/com/pjzhong/leetcode/RotateArray.java)
+- [RotateImage](java/com/pjzhong/leetcode/RotateImage.java)
+- [SameTree](java/com/pjzhong/leetcode/SameTree.java)
+- [Searcha2DMartic](java/com/pjzhong/leetcode/Searcha2DMartic.java)
+- [SetMartixZeros](java/com/pjzhong/leetcode/SetMartixZeros.java)
+- [ShiftingLetters](java/com/pjzhong/leetcode/ShiftingLetters.java)
+- [ShiftTest](java/com/pjzhong/leetcode/ShiftTest.java)
+- [SingleNumberI](java/com/pjzhong/leetcode/SingleNumberI.java)
+- [SlidingPuzzle](java/com/pjzhong/leetcode/SlidingPuzzle.java)
+- [SortColors](java/com/pjzhong/leetcode/SortColors.java)
+- [Subsets](java/com/pjzhong/leetcode/Subsets.java)
+- [SudokuSolver](java/com/pjzhong/leetcode/SudokuSolver.java)
+- [SumRootToLeafNumbers](java/com/pjzhong/leetcode/SumRootToLeafNumbers.java)
+- [SymmetricTree](java/com/pjzhong/leetcode/SymmetricTree.java)
+- [TargetSumTest](java/com/pjzhong/leetcode/TargetSumTest.java)
+- [TheLongestCommonSequenceTest](java/com/pjzhong/leetcode/TheLongestCommonSequenceTest.java)
+- [TheMaxDiffTest](java/com/pjzhong/leetcode/TheMaxDiffTest.java)
+- [TheMissing](java/com/pjzhong/leetcode/TheMissing.java)
+- [ThreeSum](java/com/pjzhong/leetcode/ThreeSum.java)
+- [TopKFrequentElements](java/com/pjzhong/leetcode/TopKFrequentElements.java)
+- [TopKFrequentWords](java/com/pjzhong/leetcode/TopKFrequentWords.java)
+- [TreeNode](java/com/pjzhong/leetcode/TreeNode.java)
+- [Triangle](java/com/pjzhong/leetcode/Triangle.java)
+- [TwoSum](java/com/pjzhong/leetcode/TwoSum.java)
+- [UniquePaths](java/com/pjzhong/leetcode/UniquePaths.java)
+- [UniquePathsII](java/com/pjzhong/leetcode/UniquePathsII.java)
+- [ValidateBinarySearchTree](java/com/pjzhong/leetcode/ValidateBinarySearchTree.java)
+- [WalkingRobotSimulation](java/com/pjzhong/leetcode/WalkingRobotSimulation.java)
+- [WiggleSubsequence](java/com/pjzhong/leetcode/WiggleSubsequence.java)
+- [RemoveOutermostParentheses](java/com/pjzhong/leetcode/content131/RemoveOutermostParentheses.java)
+- [SumofRootToLeafBinaryNumbers](java/com/pjzhong/leetcode/content131/SumofRootToLeafBinaryNumbers.java)
+- [IncreasingOrderSearchTree](java/com/pjzhong/leetcode/contest100/IncreasingOrderSearchTree.java)
+- [MonotonicArray](java/com/pjzhong/leetcode/contest100/MonotonicArray.java)
+- [MostCommonWord](java/com/pjzhong/leetcode/contest80/MostCommonWord.java)
+- [ShortestDistanceToCharacter](java/com/pjzhong/leetcode/contest81/ShortestDistanceToCharacter.java)
+- [GoatLatin](java/com/pjzhong/leetcode/contest82/GoatLatin.java)
+- [MostProfitAssigningWork](java/com/pjzhong/leetcode/contest82/MostProfitAssigningWork.java)
+- [PositionsOfLargeGroups](java/com/pjzhong/leetcode/contest83/PositionsOfLargeGroups.java)
+- [FindAndReplaceInString](java/com/pjzhong/leetcode/contest84/FindAndReplaceInString.java)
+- [FlippingAnImage](java/com/pjzhong/leetcode/contest84/FlippingAnImage.java)
+- [PushDominoes](java/com/pjzhong/leetcode/contest85/PushDominoes.java)
+- [RectangleOverlap](java/com/pjzhong/leetcode/contest85/RectangleOverlap.java)
+- [KeysAndRooms](java/com/pjzhong/leetcode/contest86/KeysAndRooms.java)
+- [MagicSquaresInGrid](java/com/pjzhong/leetcode/contest86/MagicSquaresInGrid.java)
+- [LongestMountainInArray](java/com/pjzhong/leetcode/contest87/LongestMountainInArray.java)
+- [CarFleet](java/com/pjzhong/leetcode/contest88/CarFleet.java)
+- [PeakIndexinaMountainArray](java/com/pjzhong/leetcode/contest88/PeakIndexinaMountainArray.java)
+- [SmallestSubtreewitalltheDeepestNodes](java/com/pjzhong/leetcode/contest92/SmallestSubtreewitalltheDeepestNodes.java)
+- [TransposeMatrix](java/com/pjzhong/leetcode/contest92/TransposeMatrix.java)
+- [BinaryGap](java/com/pjzhong/leetcode/contest93/BinaryGap.java)
+- [ReorderedPowerOf2](java/com/pjzhong/leetcode/contest93/ReorderedPowerOf2.java)
+- [LeafSimilarTrees](java/com/pjzhong/leetcode/contest94/LeafSimilarTrees.java)
+- [MiddleOftheLinkedList](java/com/pjzhong/leetcode/contest95/MiddleOftheLinkedList.java)
+- [BoatsToSavePeople](java/com/pjzhong/leetcode/contest96/BoatsToSavePeople.java)
+- [UncommonWordsfromTwoSentences](java/com/pjzhong/leetcode/contest97/UncommonWordsfromTwoSentences.java)
