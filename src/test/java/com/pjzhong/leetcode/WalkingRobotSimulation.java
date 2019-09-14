@@ -1,8 +1,10 @@
 package com.pjzhong.leetcode;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import org.junit.Test;
-
-import java.util.*;
 
 /**
  * A robot on an infinite grid starts at point (0, 0) and faces north.  The robot can receive one of
@@ -34,7 +36,7 @@ import java.util.*;
  * 0 <= commands.length <= 10000 0 <= obstacles.length <= 10000 -30000 <= obstacle[i][0] <= 30000
  * -30000 <= obstacle[i][1] <= 30000 The answer is guaranteed to be less than 2 ^ 31.
  *
- * @link https://com.pjzhong.leetcode.com/problems/walking-robot-simulation/description/
+ * @link https://leetcode.com/problems/walking-robot-simulation/description/
  *
  * The most annoying question because you didn't read the question carefully
  */
