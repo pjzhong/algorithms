@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Created by Administrator on 1/7/2018.
  */
-public class bitOnes {
+public class BitOnes {
 
   @Test
   public void test() {

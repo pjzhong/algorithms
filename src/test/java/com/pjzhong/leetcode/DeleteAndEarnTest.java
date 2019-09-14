@@ -33,7 +33,7 @@ import org.junit.Test;
  *
  * https://leetcode.com/problems/delete-and-earn/description/
  */
-public class deleteAndEarnTest {
+public class DeleteAndEarnTest {
 
     @Test
     public void test() {

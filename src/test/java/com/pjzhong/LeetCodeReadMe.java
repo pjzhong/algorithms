@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,9 +44,8 @@ public class LeetCodeReadMe {
     LinkedList<File> files = new LinkedList<>();
     files.add(leetCodeDir);
 
-    StringBuilder sb = new StringBuilder();
     Pattern pattern = Pattern.compile("\\\\");
-    int count = 0;
+    List<String> questions = new ArrayList<>();
     while (!files.isEmpty()) {
       File f = files.poll();
       if (f.isDirectory()) {
@@ -56,13 +56,15 @@ public class LeetCodeReadMe {
       } else {
         String path = pattern.matcher(f.getPath().substring(prefix.length())).replaceAll("/");
         String name = path.substring(path.lastIndexOf('/') + 1, path.length() - ".java".length());
-        sb.append("- ").append(String.format("[%s](%s)", name, path)).append('\n');
-        count++;
+        questions.add(String.format("- [%s](%s)\n", name, path));
       }
     }
 
+    StringBuilder sb = new StringBuilder();
+    questions.stream().sorted().forEach(sb::append);
+
     String f = "[LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)\n\n"
-        + String.format("# Questions-%s\n\n", count)
+        + String.format("# Questions-%s\n\n", questions.size())
         + sb.toString();
 
     FileOutputStream outputStream = new FileOutputStream(
