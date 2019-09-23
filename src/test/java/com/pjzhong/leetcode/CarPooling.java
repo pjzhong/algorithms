@@ -20,7 +20,7 @@ import org.junit.Test;
  * Return true if and only if it is possible to pick up and drop off all passengers for all the
  * given trips.
  *
- * @link https://com.pjzhong.leetcode.com/problems/car-pooling/
+ * @link https://leetcode.com/problems/car-pooling/
  **/
 public class CarPooling {
 
