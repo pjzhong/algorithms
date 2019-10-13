@@ -70,6 +70,8 @@ public class LeetCodeReadMe {
     FileOutputStream outputStream = new FileOutputStream(
         new File(userDir + "/src/test/README.md"));
     outputStream.write(f.getBytes(StandardCharsets.UTF_8));
+    outputStream.flush();
+    outputStream.close();
   }
 }
 
