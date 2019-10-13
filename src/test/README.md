@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
 
-# Questions-144
+# Questions-146
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -109,6 +109,7 @@
 - [PositionsOfLargeGroups](java/com/pjzhong/leetcode/contest83/PositionsOfLargeGroups.java)
 - [PrimePalindrome](java/com/pjzhong/leetcode/PrimePalindrome.java)
 - [PushDominoes](java/com/pjzhong/leetcode/contest85/PushDominoes.java)
+- [QueensThatCanAttacktheKing](java/com/pjzhong/leetcode/QueensThatCanAttacktheKing.java)
 - [RectangleOverlap](java/com/pjzhong/leetcode/contest85/RectangleOverlap.java)
 - [RemoveOutermostParentheses](java/com/pjzhong/leetcode/content131/RemoveOutermostParentheses.java)
 - [ReorderedPowerOf2](java/com/pjzhong/leetcode/contest93/ReorderedPowerOf2.java)
@@ -124,6 +125,7 @@
 - [SlidingPuzzle](java/com/pjzhong/leetcode/SlidingPuzzle.java)
 - [SmallestSubtreewitalltheDeepestNodes](java/com/pjzhong/leetcode/contest92/SmallestSubtreewitalltheDeepestNodes.java)
 - [SortColors](java/com/pjzhong/leetcode/SortColors.java)
+- [SplitaStringinBalancedStrings](java/com/pjzhong/leetcode/SplitaStringinBalancedStrings.java)
 - [Subsets](java/com/pjzhong/leetcode/Subsets.java)
 - [SudokuSolver](java/com/pjzhong/leetcode/SudokuSolver.java)
 - [SumRootToLeafNumbers](java/com/pjzhong/leetcode/SumRootToLeafNumbers.java)
