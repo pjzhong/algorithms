@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
 
-# Questions-148
+# Questions-147
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -141,7 +141,6 @@
 - [TopKFrequentElements](java/com/pjzhong/leetcode/TopKFrequentElements.java)
 - [TopKFrequentWords](java/com/pjzhong/leetcode/TopKFrequentWords.java)
 - [TransposeMatrix](java/com/pjzhong/leetcode/contest92/TransposeMatrix.java)
-- [TreeNode](java/com/pjzhong/leetcode/TreeNode.java)
 - [Triangle](java/com/pjzhong/leetcode/Triangle.java)
 - [TwoSum](java/com/pjzhong/leetcode/TwoSum.java)
 - [UncommonWordsfromTwoSentences](java/com/pjzhong/leetcode/contest97/UncommonWordsfromTwoSentences.java)

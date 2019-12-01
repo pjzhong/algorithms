@@ -31,7 +31,7 @@ public class LeetCodeReadMe {
 
   @Test
   public void readMe() throws Exception {
-    List<String> leetCodeFilter = Arrays.asList("failed", "LeetCodeReadMe");
+    List<String> leetCodeFilter = Arrays.asList("failed", "LeetCodeReadMe", "TreeNode");
 
     String userDir = System.getProperty("user.dir");
     String prefix = userDir + "/src/test/";
