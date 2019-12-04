@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
 
-# Questions-147
+# Questions-148
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -107,6 +107,7 @@
 - [PeakIndexinaMountainArray](java/com/pjzhong/leetcode/contest88/PeakIndexinaMountainArray.java)
 - [PermutationsII](java/com/pjzhong/leetcode/PermutationsII.java)
 - [Permutations](java/com/pjzhong/leetcode/Permutations.java)
+- [PopulatingNextRightPointersinEachNode](java/com/pjzhong/leetcode/PopulatingNextRightPointersinEachNode.java)
 - [PositionsOfLargeGroups](java/com/pjzhong/leetcode/contest83/PositionsOfLargeGroups.java)
 - [PrimePalindrome](java/com/pjzhong/leetcode/PrimePalindrome.java)
 - [PushDominoes](java/com/pjzhong/leetcode/contest85/PushDominoes.java)
