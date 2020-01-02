@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
 
-# Questions-148
+# Questions-151
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -52,6 +52,7 @@
 - [FlippingAnImage](java/com/pjzhong/leetcode/contest84/FlippingAnImage.java)
 - [GoatLatin](java/com/pjzhong/leetcode/contest82/GoatLatin.java)
 - [H2O](java/com/pjzhong/leetcode/H2O.java)
+- [HammingDistance](java/com/pjzhong/leetcode/HammingDistance.java)
 - [HouseRobberTestIII](java/com/pjzhong/leetcode/HouseRobberTestIII.java)
 - [HouseRobberTestII](java/com/pjzhong/leetcode/HouseRobberTestII.java)
 - [HouseRobberTest](java/com/pjzhong/leetcode/HouseRobberTest.java)
@@ -100,6 +101,7 @@
 - [MoveZerosTest](java/com/pjzhong/leetcode/MoveZerosTest.java)
 - [NQueens](java/com/pjzhong/leetcode/NQueens.java)
 - [NumberOfIslands](java/com/pjzhong/leetcode/NumberOfIslands.java)
+- [Numberof1Bits](java/com/pjzhong/leetcode/Numberof1Bits.java)
 - [PartitionEqualSubsetSumTest](java/com/pjzhong/leetcode/PartitionEqualSubsetSumTest.java)
 - [PathSumIII](java/com/pjzhong/leetcode/PathSumIII.java)
 - [PathSumII](java/com/pjzhong/leetcode/PathSumII.java)
@@ -141,6 +143,7 @@
 - [ThreeSum](java/com/pjzhong/leetcode/ThreeSum.java)
 - [TopKFrequentElements](java/com/pjzhong/leetcode/TopKFrequentElements.java)
 - [TopKFrequentWords](java/com/pjzhong/leetcode/TopKFrequentWords.java)
+- [TotalHammingDistance](java/com/pjzhong/leetcode/TotalHammingDistance.java)
 - [TransposeMatrix](java/com/pjzhong/leetcode/contest92/TransposeMatrix.java)
 - [Triangle](java/com/pjzhong/leetcode/Triangle.java)
 - [TwoSum](java/com/pjzhong/leetcode/TwoSum.java)
