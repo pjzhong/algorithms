@@ -28,7 +28,7 @@ public class TimeServer {
     this.channel = DatagramChannel.open();
     this.channel.bind(new InetSocketAddress(port));
 
-    System.out.format("Listening on port %d from com.pjzhong.time requests\n", port);
+    System.out.format("Listening on port %d time requests\n", port);
   }
 
   public void listen() throws Exception {

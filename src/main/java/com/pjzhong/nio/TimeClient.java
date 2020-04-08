@@ -2,7 +2,6 @@ package com.pjzhong.nio;
 
 import com.pjzhong.dsa.list.LinkedList;
 import com.pjzhong.dsa.list.List;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -49,7 +48,7 @@ public class TimeClient {
     ByteBuffer buffer = ByteBuffer.allocate(1);
 
     for (InetSocketAddress sa : remoteHosts) {
-      System.out.format("Requesting com.pjzhong.time from %s:%d\n", sa.getHostName(), sa.getPort());
+      System.out.format("Requesting time from %s:%d\n", sa.getHostName(), sa.getPort());
 
       buffer.clear().flip();
       channel.send(buffer, sa);
@@ -120,8 +119,7 @@ public class TimeClient {
 
       if (arg.equals("-p")) {
         this.port = Integer.parseInt(args[++i]);
-      } else {
-        InetSocketAddress sa = new InetSocketAddress(arg, port);
+        InetSocketAddress sa = new InetSocketAddress("localhost", port);
 
         //Validate that is has add address
         if (sa.getAddress() == null) {
