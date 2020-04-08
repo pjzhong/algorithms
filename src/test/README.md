@@ -1,4 +1,4 @@
-[LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)
+[LeetCode:pj_zhong](https://leetcode.com/pj_zhong/)
 
 # Questions-154
 
