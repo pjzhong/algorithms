@@ -63,7 +63,7 @@ public class LeetCodeReadMe {
     StringBuilder sb = new StringBuilder();
     questions.stream().sorted().forEach(sb::append);
 
-    String f = "[LeetCode:pj_zhong](https://com.pjzhong.leetcode.com/pj_zhong/)\n\n"
+    String f = "[LeetCode:pj_zhong](https://leetcode.com/pj_zhong/)\n\n"
         + String.format("# Questions-%s\n\n", questions.size())
         + sb.toString();
 

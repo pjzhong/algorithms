@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://leetcode.com/pj_zhong/)
 
-# Questions-154
+# Questions-156
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -76,6 +76,7 @@
 - [LongestPalindromicSubsequence](java/com/pjzhong/leetcode/LongestPalindromicSubsequence.java)
 - [LongestPalindromicSubstring](java/com/pjzhong/leetcode/LongestPalindromicSubstring.java)
 - [LongestUnivaluePath](java/com/pjzhong/leetcode/LongestUnivaluePath.java)
+- [LongestWordinDictionarythroughDeleting](java/com/pjzhong/leetcode/LongestWordinDictionarythroughDeleting.java)
 - [LowestCommonAncestorOfaBinarySearchTree](java/com/pjzhong/leetcode/LowestCommonAncestorOfaBinarySearchTree.java)
 - [LowestCommonAncestorOfaBinaryTree](java/com/pjzhong/leetcode/LowestCommonAncestorOfaBinaryTree.java)
 - [MagicSquaresInGrid](java/com/pjzhong/leetcode/contest86/MagicSquaresInGrid.java)
@@ -105,6 +106,7 @@
 - [NumberOfIslands](java/com/pjzhong/leetcode/NumberOfIslands.java)
 - [Numberof1Bits](java/com/pjzhong/leetcode/Numberof1Bits.java)
 - [PartitionEqualSubsetSumTest](java/com/pjzhong/leetcode/PartitionEqualSubsetSumTest.java)
+- [PartitionList](java/com/pjzhong/leetcode/PartitionList.java)
 - [PathSumIII](java/com/pjzhong/leetcode/PathSumIII.java)
 - [PathSumII](java/com/pjzhong/leetcode/PathSumII.java)
 - [PathSum](java/com/pjzhong/leetcode/PathSum.java)
