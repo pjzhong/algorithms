@@ -53,16 +53,14 @@ public class GameOfLife {
         }
     };
 
-    for (int i = 0; i < 100; i++) {
-      for (int[][] game : tests) {
-        gameOfLife(game);
+    for (int[][] game : tests) {
+      gameOfLife(game);
 
-        for (int[] g : game) {
-          System.out.println(Arrays.toString(g));
-        }
-
-        System.out.println();
+      for (int[] g : game) {
+        System.out.println(Arrays.toString(g));
       }
+
+      System.out.println();
     }
   }
 
