@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://leetcode.com/pj_zhong/)
 
-# Questions-158
+# Questions-159
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -126,6 +126,7 @@
 - [RotateArray](java/com/pjzhong/leetcode/RotateArray.java)
 - [RotateImage](java/com/pjzhong/leetcode/RotateImage.java)
 - [SameTree](java/com/pjzhong/leetcode/SameTree.java)
+- [SatisfiabilityofEqualityEquations](java/com/pjzhong/leetcode/SatisfiabilityofEqualityEquations.java)
 - [Searcha2DMartic](java/com/pjzhong/leetcode/Searcha2DMartic.java)
 - [SetMartixZeros](java/com/pjzhong/leetcode/SetMartixZeros.java)
 - [ShiftTest](java/com/pjzhong/leetcode/ShiftTest.java)
