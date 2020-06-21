@@ -57,9 +57,8 @@ public class PrimePalindrome {
     }
 
 
-    @Test
     public void generatePrimePalindromeTable() {
-        List<Integer> primes = new ArrayList<>(10000);
+        List<Integer> primes = new ArrayList<>(100);
         List<Integer> table = new ArrayList<>();
         primes.addAll(Arrays.asList(2, 3, 5, 7, 11));
         table.addAll(primes);

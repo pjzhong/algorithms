@@ -31,7 +31,7 @@ public class DailyTemperatures {
 
     //随机用例
     Random random = new Random();
-    for (int i = 0; i <= 30000; i++) {
+    for (int i = 0; i <= 300; i++) {
       int[] t = new int[i];
       for (int j = 0; j < i; j++) {
         t[j] = random.nextInt(300) + 1;

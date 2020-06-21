@@ -66,7 +66,7 @@ public class GameOfLife {
 
   @Test
   public void ranDom() throws InterruptedException {
-    int ROW = 20, COL = 70;
+    int ROW = 10, COL = 10;
     int[][] game = new int[ROW][COL];
 
     ThreadLocalRandom random = ThreadLocalRandom.current();
@@ -91,8 +91,6 @@ public class GameOfLife {
       }
 
       System.out.println();
-
-      TimeUnit.SECONDS.sleep(1);
     }
   }
 
