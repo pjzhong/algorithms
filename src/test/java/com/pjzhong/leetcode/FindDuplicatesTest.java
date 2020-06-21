@@ -28,7 +28,7 @@ public class FindDuplicatesTest {
         };
 
         for(int[] testCase : testCases) {
-            System.out.println(findDuplicate(testCase));
+          //  System.out.println(findDuplicate(testCase));
             System.out.println(findDuplicateByBinarySearch(testCase));
         }
     }

@@ -63,7 +63,7 @@ public class SortTest {
 
     @BeforeClass
     public static void beforeClass() {
-        int size = 100000;
+        int size = 1000;
         Random random = new Random();
         data = new Integer[size];
         for(int i = 0; i < size; i++) {
