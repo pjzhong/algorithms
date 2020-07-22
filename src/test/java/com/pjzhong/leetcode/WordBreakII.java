@@ -38,7 +38,7 @@ public class WordBreakII {
     String[] worlds = {
         "catsanddog",
         "pineapplepenapple",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     };
     String[][] disc = {
         {"cat", "cats", "and", "sand", "dog"},
@@ -69,32 +69,32 @@ public class WordBreakII {
    * @since 2020年06月20日 17:12:16
    */
   public List<String> wordBreak(String s, List<String> wordDict) {
-    return wordBreak(s, wordDict, new StringBuilder(), new HashMap<>());
+    return wordBreak(0, s, wordDict, new StringBuilder(), new HashMap<>());
   }
 
   // The Best Practice
-  public List<String> wordBreak(String s, List<String> wordDict, StringBuilder buildCache,
-      Map<String, List<String>> result) {
-    List<String> res = result.get(s);
+  public List<String> wordBreak(int idx, String s, List<String> wordDict, StringBuilder buildCache,
+      Map<Integer, List<String>> result) {
+    List<String> res = result.get(idx);
     if (res != null) {
       return res;
     }
 
-    if (s.isEmpty()) {
+    if (s.length() <= idx) {
       return Collections.singletonList("");
     }
 
     res = new ArrayList<>();
     for (String word : wordDict) {
-      if (s.startsWith(word)) {
-        List<String> temp = wordBreak(s.substring(word.length()), wordDict, buildCache, result);
+      if (s.startsWith(word, idx)) {
+        List<String> temp = wordBreak(idx + word.length(), s, wordDict, buildCache, result);
         buildCache.setLength(0);
         buildCache.append(word);
         int length = word.length();
         for (String ts : temp) {
           res.add(
               buildCache
-                  .append((ts.isEmpty() ? 0 : ' '))
+                  .append((ts.isEmpty() ? "" : ' '))
                   .append(ts)
                   .toString()
           );
@@ -103,7 +103,7 @@ public class WordBreakII {
       }
     }
 
-    result.put(s, res);
+    result.put(idx, res);
     return res;
   }
 }
