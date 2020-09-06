@@ -1,6 +1,6 @@
 [LeetCode:pj_zhong](https://leetcode.com/pj_zhong/)
 
-# Questions-161
+# Questions-164
 
 - [AllNodesDistanceKinBinaryTree](java/com/pjzhong/leetcode/AllNodesDistanceKinBinaryTree.java)
 - [BasicCalculator](java/com/pjzhong/leetcode/BasicCalculator.java)
@@ -95,6 +95,7 @@
 - [MiddleOftheLinkedList](java/com/pjzhong/leetcode/contest95/MiddleOftheLinkedList.java)
 - [MinCostClimbingStairsTest](java/com/pjzhong/leetcode/MinCostClimbingStairsTest.java)
 - [MinimumAbsoluteDifference](java/com/pjzhong/leetcode/MinimumAbsoluteDifference.java)
+- [MinimumDeletionCosttoAvoidRepeatingLetters](java/com/pjzhong/leetcode/MinimumDeletionCosttoAvoidRepeatingLetters.java)
 - [MinimumFallingPathSum](java/com/pjzhong/leetcode/MinimumFallingPathSum.java)
 - [MinimumNumberOfJumpsToReachEnd](java/com/pjzhong/leetcode/MinimumNumberOfJumpsToReachEnd.java)
 - [MinimumPathSum](java/com/pjzhong/leetcode/MinimumPathSum.java)
@@ -106,6 +107,7 @@
 - [NQueens](java/com/pjzhong/leetcode/NQueens.java)
 - [NumberOfIslands](java/com/pjzhong/leetcode/NumberOfIslands.java)
 - [Numberof1Bits](java/com/pjzhong/leetcode/Numberof1Bits.java)
+- [NumberofWaysWhereSquareofNumberIsEqualtoProductofTwoNumbers](java/com/pjzhong/leetcode/NumberofWaysWhereSquareofNumberIsEqualtoProductofTwoNumbers.java)
 - [PartitionEqualSubsetSumTest](java/com/pjzhong/leetcode/PartitionEqualSubsetSumTest.java)
 - [PartitionList](java/com/pjzhong/leetcode/PartitionList.java)
 - [PathSumIII](java/com/pjzhong/leetcode/PathSumIII.java)
@@ -123,6 +125,7 @@
 - [RectangleOverlap](java/com/pjzhong/leetcode/contest85/RectangleOverlap.java)
 - [RemoveOutermostParentheses](java/com/pjzhong/leetcode/content131/RemoveOutermostParentheses.java)
 - [ReorderedPowerOf2](java/com/pjzhong/leetcode/contest93/ReorderedPowerOf2.java)
+- [ReplaceAllstoAvoidConsecutiveRepeatingCharacters](java/com/pjzhong/leetcode/ReplaceAllstoAvoidConsecutiveRepeatingCharacters.java)
 - [RotateArray](java/com/pjzhong/leetcode/RotateArray.java)
 - [RotateImage](java/com/pjzhong/leetcode/RotateImage.java)
 - [SameTree](java/com/pjzhong/leetcode/SameTree.java)
