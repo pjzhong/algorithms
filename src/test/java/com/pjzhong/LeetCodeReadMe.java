@@ -73,5 +73,19 @@ public class LeetCodeReadMe {
     outputStream.flush();
     outputStream.close();
   }
+
+  public void example() {
+    Object obj = getObject();
+    //逻辑
+    //逻辑
+  }
+
+  private Object getObject() {
+    return null;
+  }
+
+  private void saveObject(Object o) {
+
+  }
 }
 

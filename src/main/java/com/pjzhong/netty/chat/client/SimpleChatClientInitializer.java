@@ -1,4 +1,4 @@
-package com.pjzhong.chat.client;
+package com.pjzhong.netty.chat.client;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

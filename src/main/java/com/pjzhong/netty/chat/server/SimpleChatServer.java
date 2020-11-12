@@ -1,4 +1,4 @@
-package com.pjzhong.chat.server;
+package com.pjzhong.netty.chat.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
