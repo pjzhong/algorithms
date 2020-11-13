@@ -34,7 +34,7 @@ public class LeetCodeReadMe {
     List<String> leetCodeFilter = Arrays.asList("failed", "LeetCodeReadMe", "TreeNode");
 
     String userDir = System.getProperty("user.dir");
-    String prefix = userDir + "/test/";
+    String prefix = userDir + "/src/test/";
     String target = prefix + "java/com/pjzhong/leetcode";
 
     File leetCodeDir = new File(target);
@@ -68,7 +68,7 @@ public class LeetCodeReadMe {
         + sb.toString();
 
     FileOutputStream outputStream = new FileOutputStream(
-        new File(userDir + "/test/README.md"));
+        new File(userDir + "/src/test/README.md"));
     outputStream.write(f.getBytes(StandardCharsets.UTF_8));
     outputStream.flush();
     outputStream.close();
