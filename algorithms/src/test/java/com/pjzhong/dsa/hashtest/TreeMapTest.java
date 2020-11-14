@@ -2,6 +2,7 @@ package com.pjzhong.dsa.hashtest;
 
 import com.pjzhong.dsa.hash.Map;
 import com.pjzhong.dsa.hash.TreeMap;
+import java.lang.annotation.Repeatable;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -21,6 +22,7 @@ public class TreeMapTest {
       map.put(next, next);
     }
 
+    map.put(100,10000);
     Assert.assertFalse(map.isEmpty());
   }
 

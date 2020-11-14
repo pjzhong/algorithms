@@ -37,8 +37,8 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
       } else if (0 < comparisonResult) {
         x = x.getRight();
       } else {
-        Value old = node.getValue();
-        node.setValue(value);
+        Value old = x.getValue();
+        x.setValue(value);
         return old;
       }
     }
