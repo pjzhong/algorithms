@@ -25,7 +25,7 @@ public class KthLargestElementinanArray {
 
   @Test
   public void test() {
-    int[] test = new int[10];
+    int[] test = new int[1000000];
     ThreadLocalRandom random = ThreadLocalRandom.current();
     for (int i = 0; i < 100; i++) {
       for (int j = 0; j < test.length; j++) {
@@ -42,7 +42,25 @@ public class KthLargestElementinanArray {
   }
 
   public int findKthLargest(int[] nums, int k) {
-    return findKthLargest(nums, k - 1, 0, nums.length);
+    int target = k - 1, start = 0, end = nums.length;
+    while (start < end) {
+      swap(nums, start, start + (end - start) / 2);
+      int pivot = nums[start];
+      int mid = start;
+      for (int i = start + 1; i < end; ++i) {
+        if (pivot < nums[i]) {
+          swap(nums, ++mid, i);
+        }
+      }
+      swap(nums, start, mid);
+      if (mid < target) {
+        start = mid + 1;
+      } else {
+        end = mid;
+      }
+    }
+
+    return nums[start];
   }
 
 
