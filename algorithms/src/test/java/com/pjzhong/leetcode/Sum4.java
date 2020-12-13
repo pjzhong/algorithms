@@ -4,9 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import org.junit.Test;
 
 /**
@@ -45,7 +43,7 @@ public class Sum4 {
   }
 
   public List<List<Integer>> fourSum(int[] nums, int target) {
-    Set<List<Integer>> result = new HashSet<>();
+    List<List<Integer>> result = new ArrayList<>();
     Deque<Integer> temp = new ArrayDeque<>();
 
     Arrays.sort(nums);
@@ -54,7 +52,7 @@ public class Sum4 {
     return new ArrayList<>(result);
   }
 
-  public void fourSum(Set<List<Integer>> result, Deque<Integer> temp, int idx, int sum, int[] nums,
+  public void fourSum(List<List<Integer>> result, Deque<Integer> temp, int idx, int sum, int[] nums,
       int target) {
     if (temp.size() == 4) {
       if (sum == target) {
@@ -63,13 +61,17 @@ public class Sum4 {
       return;
     }
 
+    int prev = Integer.MIN_VALUE;
     for (int i = idx; i < nums.length; ++i) {
       int num = nums[i];
-      sum += num;
-      temp.addLast(num);
-      fourSum(result, temp, i + 1, sum, nums, target);
-      temp.pollLast();
-      sum -= num;
+      if (prev != num) {
+        prev = num;
+        sum += num;
+        temp.addLast(num);
+        fourSum(result, temp, i + 1, sum, nums, target);
+        temp.pollLast();
+        sum -= num;
+      }
     }
   }
 
