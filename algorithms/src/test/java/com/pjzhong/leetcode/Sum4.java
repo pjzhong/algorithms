@@ -3,6 +3,7 @@ package com.pjzhong.leetcode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
 import org.junit.Test;
@@ -29,11 +30,12 @@ public class Sum4 {
   @Test
   public void test() {
     int[][] tests = {
+        {0, 1, 5, 0, 1, 5, 5, -4},
         {1, 0, -1, 0, 0, -2, 2},
         {},
         {-5, 5, 4, -3, 0, 0, 4, -2}
     };
-    int[] targets = {0, 0, 4};
+    int[] targets = {11, 0, 0, 4};
     int idx = 0;
     for (int[] test : tests) {
       List<List<Integer>> result = fourSum(test, targets[idx]);
@@ -43,6 +45,9 @@ public class Sum4 {
   }
 
   public List<List<Integer>> fourSum(int[] nums, int target) {
+    if (nums.length <= 0) {
+      return Collections.emptyList();
+    }
     List<List<Integer>> result = new ArrayList<>();
     Deque<Integer> temp = new ArrayDeque<>();
 
@@ -61,17 +66,24 @@ public class Sum4 {
       return;
     }
 
-    int prev = Integer.MIN_VALUE;
-    for (int i = idx; i < nums.length; ++i) {
+    int prev = Integer.MIN_VALUE, max = nums[nums.length - 1];
+    int left = 4 - temp.size() - 1;
+    for (int i = idx, size = nums.length; i < size; ++i) {
       int num = nums[i];
-      if (prev != num) {
-        prev = num;
-        sum += num;
-        temp.addLast(num);
-        fourSum(result, temp, i + 1, sum, nums, target);
-        temp.pollLast();
-        sum -= num;
+      if (prev == num) {
+        continue;
       }
+
+      if (sum + num + left * max < target) {
+        continue;
+      }
+
+      prev = num;
+      sum += num;
+      temp.addLast(num);
+      fourSum(result, temp, i + 1, sum, nums, target);
+      temp.pollLast();
+      sum -= num;
     }
   }
 
