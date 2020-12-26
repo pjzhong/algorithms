@@ -4,7 +4,8 @@ import java.util.Iterator;
 
 /**
  * for more info, please see the link below
- * https://www.geeksforgeeks.org/leftist-tree-leftist-heap/
+ * @link https://www.geeksforgeeks.org/leftist-tree-leftist-heap/
+ * @link http://www.dgp.toronto.edu/~jstewart/378notes/10leftist/
  * */
 public class PriorityQueueLeftHeap<E extends Comparable<E>> implements Queue<E> {
 
@@ -126,7 +127,7 @@ public class PriorityQueueLeftHeap<E extends Comparable<E>> implements Queue<E> 
 
     private static class Node<E> {
         E value;
-        int npl = 0 ;//Null path length
+        int npl = 0 ;//Null path length npl是从一个节点到一个最近的不满节点的路径长度(不满节点:两个子节点至少有一个为NULL)
         Node<E> left, right;
 
         public Node(E value) {
