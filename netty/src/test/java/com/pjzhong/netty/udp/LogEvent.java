@@ -1,4 +1,4 @@
-package com.pjzhong.netty.test.udp;
+package com.pjzhong.netty.udp;
 
 import java.net.InetSocketAddress;
 

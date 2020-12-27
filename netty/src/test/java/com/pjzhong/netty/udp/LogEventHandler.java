@@ -1,4 +1,4 @@
-package com.pjzhong.netty.test.udp;
+package com.pjzhong.netty.udp;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
