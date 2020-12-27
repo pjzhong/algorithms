@@ -44,6 +44,7 @@ import java.util.Queue;
  * <p>lists[i] is sorted in ascending order.</p>
  * <p>The sum of lists[i].length won't exceed 10^4.</p>
  *
+ * @link https://leetcode.com/problems/merge-k-sorted-lists/
  * @since 2020年12月26日 21:01:29
  **/
 public class MergekSortedLists {
