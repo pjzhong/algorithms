@@ -30,6 +30,7 @@ public class AsyncLogger {
   }
 
   public void actualAsyncLog(final RingBufferLogEvent event) {
-    System.out.println(event.getMessage().getFormattedMessage());
+    System.out.println(Thread.currentThread().getId() + " " + event + "  " + event.getMessage()
+        .getFormattedMessage());
   }
 }

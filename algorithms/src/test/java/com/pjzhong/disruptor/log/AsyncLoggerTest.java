@@ -7,7 +7,10 @@ public class AsyncLoggerTest {
   @Test
   public void tryOut() {
     AsyncLogger logger = new AsyncLogger();
-    logger.info("try out");
+
+    for (int i = 0; i < 100000; i++) {
+      logger.info("try out " + i);
+    }
   }
 
 }

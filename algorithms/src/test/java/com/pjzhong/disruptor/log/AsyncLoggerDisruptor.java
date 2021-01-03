@@ -3,7 +3,7 @@ package com.pjzhong.disruptor.log;
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
-import com.lmax.disruptor.util.DaemonThreadFactory;
+import java.util.concurrent.ThreadFactory;
 
 public class AsyncLoggerDisruptor {
 
@@ -18,11 +18,13 @@ public class AsyncLoggerDisruptor {
       return;
     }
 
+    ThreadFactory factory = Thread::new;
     disruptor = new Disruptor<>(RingBufferLogEvent::new, 1024,
-        DaemonThreadFactory.INSTANCE, ProducerType.MULTI,
+        factory, ProducerType.MULTI,
         new BlockingWaitStrategy());
 
     disruptor.handleEventsWith(new RingBufferLogEventHandler());
+    disruptor.start();
   }
 
   boolean tryPublish(RingBufferLogEventTranslator translator) {

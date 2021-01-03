@@ -11,7 +11,6 @@ public class RingBufferLogEventTranslator implements EventTranslator<RingBufferL
   @Override
   public void translateTo(RingBufferLogEvent event, long sequence) {
     event.setValues(asyncLogger, message);
-    new RingBufferLogEventHandler().onEvent(event, 0, false);
     clear();
   }
 
