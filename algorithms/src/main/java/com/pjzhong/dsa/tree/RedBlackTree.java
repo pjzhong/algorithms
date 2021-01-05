@@ -84,21 +84,24 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
   }
 
   public Value remove(Key key) {
-    RedBlackNode node = remove(root, key);
-    return node == null ? null : node.value;
+    return remove(root, key);
   }
 
   //if the deleted node and its successor, either one is red the process of remove would much easier
   //if not, there four situations would happen
-  private RedBlackNode remove(RedBlackNode n, Key key) {
+  private Value remove(RedBlackNode n, Key key) {
     RedBlackNode node = get(n, key);
+    Value res;
     if (node == null) {
       return null;
     } else if (hasLeftChild(node) && hasRightChild(node)) {
+      res = node.value;
       RedBlackNode successor = max(node.getLeft());
       node.setKey(successor.key);
       node.setValue(successor.value);
       node = successor;
+    } else {
+      res = node.value;
     }
 
     //At this point n has zero or one child
@@ -125,7 +128,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
       node.removeFromParent();
     }
     size--;
-    return node;
+    return res;
   }
 
   /**
