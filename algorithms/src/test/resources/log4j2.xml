@@ -2,29 +2,29 @@
 <Configuration status="INFO">
 
     <Loggers>
-        <Root level="DEBUG">
-            <!--<AppenderRef ref="console"/>-->
-            <AppenderRef ref="simple_info_file"/>
-            <AppenderRef ref="error_file"/>
+        <Root level="DEBUG" includeLocation="true">
+            <AppenderRef ref="console"/>
+            <!--<AppenderRef ref="simple_info_file"/>
+            <AppenderRef ref="error_file"/>-->
         </Root>
     </Loggers>
     <Appenders>
-        <Console name="console" target="SYSTEM_OUT" >
+        <Console name="console" target="SYSTEM_OUT"  immediateFlush="false">
             <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <Pattern>%d [%-p] [%t] %c{1}.%M - %m%n</Pattern>
+                <Pattern>[%t] %c{1}.%M - %m%n</Pattern>
             </PatternLayout>
         </Console>
         <!-- 同一来源的Appender可以定义多个RollingFile，定义按天存储日志 -->
         <RollingFile name="simple_info_file"
           fileName="./logs/test"
           append="false"
-          filePattern="./logs/test_%d{yyyy-MM-dd}.log">
+          filePattern="./logs/test_%d{yyyy-MM-dd}.log"
+          immediateFlush="false">
 
             <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <!--<Pattern>%d [%-p] [%t] %c{1}.%M - %m%n</Pattern>-->
-                <Pattern>%m%n</Pattern>
+                <Pattern>[%-p] [%t] %c{1}.%M - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
@@ -34,10 +34,11 @@
         <RollingFile name="error_file"
           fileName="./logs/error_test"
           append="false"
+          immediateFlush="false"
           filePattern="./logs/error_%d{yyyy-MM-dd}.log">
             <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <Pattern>%d [%-p] [%t] %c{1}.%M - %m%n</Pattern>
+                <Pattern>[%-p] [%t] %c{1}.%M - %m%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>

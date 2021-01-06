@@ -1,9 +1,10 @@
 package com.pjzhong.disruptor.log;
 
-import com.lmax.disruptor.BlockingWaitStrategy;
+import com.lmax.disruptor.TimeoutBlockingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 
 public class AsyncLoggerDisruptor {
 
@@ -19,9 +20,9 @@ public class AsyncLoggerDisruptor {
     }
 
     ThreadFactory factory = Thread::new;
-    disruptor = new Disruptor<>(RingBufferLogEvent::new, 1024,
+    disruptor = new Disruptor<>(RingBufferLogEvent::new, 4096,
         factory, ProducerType.MULTI,
-        new BlockingWaitStrategy());
+        new TimeoutBlockingWaitStrategy(10, TimeUnit.MILLISECONDS));
 
     disruptor.handleEventsWith(new RingBufferLogEventHandler());
     disruptor.start();
