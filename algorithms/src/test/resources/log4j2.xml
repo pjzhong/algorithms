@@ -4,8 +4,8 @@
     <Loggers>
         <Root level="DEBUG" includeLocation="true">
             <AppenderRef ref="console"/>
-            <!--<AppenderRef ref="simple_info_file"/>
-            <AppenderRef ref="error_file"/>-->
+            <AppenderRef ref="simple_info_file"/>
+            <AppenderRef ref="error_file"/>
         </Root>
     </Loggers>
     <Appenders>
