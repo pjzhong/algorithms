@@ -39,7 +39,7 @@ public class RingBufferLogEventTranslator implements EventTranslator<RingBufferL
     this.location = location;
     this.message = message;
   }
-·
+
   public void updateThreadValues() {
     final Thread currentThread = Thread.currentThread();
     this.threadId = currentThread.getId();
