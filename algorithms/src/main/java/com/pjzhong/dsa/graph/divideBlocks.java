@@ -16,12 +16,12 @@ public class divideBlocks {
     int blockColDiff =
         regionId(height, regionHeight, regionWidth, 0, regionWidth) - regionId(height, regionHeight,
             regionWidth, 0, 0);
-    System.out.println("block-row-diff:" + blockRowDiff);
+    System.out.println("block-row-diff:" + blockRowDiff);//正常来说应该和height相等
     System.out.println("block-coll-diff:" + blockColDiff);
     for (int x = 0; x < height; x++) {
       for (int y = 0; y < height; y++) {
         int id = regionId(height, regionHeight, regionWidth, x, y);
-        System.out.format("%4d ", id);
+        System.out.format("%4d (%d %d) ", id, id / height, id % height);
       }
       System.out.println();
     }
