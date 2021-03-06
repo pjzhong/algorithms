@@ -28,6 +28,16 @@ public class LeetCodeReadMe {
     return true;
   }
 
+  @Test
+  public void main() {
+    Pattern pattern =  Pattern.compile("test\\.*");
+    System.out.println(pattern.matcher("test.222").find());
+    System.out.println(pattern.matcher("test.444").find());
+    System.out.println(pattern.matcher("test.444").find());
+    System.out.println(pattern.matcher("test.2ggggg22").find());
+    System.out.println(pattern.matcher("test.222").find());
+  }
+
 
   @Test
   public void readMe() throws Exception {
