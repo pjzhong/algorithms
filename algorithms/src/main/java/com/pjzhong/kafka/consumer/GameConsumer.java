@@ -16,10 +16,23 @@ public class GameConsumer implements Runnable {
   /** 已经停止 */
   private boolean stop;
 
-  public GameConsumer(Properties properties,
+  public GameConsumer(String id,
       Consumer<ConsumerRecords<String, byte[]>> messageHandle) {
+    Properties consumerConf = new Properties();
+    consumerConf.setProperty("bootstrap.servers", "localhost:9092");
+    //全部consumer保持同一个组，一个topics下只有一个partition，保证不被多个consumer消耗
+    //然后每个consumer只监听自己的topic
+    consumerConf.setProperty("group.id", "test");
+    consumerConf.setProperty("client.id", id);
+    consumerConf.setProperty("enable.auto.commit", "true");
+    consumerConf.setProperty("auto.commit.interval.ms", "1000");
+    consumerConf.setProperty("key.deserializer",
+        "org.apache.kafka.common.serialization.StringDeserializer");
+    consumerConf.setProperty("value.deserializer",
+        "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+    consumerConf.setProperty("metadata.max.age.ms", "100000");//100秒更新配置信息，用以消费新topic。
     this.messageHandle = messageHandle;
-    this.kafkaConsumer = new KafkaConsumer<>(properties);
+    this.kafkaConsumer = new KafkaConsumer<>(consumerConf);
   }
 
   public GameConsumer subscribe(Collection<String> topics) {
@@ -41,7 +54,7 @@ public class GameConsumer implements Runnable {
         }
       }
     } finally {
-      if (kafkaConsumer != null) {
+      if (kafkaConsumer != null && stop) {
         kafkaConsumer.close();
       }
     }

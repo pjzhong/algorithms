@@ -9,8 +9,13 @@ public class GameProducer {
 
   private Producer<String, byte[]> producer;
 
-  public GameProducer(Properties config) {
-    producer = new KafkaProducer<>(config);
+  public GameProducer() {
+    Properties props = new Properties();
+    props.put("bootstrap.servers", "localhost:9092");
+    props.put("acks", "1");
+    props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
+    producer = new KafkaProducer<>(props);
   }
 
   public void send(String topics, byte[] dates) {
