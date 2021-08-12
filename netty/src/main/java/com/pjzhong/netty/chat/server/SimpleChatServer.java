@@ -1,5 +1,6 @@
 package com.pjzhong.netty.chat.server;
 
+import com.pjzhong.netty.chat.util.NettyEventLoopUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
@@ -29,7 +30,7 @@ public class SimpleChatServer {
 
     bootstrap = new ServerBootstrap();
     bootstrap.group(bossGroup, workerGroup)
-        .channel(NioServerSocketChannel.class)
+        .channel(NettyEventLoopUtil.getServerSocketChannelClass())
         .childHandler(new SimpleChatServerInitializer(this))
         .option(ChannelOption.SO_BACKLOG, 128)
         .childOption(ChannelOption.SO_KEEPALIVE, true);

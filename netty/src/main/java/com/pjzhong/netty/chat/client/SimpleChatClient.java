@@ -1,5 +1,6 @@
 package com.pjzhong.netty.chat.client;
 
+import com.pjzhong.netty.chat.util.NettyEventLoopUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -26,7 +27,7 @@ public class SimpleChatClient {
     try {
       Bootstrap bootstrap = new Bootstrap()
           .group(group)
-          .channel(NioSocketChannel.class)
+          .channel(NettyEventLoopUtil.getClientSocketChannelClass())
           .handler(new SimpleChatClientInitializer());
       Channel channel = bootstrap.connect(host, port).sync().channel();
       BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
